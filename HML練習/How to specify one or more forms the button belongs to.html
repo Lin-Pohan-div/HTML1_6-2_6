@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How to Specify where to send the form-data when a form is submitted.</title>
+</head>
+<body>
+    <!-- 使用form屬性將按鈕與特定的表單關聯起來 -->
+    <!-- 這個按鈕即使不在form標籤內，也會提交id為"myForm"的表單 -->
+    <form id="myForm" action="/submit" method="post">
+        <input type="text" name="username" placeholder="Enter your name">
+    </form>
+    <button type="submit" form="myForm">Submit Form</button>
+    
+</body>
+</html>

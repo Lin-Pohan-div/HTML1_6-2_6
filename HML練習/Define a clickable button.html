@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to define a clickable button.</title>
+</head>
+<body>
+    <!-- Define a clickable button that logs "Hello" to the console when clicked -->
+    <!-- button標籤用於定義一個可點擊的按鈕。此按鈕在被點擊時，會執行指定的JavaScript函數。
+     在這裡，按鈕被設置為點擊時在控制台輸出"Hello"字樣。 -->
+    <button type="button" onclick="console.log('Hello')">Click me</button>
+<br><hr>
+<button type="button" id="myButton">Click me</button>
+<script>
+    document.getElementById('myButton').addEventListener('click', function() {
+        console.log('Hello');
+    });
+</script>
+<!-- 另一種使用JavaScript事件監聽器來實現相同功能的方式 -->
+<h2><pre>另一種方式是使用JavaScript的addEventListener方法來為按鈕添加點擊事件監聽器。
+這種方法將JavaScript代碼與HTML結構分離，使代碼更易於維護和閱讀。</pre></h2>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- 10. External CSS: 
+             外部樣式表連結至 HTML 文件 -->
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+
+    <!-- 20. Internal CSS: 
+             在 <head> 元素裡使用 <styl> 元素嵌入樣式表 -->
+    <style>
+        p {
+            color: brown;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <p>Apple</p>
+
+    <!-- 30. Inline CSS: 
+             使用 HTML 元素的 style 屬性 -->
+    <p style="color: blue;">Apple_2</p>
+    <!-- 若上述三種方法同時使用時，Inline CSS有較高優先權，因此會優先執行 -->
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 試試看，更換 10_add_CSS.html 裡 
+         External 和 Internal 的撰寫順序，並比較結果 -->
+    <style>
+        p {
+            color: brown;
+            background-color: aqua;
+        }
+    </style>
+    <!-- 此時apple為紅色 -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- 此時apple為綠色 -->
+
+    <!-- 當選擇器和樣式表的優先權相同時，後面定義的會覆蓋前面定義的 -->
+    <!-- 因此，當同時使用External 和 Internal 時，撰寫順序就非常重要 -->
+
+    <!-- 試試看，在 <style> => p 
+         新增屬性 background-color: aqua; -->
+
+    <!-- 因為背景顏色並未被覆蓋，所以仍然是 aqua -->
+
+
+</head>
+
+<body>
+
+    <p>Apple</p>
+
+</body>
+
+</html>

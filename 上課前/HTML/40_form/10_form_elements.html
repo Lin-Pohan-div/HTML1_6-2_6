@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <p><a href="https://www.w3schools.com/html/html_forms.asp">HTML Forms</a></p>
+    <p><a href="https://www.w3schools.com/html/html_form_elements.asp">HTML Form Elements</a></p>
+    <hr>
+
+    <!-- 試試看，<select>、<option> -->
+    <label for="Phone">1.請選擇手機型號</label>
+    <form action="">
+        <select name="PHtype" id="Phone">
+            <option value="">--Please choose an option--</option>
+            <option value="1_i16">iPone 16</option>
+            <option value="2_i17">iPone 17</option>
+            <option value="3_p8">Pixel 8</option>
+            <option value="4_p9">Pixel 9</option>
+
+        </select>
+
+    </form>
+    <br><br>
+    <hr>
+
+    <!-- 試試看，<select>、<optgroup>、<option> -->
+    <label for="exp">2.請選擇手機使用感想</label>
+    <!-- 標籤名稱 -->
+    <form action="">
+        <select name="usexp" id="exp">
+            <option value="">--Please choose an option--</option>
+            <optgroup label="good">
+                <option value="1_i16">excellent</option>
+                <option value="2_i17">good</option>
+            </optgroup>
+
+            <option value="3_p8"> ok</option>
+
+            <optgroup label="bad">
+                <!-- 屬性名稱 -->
+                <option value="4_p9">terrible</option>
+                <option value="4_p9">horrible</option>
+            </optgroup>
+
+        </select>
+
+    </form>
+    <br><br>
+    <hr>
+    <!-- 試試看，<datalist>、<option> -->
+    <label for="movie">3.請輸入你喜歡的電影</label>
+    <input type="text" list="movie">
+    <!-- 當datalist和option一起使用時，不用寫結束標籤 -->
+    <datalist id="movie">
+        <option value="變形金剛">
+        <option value="復仇者連盟">
+        <option value="蜘蛛人">
+    </datalist>
+</body>
+<!-- 
+    使用時機:
+    =>下拉式選單:選項較少時
+    =>分組下拉式選單:選項較少時
+    =>輸入式選單:使用者可自行填寫答案時
+
+  -->
+</html>

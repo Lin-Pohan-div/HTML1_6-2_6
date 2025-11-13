@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <!-- <ul>：unordered list，無排序清單 -->
+    <!-- <li>：list item，清單項目 -->
+    <!-- <ul>下一層只會放<li><li>下一層都可以放 </li></ul> -->
+    <div>
+        <p>ul和li的說明</p>
+        <pre>
+    1.ul：unordered list，無排序清單
+    2.li：list item，清單項目
+    3.ul下一層只會放li、li下一層都可以放 ul or ol
+        </pre>
+    </div>
+            
+    <h2>
+        <p id="title">全台各地飲料店名稱：</p>
+    </h2>
+    <ul>
+        <h3>
+            <li>WHO'S TEA 鬍子茶</li>
+        </h3>
+        <h3>
+            <li>布萊恩紅茶</li>
+        </h3>
+        <h3>
+            <li>拾覺細做輕飲</li>
+        </h3>
+        <h3>
+            <li>迷客夏</li>
+        </h3>
+        <h3>
+            <li>良辰吉時</li>
+        </h3>
+        <h3>
+            <li>小確幸紅茶牛奶合作社</li>
+        </h3>
+    </ul>
+    <br>
+    <hr>
+    <!-- 試試看，如果想要改變項目符號的圖示，
+         要幫<ul>設定哪一項屬性? 有哪幾種圖示? -->
+    <!-- list-style-type: disc; -->
+     <p>試試看，如果想要改變項目符號的圖示，
+         要幫ul設定哪一項屬性? 有哪幾種圖示?</p>
+    <h2>全台各地飲料店名稱:</h2>
+    <ul style="list-style-type: disc;">
+        <li>WHO'S TEA 鬍子茶</li>
+        <li>布萊恩紅茶</li>
+        <li>拾覺細做輕飲</li>
+        <li>迷客夏</li>
+        <li>良辰吉時</li>
+        <li>小確幸紅茶牛奶合作社</li>
+    </ul>
+    <!-- list-style-type: circle; -->
+
+    <!-- list-style-type: square; -->
+
+    <!-- list-style-type: none; -->
+
+    
+    <hr>
+
+    <!-- ol：ordered list，排序的清單 -->
+    <p>ol：ordered list，排序的清單</p>
+    <!-- 每日上課守則(標題)：
+    預習
+    練習
+    複習 -->
+    <!-- 試試看，能不能改變 <ol> 清單編號類型? 
+        從 123 改成 ABC 或者其他?
+        只能從 1號 開始編嗎? -->
+        
+        <h2>每日上課守則：</h2>
+        <ol type="A" start="5">
+            <!--type:編號類型、start:編號起始序-  -->
+            <li>預習</li>
+            <li>練習</li>
+            <li>複習</li>
+        </ol>
+
+    <!-- 定義清單/描述清單 -->
+    <!-- dl：description list 清單 -->
+    <!-- dt：description list term 項目 -->
+    <!-- dd：description descriptions 描述-->
+
+    <h3>這一堂課會學習到：</h3>
+    <dl>
+        <dt>HTML</dt>
+        <dd>HTML的全名是HyperText Markup Language，編寫網頁的語言，可以配合 https://www.w3schools.com/ 查看和練習</dd>
+        <dt>CSS</dt>
+        <dd>CSS 的全名為Cascading Style Sheets，是一種樣式表(Stylesheet) 語言</dd>
+        <dt>JavaScript</dt>
+        <dd>通常縮寫為JS，一種程式語言，能夠使網頁動態更新內容、控制多媒體，處理網頁前端的邏輯判斷等等</dd>
+        <dt>jQuery</dt>
+        <dd>是一個函式庫</dd>
+    </dl>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

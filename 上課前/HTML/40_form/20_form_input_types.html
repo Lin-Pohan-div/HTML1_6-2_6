@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <!-- 參照 20_form_input_types_完成圖.png 製作一份表單 -->
+
+    <!-- step1: 標題 -->
+    <!-- step2: 加入一個表單 <form> -->
+    <!-- step3. 在<form>表單內加入<fieldset>群組並給予說明 -->
+    <!-- step4. 在表單<form>內加入姓名和輸入框 -->
+    <!-- step5. 在表單<form>內加入電話和輸入框 -->
+    <!-- step6. 加入職業和單選框 -->
+    <!-- step7. 加入年紀和單選框、交通工具和複選框，步驟和 step6. 類似 -->
+
+    <h2>通勤工具使用調查
+        <form>
+            <fieldset>
+                <legend>基本資料</legend>
+                <!-- legend不會單獨出現 -->
+                <label for="usname">姓名:</label>
+                <input type="text" id="usname">
+                <br>
+                <label for="usPhone">電話:</label>
+                <input type="tel" id="usPhone">
+                <!-- tel:讓手機/平板使用者輸入時不用換鍵盤 -->
+            </fieldset>
+
+            <!-- step6. 加入職業單選框 -->
+            職業:
+            <input type="radio" id="stu" name="job">
+            <label for="stu">學生</label>
+
+            <input type="radio" id="tea" name="job">
+            <label for="tea">老師</label>
+            <!-- ctrl+D -->
+            <input type="radio" id="job_oth" name="job">
+            <label for="job_oth">其他</label>
+            <br>
+            <!-- step7. 加入年紀單選框 -->
+            年紀:
+            <input type="radio" id="age20-30" name="age">
+            <label for="age20-30">20-30</label>
+
+            <input type="radio" id="age30-40" name="age">
+            <label for="age30-40">30-40</label>
+
+            <input type="radio" id="age40-50" name="age">
+            <label for="age40-50">40-50</label>
+
+            <input type="radio" id="age50" name="age">
+            <label for="age50">50以上
+            </label>
+            <br>
+            <!-- step7. 加入交通工具複選框 -->
+            交通工具:
+            <input type="checkbox" id="byc" name="trains">
+            <label for="byc">腳踏車</label>
+            <input type="checkbox" id="motcyc" name="trains">
+            <label for="motcyc">機車</label>
+            <input type="checkbox" id="boat" name="trains">
+            <label for="boat">船</label>
+            <input type="checkbox" id="trains_oth" name="trains">
+            <label for="trains_oth">其他</label>
+            <br>
+        </form>
+
+</body>
+
+</html>
