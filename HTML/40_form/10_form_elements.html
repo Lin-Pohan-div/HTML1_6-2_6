@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <p><a href="https://www.w3schools.com/html/html_forms.asp">HTML Forms</a></p>
+    <p><a href="https://www.w3schools.com/html/html_form_elements.asp">HTML Form Elements</a></p>
+    <hr>
+
+    <!-- 試試看，<select>、<option> -->
+    <label for="phone">1.請選擇手機型號:</label>
+
+    <select name="phone" id="phone">
+        <option value="i16">iPhone 16</option>
+        <option value="i17">iPhone 17</option>
+        <option value="p8">Pixel 8</option>
+        <option value="p9">Pixel 9</option>
+    </select>
+
+    <br><br>
+    <!-- 試試看，<select>、<optgroup>、<option> -->
+    <label for="phone2">2.請選擇手機型號:</label>
+
+    <select id="phone2">
+        <optgroup label="Apple">
+            <option>iPhone 16</option>
+            <option>iPhone 17</option>
+        </optgroup>
+        <optgroup label="Google">
+            <option>Pixel 8</option>
+            <option>Pixel 9</option>
+        </optgroup>
+    </select>
+
+    <br><br>
+    <!-- 試試看，<datalist>、<option> -->
+    3.請輸入喜歡的電影:
+    <input type="text" list="movieList">
+    
+    <datalist id="movieList">
+        <option value="變形金剛">
+        <option value="復仇者聯盟">
+        <option value="蜘蛛人">
+    </datalist>
+
+</body>
+
+</html>
