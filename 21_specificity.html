@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="./navStyle.css"> -->
+    <!-- 試著在這裡設定底下css樣式，
+        ##每一個步驟執行完以後，請先查看畫面顏色的變化!! -->
+
+    <style>
+        /* 類別選擇器比標籤選擇器還要高 */
+        /* #id選擇器比類別選擇器還要高 */
+        /* iline選擇器比類別選擇器還要高 */
+        /* ! > inline > #id > .class > tag */
+        /* 使用 標籤(tag name) 挑選元素並設定背景底色 */
+        h1 {
+            background-color: green;
+        }
+
+        /* 使用 .class 挑選元素並設定背景底色 */
+        .pokemon {
+            background-color: lightblue;
+            /* background-color: lightblue !important; */
+        }
+
+        /* 使用 #id 挑選元素並設定背景底色 */
+        #pokemon {
+            background-color: yellow;
+        }
+
+        /* 使用 inline style (inline css) 設定背景底色 */
+
+        /* 使用 !important(擁有最高優先權) 設定背景底色(少用、用在測試時使用) */
+        /* 使用位置屬性質之後，分號之前 */
+
+        /* 元素屬於兩個或兩個以上的類別 */
+        /* 屬性值得撰寫順序不會影響結果，CSS的撰寫順序會影響結果 */
+        .bail {
+            background-color: lightgreen;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 class="pokemon" id="pokemon" style="background-color: blue;">皮卡丘</h1>
+    <h1 class=" pokemon bail">卡比獸</h1>
+    <h1 class=" bail pokemon">小火龍</h1>
+</body>
+<!-- CSS失效原因 -->
+<!-- 1.打錯字、大小寫 -->
+<!-- 2.語法錯誤 -->
+<!-- 3.路徑錯誤 -->
+<!-- 4.優先權 | 權重問題 -->
+<!-- 5.CSS撰寫順序(後蓋前) -->
+
+</html>
