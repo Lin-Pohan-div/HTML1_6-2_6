@@ -6,19 +6,30 @@
 
     <style>
         /* 透過 <a>標籤，設定 字型大小 & 取消底線 text-decoration */
-        
+        a {
+            font-size: 30px;
+            text-decoration: none;
+        }
 
         /* (link) 設定超連結未連結時的顏色 YellowGreen */
-        
+        a:link{
+            color: yellowgreen;
+        }
 
         /* (visited) 設定超連結已連結過的顏色 LightCoral */
-        
+        a:visited{
+           color: lightcoral; 
+        }
 
-        /* (hover) 設定滑鼠移至連結上方時的顏色 LightSkyBlue */
-        
+        /* 常用(hover) 設定滑鼠移至連結上方時的顏色 LightSkyBlue */
+        a:hover{
+            color: lightblue;
+        }
 
         /* (active) 設定超連結點選連結當下的顏色 black */
-        
+        a:active{
+            color: black;
+        }
 
     </style>
 </head>

@@ -6,16 +6,33 @@
 
     <style>
         /* Child Selector (子選擇器)(>) */
+        /* 選擇div的子元素h1 */
+        /* ==>1.div的子元素 */
+        /* ==>2.h1元素 */
         
+        /* div>h1 {
+            /* div子元素h1 */
+            /* background-color: lightblue; */
+        /* }*/ 
 
         /* Descendant Selector (子孫選擇器)(space) */
+        /* 選擇div裡面的h1 */
         
+        /* div h1{
+            background-color: lightgreen;
+        } */
 
         /* Adjacent Sibling Selector (相鄰兄弟選擇器)(+) */
+        /* 選擇緊鄰在div後的h1 */
+        /* div+h1{
+            background-color: aqua;
+        } */
         
-
         /* General Sibling Selector (全體兄弟選擇器)(~) */
-        
+        /* 選擇div之後的h1 */
+        div~h1{
+            background-color: green;
+        }
     </style>
 
 </head>

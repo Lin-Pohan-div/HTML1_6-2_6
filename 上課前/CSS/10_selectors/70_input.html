@@ -5,14 +5,28 @@
     <meta charset="UTF-8">
     <style>
         /* 10. 改變滑鼠經過單選按鈕的樣式 */
-        
+        input[type="radio"] {
+            cursor: pointer;
+        }
 
         /* 20. :valid 驗證通過時的樣式設定 */
-        
+        /* email & ID */
+        input[type="email"]:valid,
+        input[type="text"]:valid {
+            background-color: lightgreen;
+        }
+
 
         /* 21. :invalid 驗證不通過時的樣式設定 */
-        
+        /* email */
+        input[type="email"]:invalid {
+            background-color: pink;
+        }
 
+        /* ID */
+        input[type="text"]:invalid {
+            background-color: pink;
+        }
     </style>
 </head>
 
@@ -24,12 +38,21 @@
     <form>
         <!-- 照上方CSS設定 -->
         <!-- 10. 產生 單選按鈕元素 -->
-        
+        <input type="radio">
+        <br><br>
 
         <!-- 20. 產生 email 輸入框 以及 -->
         <!--     產生 文字輸入框，並限制輸入身分證字號格式 -->
-        
+        <!-- email 輸入框 -->
+        email:<input type="email">
 
+        <!--     產生 文字輸入框，並限制輸入身分證字號格式 -->
+        <br><br>
+        <!-- 
+            []輸入框可以輸入那些內容
+            {}設定可輸入字數 ex:{3,5}、        
+        -->
+        ID : <input type="text" pattern="[a-z A-Z]{1}[0-9]{9}" required>
     </form>
 </body>
 

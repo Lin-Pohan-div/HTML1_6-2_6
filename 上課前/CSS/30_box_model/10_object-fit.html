@@ -7,9 +7,10 @@
     <style>
         .fit {
             /* 試試看將寬度設定為400px; 高度設定為100px; */
-            
+            width: 400px;
+            height: 100px;
+            border: 5px solid orange;
         }
-
     </style>
 </head>
 
@@ -17,7 +18,22 @@
     <img class="fit" src="../img/sunny.jpg">
 
     <!-- 試試object-fit -->
+    <h3>fill</h3>
+    <img class="fit" src="../img/sunny.jpg" 
+    style="object-fit: fill;">
     
+    <h3>cover</h3>
+    <img class="fit" src="../img/sunny.jpg" 
+    style="object-fit: cover;">
+    
+    <h3>contain</h3>
+    <img class="fit" src="../img/sunny.jpg" 
+    style="object-fit: contain;">
+    
+    <h3>none</h3>
+    <!-- 不調整圖片尺寸，多出的會被捨棄 -->
+    <img class="fit" src="../img/sunny.jpg" 
+    style="object-fit: none;">
 </body>
 
 </html>

@@ -9,7 +9,6 @@
 
         /* 10. 在body放入一張背景圖片 (圖片可以使用 ../img/logo.png )
             background-image: url("") */
-
         /* 20. 如何讓圖片不要重複? 水平重複? 垂直重複?
             background-repeat: repeat | no-repeat | repeat-x | repeat-y */
 
@@ -18,8 +17,14 @@
 
         /* 40. 如何設定背景圖片位置?
             background-position: [長度 | 百分比 | left | center | right]
-                                 [長度 | 百分比 | top | center | bottom] */
-        
+            [長度 | 百分比 | top | center | bottom] */
+
+        body {
+            background-image: url("../img/logo.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: right top ;
+        }
     </style>
 
 </head>
