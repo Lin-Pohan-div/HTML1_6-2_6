@@ -8,10 +8,18 @@
         /* 先開啟網頁觀察畫面 */
 
         /* ::before 在元素內容的前面加上其他內容 */
-        
+        #demo1::before{
+            content:'強檔電影: ';
+            color: blue;
+        }
 
         /* ::after 在元素內容的後面加上其他內容 */
-        
+        #demo1::after{
+            content: "...現正熱映中";
+            background-color: lightgreen;
+        }
+
+        /* 練習 */
 
     </style>
 
@@ -24,5 +32,6 @@
     <p id="demo1">奇異博士</p>
     <p id="demo2">復仇者聯盟</p>
 </body>
-
+<!-- 虛擬類別 ==> CSS 幫JS -->
+<!-- 虛擬元素 ==> CSS 幫HTML -->
 </html>
