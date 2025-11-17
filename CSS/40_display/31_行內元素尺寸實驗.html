@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        span {
+            background-color: lightgreen;
+            /* height 因為行內元素的特性，所以失效 */
+            height: 300px;
+
+            /* 實驗: 如果一定要讓 height: 300px; 有效果 */
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+
+    <span>apple</span>
+
+</body>
+</html>
