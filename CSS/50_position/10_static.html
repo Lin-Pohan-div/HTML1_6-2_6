@@ -6,14 +6,17 @@
     <link rel="stylesheet" href="css/position.css">
     <style>
         /* 在 #reddiv 加入 top: 50px 樣式，畫面是否會改變? */
-        
+        /* 屬性值為 static 的情況下，加上 top、bottom、left、right 屬性都不會造成任何影響*/
+        #reddiv{
+            top: 50px;
+        }
     </style>
 </head>
 
 <body>
     <h3> position: static </h3>
     <ol>
-        <li>元素的 position 屬性值預設為 static</li>
+        <li>元素的 position 屬性值預設為 static(靜止)</li>
         <li>屬性值為 static 的情況下，加上 top、bottom、left、right 屬性都不會造成任何影響</li>
     </ol>
 
