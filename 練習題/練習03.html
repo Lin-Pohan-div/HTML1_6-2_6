@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習03</title>
+    <style>
+        input[type="checkbox"]:checked+label {
+            /* 如果 checked 沒有指定元素類型（如 input:checked），選擇器可能無效或行為未定義，這是初學者常遇到的陷阱。 */
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 參照 練習03.png，製作待辦清單。完成待辦事項時，文字要加入刪除線。 -->
+    <form action="">
+        <input type="checkbox" name="que" id="ch1">
+        <label for="ch1">訂車票</label>
+        <br>
+        <input type="checkbox" name="que" id="ch2">
+        <label for="ch2">買辦手禮</label>
+        <!-- 列出input type常用的類型 -->
+        <!-- <ul>
+            text: 文字輸入框
+            password: 密碼輸入框
+            number: 數字輸入框
+            email: 電子郵件輸入框
+            tel: 電話號碼輸入框
+            url: URL輸入框
+            date: 日期選擇器
+            time: 時間選擇器
+            checkbox: 核取方塊
+            radio: 單選按鈕
+            file: 檔案上傳
+            submit: 提交按鈕
+            reset: 重設按鈕
+            button: 一般按鈕
+            hidden: 隱藏欄位
+            range: 範圍滑桿
+            color: 顏色選擇器
+            search: 搜尋輸入框
+        </ul> -->
+    </form>
+
+</body>
+
+</html>

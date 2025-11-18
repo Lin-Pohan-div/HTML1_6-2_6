@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANS_練習04</title>
+
+    <style>
+        /* 參照 練習04.png，完成以下需求:
+           1. 輸入框驗證通過時，輸入框後面顯示綠色 ✓
+           2. 輸入框驗證不通過時，輸入框後面顯示紅色 ✖ */
+
+        #tb:valid {
+            background-color: lightgreen;
+        }
+
+        #tb:invalid {
+            background-color: pink;
+        }
+
+        /* #tb 驗證通過時，緊鄰後方的 span 後面加 ✓ */
+        #tb:valid+span::after {
+            content: '✓';
+            color: green;
+        }
+
+        /* #tb 驗證不通過時，緊鄰後方的 span 後面加 ✖ */
+        #tb:invalid+span::after {
+            content: '✖';
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <form>
+        <label for="tb">Email: </label>
+        <input type="email" id="tb" required>
+        <span></span>
+    </form>
+
+</body>
+</html>

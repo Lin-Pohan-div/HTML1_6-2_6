@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANS_練習02</title>
+
+    <style>
+        /* 滑鼠經過選項文字(label元素)時，底色改為黃色 */
+        label:hover {
+            background-color: yellow;
+        }
+
+        /* 單選框被點選時(:checked)，緊鄰在後的 label 元素要改文字顏色 */
+        input[type="radio"]:checked+label {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 參照 練習02.png，完成以下需求:
+         1. 在表單中加入三個單選框及選項文字
+         2. 滑鼠經過選項文字時，文字底色改為黃色
+         3. 點選單選框後，選項文字改成藍色 -->
+
+    <!-- 虛擬類別的參考文件: -->
+    <!-- https://www.w3schools.com/cssref/css_ref_pseudo_classes.php -->
+
+    <form>
+        <input type="radio" name="question" id="cb1">
+        <label for="cb1">選項1</label>
+
+        <input type="radio" name="question" id="cb2">
+        <label for="cb2">選項2</label>
+
+        <input type="radio" name="question" id="cb3">
+        <label for="cb3">選項3</label>
+    </form>
+
+</body>
+
+</html>

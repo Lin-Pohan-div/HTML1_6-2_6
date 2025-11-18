@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習04</title>
+
+    <style>
+        /* 參照 練習04.png，完成以下需求:
+           1. 輸入框驗證通過時，輸入框後面顯示綠色 ✓
+           2. 輸入框驗證不通過時，輸入框後面顯示紅色 ✖ */
+
+        #tb:valid {
+            background-color: lightgreen;
+        }
+
+        #tb:invalid {
+            background-color: pink;
+        }
+
+        /* 1. 輸入框驗證通過時，輸入框後面顯示綠色 ✓  */
+        /* ....................................................................................................................... */
+        /* 
+        在 CSS 中，tb:valid+span::after 是一個複合選擇器，用於樣式化特定元素。
+        1."tb" 可能是自訂的類別（class）或 ID（如 .tb 或 #tb），
+        2.":valid" 是偽類別（pseudo-class），適用於表單元素（如 input），表示該元素的值通過驗證（例如符合 required 或 pattern 屬性）。
+        3."+"" 是相鄰兄弟選擇器，選取緊接在另一元素之後的元素；
+        4."span" 是 HTML 元素，通常用於包裹文字；
+        5."::after" 是偽元素（pseudo-element），用於在元素內容之後插入虛擬內容（如文字或圖示）。
+        
+        這個選擇器整體上會選取緊跟在有效驗證的 tb 元素之後的 span 元素的 ::after 偽元素。
+        例如，在表單驗證中，可以用它來在有效輸入旁邊的提示文字後添加勾選符號（如 content: "✓";），提供視覺回饋。
+        注意，如果 tb 未正確定義為類別或 ID，選擇器可能失效；此外，:valid 僅在支援 HTML5 驗證的瀏覽器中有效，這是初學者常忽略的相容性陷阱。 
+        */
+        /* ....................................................................................................................... */
+        #tb:valid+span::after {
+            content: "✓";
+            color: green;
+        }
+
+        /* 2. 輸入框驗證不通過時，輸入框後面顯示紅色 ✖ */
+        #tb:invaid+span::after {
+            content: "✖";
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <label for="tb">Email: </label>
+        <input type="email" id="tb" required>
+        <span></span>
+        <!-- 
+        在 HTML 中，<span></span> 是一個內聯元素，用於包裹文字或內容，而不添加任何預設樣式或語意。
+        它是通用容器，常見於需要精細控制樣式或結構的地方，例如在表單中用作提示文字的容器。
+
+        在這個檔案的語境中，<span></span> 是一個空的 span 元素，緊跟在 email 輸入框之後。
+        結合 CSS 規則（如 #tb:valid+span::after），它用於通過 ::after 偽元素動態插入內容，
+        例如驗證通過時顯示綠色勾選符號（✓）或失敗時顯示紅色叉號（✖）。
+        這是初學者常見的技巧，利用 span 作為「錨點」來添加視覺回饋，而不影響頁面佈局。
+        
+        **注意，span 本身不顯示任何內容；所有效果依賴 CSS 樣式。如果瀏覽器不支援相關偽元素或驗證，span 可能保持空白，這是相容性考量。
+        建議在複雜應用中考慮使用 JavaScript 動態管理內容，以提升可靠性。 
+        -->
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>巢狀堆疊Grid的練習</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../js/bootstrap.bundle.js"></script>
+
+    <style>
+        div[class^="col"]:nth-child(odd) {
+            background-color: lightskyblue;
+        }
+
+        div[class^="col"]:nth-child(even) {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>巢狀堆疊Grid的練習1</h3>
+    <h4>方法1</h4>
+    <!-- 方法1 -->
+    <div class="row">
+        <div class="col-4">A</div>
+        <div class="col-4">B</div>
+        <div class="col-4">
+            <div class="row">
+                <!-- 在分成12等份 -->
+                <div class="col-12">C</div>
+                <div class="col-12">D</div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <!-- 方法2 -->
+    <h4>方法2</h4>
+    <div class="row">
+        <div class="col-4">A</div>
+        <div class="col-4">B</div>
+        <div class="col-4">
+            <div class="row">
+                <!-- 在分成12等份 -->
+                <div class="col-12">C</div>
+            </div>
+            <div class="row">
+                <!-- 在分成12等份 -->
+                <div class="col-12">D</div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <h3>巢狀堆疊Grid的練習2</h3>
+    <!-- 方法1 -->
+    <h4>方法1</h4>
+    <div class="row">
+        <!-- A、D block -->
+        <div class="col-3">
+            <div class="row">
+                <!-- A、D -->
+                <div class="col-12">A</div>
+                <div class="col-12">D</div>
+            </div>
+        </div>
+
+        <!-- B、E block -->
+        <div class="col-3">
+            <div class="row">
+                <!-- B、E -->
+                <div class="col-12">B</div>
+                <div class="col-12">E</div>
+            </div>
+        </div>
+        <!-- C、F block -->
+        <div class="col-3">
+            <div class="row">
+                <!-- C、F -->
+                <div class="col-12">C</div>
+                <div class="col-12">F</div>
+            </div>
+        </div>
+        <!-- G block-->
+        <div class="col-3">G</div>
+    </div>
+    <hr>
+    <!-- 方法2 -->
+    <h4>方法2</h4>
+    <div class="row">
+        <div class="row row-cols-4">
+            <!-- A、D block -->
+            <div class="col">
+                <div class="row row-cols-2">
+                    <!-- A、D -->
+                    <div class="col-12">A Column</div>
+                    <div class="col-12">D Column</div>
+                </div>
+            </div>
+
+            <!-- B、E block -->
+            <div class="col">
+                <div class="row">
+                    <!-- B、E -->
+                    <div class="col-12">B Column</div>
+                    <div class="col-12">E Column</div>
+                </div>
+            </div>
+
+            <!-- C、F block -->
+            <div class="col">
+                <div class="row">
+                    <!-- C、F -->
+                    <div class="col-12">E Column</div>
+                    <div class="col-12">F Column</div>
+                </div>
+            </div>
+
+            <!-- G block -->
+            <div class="col">G Column</div>
+        </div>
+    </div>
+    <hr>
+    <!-- 方法3 -->
+    <h4>方法3</h4>
+    <div class="row">
+        <div class="col-9">
+            <div class="row">
+                <div class="col-4">A</div>
+                <div class="col-4">B</div>
+                <div class="col-4">C</div>
+                <div class="col-4">D</div>
+                <div class="col-4">E</div>
+                <div class="col-4">F</div>
+            </div>
+        </div>
+        <div class="col-3">G</div>
+    </div>
+    <hr>
+    <!-- Emmet語法 -->
+    <!-- 透過div標籤產生div元素(div.row) -->
+    <div class="row"></div>
+    <!-- 進入至子元素層(div>ul>Li) -->
+    <div>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+    <br>
+    <!-- div.row>div.col-4*2+div.col-4 -->
+    <div class="row">
+        <div class="col-4">A</div>
+        <div class="col-4">B</div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-12">C</div>
+                <div class="col-12">D</div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+</body>
+
+</html>

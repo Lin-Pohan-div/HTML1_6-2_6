@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANS_練習03</title>
+
+    <style>
+        /* 勾選框被點選時(:checked)，緊鄰在後的 label 元素要加刪除線 */
+        input[type="checkbox"]:checked+label {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 參照 練習03.png，製作待辦清單。完成待辦事項時，文字要加入刪除線。 -->
+    <input type="checkbox" name="todoList" id="cb">
+    <label for="cb">訂車票</label>
+    <br>
+    <input type="checkbox" name="todoList" id="cb2">
+    <label for="cb2">買伴手禮</label>
+
+</body>
+
+</html>

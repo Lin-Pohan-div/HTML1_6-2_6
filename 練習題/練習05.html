@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習05</title>
+
+    <style>
+        /* 參照 練習05.png，完成以下需求:
+           1. 縮小 figure 元素及圖片
+           2. 加大 figcaption 元素的字體、加上底色，並重疊於圖片上方
+           3. 隱藏 figcaption 元素，在滑鼠經過時才顯示 */
+
+        /* 1. 縮小 figure 元素及圖片 */
+        figure {
+            width: 500px;
+            position: relative;
+        }
+        img {
+            width: 120%;
+        }
+
+        /* 2. 加大 figcaption 元素的字體、加上底色，並重疊於圖片上方 */
+
+        figcaption {
+            /* 2.1加大 figcaption 元素的字體 */
+            font-size: 50px;
+            /* 2.2加上底色 */
+            background-color: rgba(245, 240, 240, 0.055);
+            /*2.3 重疊於圖片上方 */
+            position: absolute;
+            bottom: 45%;
+            left: 28%;
+
+            visibility: hidden;
+        }
+
+        figure:hover>figcaption {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+
+    <figure>
+        <img src="./img/sunny.jpg" class="img-fluid">
+        <figcaption>千陽號海上行</figcaption>
+    </figure>
+
+</body>
+
+</html>
