@@ -11,28 +11,83 @@
 </head>
 
 <body>
-  
+
     <div class="container">
 
         <h4>官方網站-Text</h4>
-        <p><a href="https://getbootstrap.com/docs/5.3/utilities/text/">https://getbootstrap.com/docs/5.3/utilities/text/</a></p>
+        <p><a
+                href="https://getbootstrap.com/docs/5.3/utilities/text/">https://getbootstrap.com/docs/5.3/utilities/text/</a>
+        </p>
         <h4>官方網站-Text wrapping and overflow</h4>
-        <p><a href="https://getbootstrap.com/docs/5.3/utilities/text/#text-wrapping-and-overflow">https://getbootstrap.com/docs/5.3/utilities/text/#text-wrapping-and-overflow</a></p>
+        <p><a
+                href="https://getbootstrap.com/docs/5.3/utilities/text/#text-wrapping-and-overflow">https://getbootstrap.com/docs/5.3/utilities/text/#text-wrapping-and-overflow</a>
+        </p>
 
         <hr>
 
         <!-- 10. 文字位置 -->
 
+        <p class="text-start">apple-1</p>
+        <p class="text-center">apple-2</p>
+        <p class="text-end">apple-3</p>
+
+        <hr>
+        <h3>區塊元素</h3>
+        <p class="text-end bg-info">cat</p>
+        <!-- 區塊元素， -->
+        <h3>行內元素</h3>
+        <span class="text bg-info">dog</span>
+        <!-- 行內元素， -->
+
         <!-- 15. 在不同的畫面寬度上，設定不同的對齊方式 -->
-        
+
+        <!-- .text-md-end -->
+        <!-- md ==>畫面寬度>=768px -->
+        <!-- text-end ==>靠右對齊 -->
+        <!-- text-md-end ==>當畫寬度>=768px時，才會靠右對齊 -->
+        <hr>
+        <p class="text-sm-end">apple</p>
+        <p class="text-md-end">apple</p>
+        <p class="text-lg-end">apple</p>
+        <p class="text-xl-end">apple</p>
+        <p class="text-xxl-end">apple</p>
+        <hr>
         <!-- 20. 當文字溢出時，使用「…」來表達：.text-truncate -->
-        
+        <p class="text-truncate" style="width: 100px; background-color: gray;">apple is one type of fruit, it often
+            being seen to keep body healthy</p>
+        <hr>
         <!-- 30. 文字大小寫 -->
         <!--     .text-lowercase | .text-uppercase | .text-capitalize -->
+        <p class="text-lowercase">apple</p>
+        <p class="text-uppercase">apple</p>
+        <p class="text-capitalize">apple</p>
+        <hr>
 
         <!-- 40. 文字外觀-->
         <!--     .fs-1 |  .fw-bold  | .fst-italic -->
-        
+        <!--     
+            .fs-1 ==>  font-size(只提供到六，超出則沒有效果)
+            .fw-bold ==>  font-weight
+            .fst-italic ==> font-style 
+        -->
+        <!-- .fs-1 -->
+        <p class="fs-1">.fs-1 text</p>
+        <p class="fs-2">.fs-2 text</p>
+        <p class="fs-3">.fs-3 text</p>
+        <p class="fs-4">.fs-4 text</p>
+        <p class="fs-5">.fs-5 text</p>
+        <p class="fs-6">.fs-6 text</p>
+        <hr>
+        <!-- .fw-bold -->
+        <p class="fw-bold">Bold text.</p>
+        <p class="fw-bolder">Bolder weight text (relative to the parent element).</p>
+        <p class="fw-normal">Normal weight text.</p>
+        <p class="fw-light">Light weight text.</p>
+        <p class="fw-lighter">Lighter weight text (relative to the parent element).</p>
+        <p class="fst-italic">Italic text.</p>
+        <p class="fst-normal">Text with normal font style</p>
+        <hr>
+
     </div>
 
 </body>

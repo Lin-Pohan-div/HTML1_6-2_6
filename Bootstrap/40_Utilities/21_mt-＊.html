@@ -9,34 +9,55 @@
     <script src="../js/bootstrap.bundle.js"></script>
 
     <style>
-        div>div{
+        div>div {
             width: 100px;
             height: 100px;
         }
-        .box{
+
+        .box {
             background-color: lightcoral;
 
             /* 20. 外層容器加入 padding */
-
+            /* padding: 1px; */
+            /* padding-top: 1px;(找對應的方向) */
+            /* padding-bottom: 1px; */
             /* 21. 外層容器加入 border*/
+            /* border: 1px solid lightcoral; */
         }
-        .mydiv{
+
+        .mydiv {
             background-color: lightgreen;
 
             /* 22. 改變為  display: inline-block; */
+            /* display: inline-block; */
         }
     </style>
 
 </head>
 
 <body>
-   
+    <!-- margin崩塌 -->
+    <!-- 
+    滿足以下條件，會發生崩塌
+        1.父層和子層都是block
+        2.第一個子元素設定 margin-top 
+        或最後一個子元素設定 margin-bottom
+    -->
     <!-- 10. 試試看，在 .box> div 加入 margin-top 樣式 -->
-    <div class="box">
-        <div class="mydiv">A</div>
+    <div class="box" style="margin-top: 50px;">
+        <div class="mydiv" style="margin-top: 50px;">A</div>
+    </div>
+
+    <hr>
+    <div class="box" style="margin-top: 50px;">
+        <div class="mydiv" style="margin-bottom: 50px;">A</div>
     </div>
     
     <hr>
+    <!-- 從對子元素做margin，改成對父元素做padding -->
+    <div class="box" style="padding-top: 50px;">
+        <div class="mydiv" style="padding-bottom: 50px;">A</div>
+    </div>
 
 </body>
 

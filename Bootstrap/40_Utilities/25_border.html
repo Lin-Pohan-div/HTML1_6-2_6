@@ -16,6 +16,18 @@
             display: inline-block;
             margin: 5px;
         }
+
+        span[class*="border"] {
+            width: 75px;
+            height: 75px;
+            background-color: whitesmoke;
+            display: inline-block;
+            margin: 5px;
+
+
+        }
+
+
     </style>
 </head>
 
@@ -24,22 +36,44 @@
     <div class="container">
 
         <h4>官方網站</h4>
-        <p><a href="https://getbootstrap.com/docs/5.3/utilities/borders/">https://getbootstrap.com/docs/5.3/utilities/borders/</a></p>
+        <p><a
+                href="https://getbootstrap.com/docs/5.3/utilities/borders/">https://getbootstrap.com/docs/5.3/utilities/borders/</a>
+        </p>
         <hr>
 
         <!-- 10. 為什麼這樣設定div不會出現? -->
+        <!-- 沒寫內文?同時 -->
+        <div class="w-25 h-100 bg-success"></div>
+        <!-- 高度失效(無法換算比例) -->
         <div class="w-25 h-100 bg-success"></div>
 
+        <!-- 若不想寫內文則給其標出一定的尺寸 -->
+        <div style="width: 50; height: 50px;background-color:lightblue;"></div>
+
         <!-- 20. 複製貼上官網的範例，為什麼 border 測試不出來 -->
+        <hr>
+        <span class="border"></span>
+        <span class="border-top"></span>
+        <span class="border-end"></span>
+        <span class="border-bottom"></span>
+        <span class="border-start"></span>
 
         <!-- 21. 設定不同的邊線顏色 -->
+        <span class="border border-color-danger"></span>
 
         <!-- 23. 調整 border 的寬度： border-N -->
+        <span class="border border-color-danger"></span>
+
 
         <!-- 25. 設定邊框圓角 -->
         <!--     .rounded-top    | .rounded-bottom  -->
         <!--     .rounded-start  | .rounded-end     -->
         <!--     .rounded-circle | .rounded-pill   -->
+        <div class="rounded-top"></div>
+        <div class="rounded-bottom"></div>
+        <div class="rounded-end"></div>
+        <div class="rounded-circle"></div>
+        <div class="rounded-pill"></div>
 
     </div>
 

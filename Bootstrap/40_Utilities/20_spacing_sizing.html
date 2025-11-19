@@ -12,6 +12,7 @@
     <style>
         .box {
             height: 25vh;
+            /* vh:設定為視窗高度的25% */
             background-color: lightcoral;
             margin-bottom: 10px;
         }
@@ -28,28 +29,81 @@
     <div class="container">
 
         <h4>官方網站-Sizing</h4>
-        <p><a href="https://getbootstrap.com/docs/5.3/utilities/sizing/">https://getbootstrap.com/docs/5.3/utilities/sizing/</a></p>
+        <p><a
+                href="https://getbootstrap.com/docs/5.3/utilities/sizing/">https://getbootstrap.com/docs/5.3/utilities/sizing/</a>
+        </p>
         <h4>官方網站-Spacing</h4>
-        <p><a href="https://getbootstrap.com/docs/5.3/utilities/spacing/">https://getbootstrap.com/docs/5.3/utilities/spacing/</a></p>
+        <p><a
+                href="https://getbootstrap.com/docs/5.3/utilities/spacing/">https://getbootstrap.com/docs/5.3/utilities/spacing/</a>
+        </p>
         <h4>Utilities / Helper Classes> 頁面上搜尋 Spacing</h4>
-        <p><a href="https://www.w3schools.com/bootstrap5/bootstrap_utilities.php">https://www.w3schools.com/bootstrap5/bootstrap_utilities.php</a></p>
+        <p><a
+                href="https://www.w3schools.com/bootstrap5/bootstrap_utilities.php">https://www.w3schools.com/bootstrap5/bootstrap_utilities.php</a>
+        </p>
         <hr>
 
         <!-- 10. 建立巢套的 div 元素
                  a. 外層 div 使用 .box 類別；在上方 style 區段定義寬度和背景底色等
                  b. 內層 div 使用 bootstrap 5 提供的 .w-* 類別 -->
-        
+        <div class="box">
+            <div class=" w-25 ">Width 25%</div>
+            <div class=" w-50 ">Width 50%</div>
+            <div class=" w-75 ">Width 75%</div>
+            <div class=" w-100 ">Width 100%</div>
+            <div class=" w-auto ">Width auto</div>
+        </div>
+        <hr>
         <!-- 20. 複製步驟 10 ，內層 div 改為使用 bootstrap 5 提供的 .h-* 類別 -->
-       
+
+
+        <div class="box">
+            <div class=" h-25 d-inline-block ">height 25%</div>
+            <div class=" h-50 d-inline-block">height 50%</div>
+            <div class=" h-75 d-inline-block">height 75%</div>
+            <div class=" h-100 d-inline-block">height 100%</div>
+            <div class=" h-auto d-inline-block">height auto</div>
+        </div>
+        <hr>
+        <!-- 
+            **.d-inline-block
+            display inline block:
+        -->
+        <!-- <div style="height: 100px;">
+            <div class="h-25 d-inline-block" style="width: 120px;">Height 25%</div>
+            <div class="h-50 d-inline-block" style="width: 120px;">Height 50%</div>
+            <div class="h-75 d-inline-block" style="width: 120px;">Height 75%</div>
+            <div class="h-100 d-inline-block" style="width: 120px;">Height 100%</div>
+            <div class="h-auto d-inline-block" style="width: 120px;">Height auto</div>
+        </div> -->
+        
+
 
         <!-- 30. 同上，測試 bootstrap 5 提供的 .p-* 類別 -->
-       
+        <div class="box">
 
+            <div class="w-25 p-1">p-1</div>
+            <div class="w-25 p-2">p-2</div>
+            <div class="w-25 p-3">p-3</div>
+
+        </div>
+        <hr>
         <!-- 40. 同上，測試 bootstrap 5 提供的 .m-* 類別 -->
-       
-
+        <div class="box">
+            <div class="w-25">1</div>
+            <div class="w-25 mt-5">2 .mt-5</div>
+            <div class="w-25">3</div>
+        </div>
+        <hr>
         <!-- 50. 測試 bootstrap 5 提供的 .m-auto 類別 -->
-      
+        <div class="box">
+            <div class="w-25 m-auto">.m-auto</div>
+        </div>
+        <hr>
+        <!-- 補充:{property}{siders}-{breakpoint}-{size} -->
+        <div class="box">
+            <div class="w-25 p-md-5">.p-md-5</div>
+        </div>
+        <hr>
     </div>
 </body>
 

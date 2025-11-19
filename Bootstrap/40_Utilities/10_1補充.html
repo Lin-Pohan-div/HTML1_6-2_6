@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>變數</title>
+
+    <style>
+        /* 在根元素範圍內宣告一個變數myColor，並存放lightgreen */
+        :root {
+            --myColor: lightgreen;
+        }
+
+        h1 {
+            /* background-color: lightgreen; */
+
+            background-color: var(--myColor);
+        }
+
+        /* 實驗 */
+        h2 {
+            --x: orange;
+        }
+
+        h2 {
+            /* h3沒有在h2範圍內，因此h3沒有效果 */
+            background-color: var(--x);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>apple</h1>
+    <h2>cat</h2>
+    <h3>dog</h3>
+
+
+</body>
+
+</html>
