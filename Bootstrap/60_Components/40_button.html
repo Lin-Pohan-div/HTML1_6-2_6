@@ -22,21 +22,34 @@
         <hr>
 
         <!-- 10. 加入一個 <button> 元素，並添加類別 .btn  -->
-       
         <!-- 11. 在上一個按鈕繼續添加類別 .btn-info -->
-     
+        <button class="btn btn-info ">按鈕A</button>
+        <hr>
         <!-- 20. 加入一個 <a> 元素，<a> 元素是否可以套用 .btn 以及 .btn-info ? -->
-       
         <!-- 30. 透過 .btn-lg  或者 .btn-sm 來改變按鈕樣式大小 -->
-       
+        <!-- .btn-lg & .btn-sm與斷點無關-->
+        <!-- .btn-lg  -->
+        <a href="https://www.w3schools.com/bootstrap5/bootstrap_buttons.php" class="btn btn-info btn-lg">按鈕B</a>
+        <!-- .btn-sm  -->
+        <a href="https://www.w3schools.com/bootstrap5/bootstrap_buttons.php" class="btn btn-info btn-sm">按鈕C</a>
+        <hr>
 
         <!-- 40. 設置一個 <div> 並套用 .d-grid  -->
         <!--     接著在 <div> 裡面安排 <button>，觀察 <button> 的變化 -->
-        
-
+        <div class="d-grid gap-2">
+            <!-- gap是在有d-grid時才能使用 -->
+            <button class="btn btn-warning">按鈕A</button>
+            <button class="btn btn-warning">按鈕B</button>
+            <button class="btn btn-warning">按鈕C</button>
+        </div>
+        <hr>
         <!-- 50. 設置一個 <div> 並套用 .btn-group  -->
         <!--     接著在 <div> 裡面安排 <button>，觀察 <button> 的變化 -->
-        
+        <div class="btn-group">
+            <button class="btn btn-info">1</button>
+            <button class="btn btn-info">2</button>
+            <button class="btn btn-info">3</button>
+        </div>
     </div>
 
 </body>

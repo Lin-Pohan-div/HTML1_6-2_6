@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="../js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+    <!-- 需求: 
+        1. 參照 完成圖01.png，完成網頁
+        2. 頁首固定在最上方，裡面有兩個按鈕
+        3. 畫面寬度 ≥768px 時，顯示圖片: spirited_away.jpg；
+                   <768px 時，顯示圖片: spirited_away_2.jpg。
+           參照 完成圖02.png、完成圖03.png
+           
+        4. [類似影片]中的八個區塊，可連結至對應網頁 (連結如下)
+        5. [類似影片]中的八個區塊，
+           當畫面寬度 ≥992px 時，一列顯示四個；
+                     ≥768px 時，一列顯示兩個；
+                     <768px 時，一列顯示一個。
+           參照 完成圖04.png、完成圖05.png -->
+    <!-- ************************************************************************* -->
+    <!-- 頁首 -->
+
+    <div class=" d-flex sticky-top bg-dark p-3">
+        <a href="#" class="btn btn-danger btn-sm ms-auto">立即加入</a>
+        <a href="#" class="btn btn-dark btn-sm " style="margin-left: 5px;">登入</a>
+    </div>
+    <br>
+
+    <!-- Block_1 img block 圖片 -->
+    <!-- 畫面寬度 ≥768px 時，顯示圖片: spirited_away.jpg；
+                 <768px 時，顯示圖片: spirited_away_2.jpg。
+                 參照 完成圖02.png、完成圖03.png -->
+    <div class="container" id="Block_1_pic">
+        <picture class="img-fluid figure-img rounded">
+            <source srcset="./img/spirited_away.jpg" media="(width >= 768px)" class="img-fluid figure-img rounded">
+            <img src="./img/spirited_away_2.jpg" alt="" class="img-fluid figure-img rounded">
+        </picture>
+    </div>
+    <br>
+    <!-- 文字介紹區==>text block -->
+    <div class="container " id="Block_2_text">
+        <!-- <div class="block" >神隱少女</div> -->
+        <table class="table table-info table-strip-columns ">
+            <thead>
+                <!-- 標題列存放區 -->
+                <tr>
+                    <th scope="col" class="bg-dark text-white">神隱少女</th>
+                    <!-- #代表為這一排的標題 -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 資料列存放區 -->
+                <tr>
+                    <td class="bg-dark text-white">2001 | 年齡分級：7+ | 2 小時 5 分鐘 | 動漫電影</td>
+                </tr>
+                <tr>
+                    <td class="bg-dark text-white">千尋意外來到一個由女巫治理的魔法世界。在這裏，所有違抗女巫的人都被變成了動物。</td>
+                </tr>
+                <tr>
+                    <td class="bg-dark text-white">主演：柊瑠美，入野自由，夏木麻里</td>
+                </tr>
+        </table>
+    </div>
+    <br>
+    <!-- 相似頁面區塊 (maybe grid)block -->
+    <!-- 當畫面寬度  ≥992px 時，一列顯示四個；
+                    ≥768px 時，一列顯示兩個；
+                    <768px 時，一列顯示一個。
+         參照 完成圖04.png、完成圖05.png -->
+    <div class="container-lg" id="Block_3_card">
+        <div class="card">
+            <div class="card-header">類似影片</div>
+            <div class="card-body">
+
+                <div class="row">
+                    <!-- <div class="col-lg-3 col-md-6 col-sm-12"><img src="./img/img_01.jpg" alt="img_01"
+                            class="img-fluid figure-img rounded"></div>
+                    <div class="col-lg-3 col-md-6 col-sm-12"><img src="./img/img_02.jpg" alt="img_02"
+                            class="img-fluid figure-img rounded"></div>
+                    <div class="col-lg-3 col-md-6 col-sm-12"><img src="./img/img_03.jpg" alt="img_03"
+                            class="img-fluid figure-img rounded"></div>
+                    <div class="col-lg-3 col-md-6 col-sm-12"><img src="./img/img_04.jpg" alt="img_04"
+                            class="img-fluid figure-img rounded"></div>
+                    <div class="col-lg-3 col-md-6 col-sm-12"><img src="./img/img_05.jpg" alt="img_05"
+                            class="img-fluid figure-img rounded"></div>
+                    <div class="col-lg-3 col-md-6 col-sm-12"><img src="./img/img_06.jpg" alt="img_06"
+                            class="img-fluid figure-img rounded"></div>
+                    <div class="col-lg-3 col-md-6 col-sm-12"><img src="./img/img_07.jpg" alt="img_07"
+                            class="img-fluid figure-img rounded"></div>
+                    <div class="col-lg-3 col-md-6 col-sm-12"><img src="./img/img_08.jpg" alt="img_08"
+                            class="img-fluid figure-img rounded"></div> -->
+                    <div class="col-lg-3 col-md-6 col-sm-12"><a href="https://www.netflix.com/tw/title/70028883" ><img src="./img/img_01.jpg" alt="img_01"
+                            class="img-fluid figure-img rounded"></a></div>
+                </div>
+
+            </div>
+        </div>
+        <!-- <div class="card-footer"></div> -->
+    </div>
+    </div>
+    br
+    <!-- 神隱少女
+    2001 | 年齡分級：7+ | 2 小時 5 分鐘 | 動漫電影
+    千尋意外來到一個由女巫治理的魔法世界。在這裏，所有違抗女巫的人都被變成了動物。
+    主演：柊瑠美，入野自由，夏木麻里 -->
+
+    <!-- 類似影片 -->
+    <!-- https://www.netflix.com/tw/title/70028883 -->
+    <!-- https://www.netflix.com/tw/title/60032294 -->
+    <!-- https://www.netflix.com/tw/title/60027106 -->
+    <!-- https://www.netflix.com/tw/title/70106454 -->
+    <!-- https://www.netflix.com/tw/title/70019058 -->
+    <!-- https://www.netflix.com/tw/title/60027393 -->
+    <!-- https://www.netflix.com/tw/title/70216227 -->
+    <!-- https://www.netflix.com/tw/title/70045021 -->
+
+</body>
+
+</html>

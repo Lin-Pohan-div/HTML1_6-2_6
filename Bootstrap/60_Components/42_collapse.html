@@ -20,17 +20,22 @@
         
         <!-- 10. 加入一個 <div> 標籤，並添加類別 .collapse，
                  id 設定為 demo  -->
-       
+        <!--  -->
+        <div id="demo" class="collapse" >Apple</div>
+        
         <!-- 20. 加入一個按鈕 -->
         <!--    a. 套用按鈕的相關樣式 -->
-        <!--    b. 增加屬性 data-bs-toggle="collapse"-->
+        <!--    b. 增加屬性 data-bs-toggle="collapse"(點及後折疊元素)-->
         <!--    c. 增加屬性 data-bs-target="#demo" -->
-
+        <button class="btn btn-primary" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#demo">按鈕A
+        </button>
         <!-- 25. 加入一個超連結 -->
         <!--    a. 套用按鈕的相關樣式 -->
         <!--    b. 超連結的 href 指向 #demo -->
         <!--    c. 增加屬性 data-bs-toggle="collapse" -->
-        
+        <a href="#demo" class="btn btn-success" data-bs-toggle="collapse">按鈕B</a>
     </div>
 
 </body>
