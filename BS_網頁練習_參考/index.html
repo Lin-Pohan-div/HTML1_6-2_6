@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS_網頁練習</title>
+
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>    
+    <!-- 需求: 
+        1. 參照 完成圖01.png，完成網頁
+        2. 頁首固定在最上方，裡面有兩個按鈕
+        3. 畫面寬度 ≥768px 時，顯示圖片: spirited_away.jpg；
+                   <768px 時，顯示圖片: spirited_away_2.jpg。
+           參照 完成圖02.png、完成圖03.png
+           
+        4. [類似影片]中的八個區塊，可連結至對應網頁 (連結如下)
+        5. [類似影片]中的八個區塊，
+           當畫面寬度 ≥992px 時，一列顯示四個；
+                     ≥768px 時，一列顯示兩個；
+                     <768px 時，一列顯示一個。
+           參照 完成圖04.png、完成圖05.png -->
+
+
+    <!-- 神隱少女
+    2001 | 年齡分級：7+ | 2 小時 5 分鐘 | 動漫電影
+    千尋意外來到一個由女巫治理的魔法世界。在這裏，所有違抗女巫的人都被變成了動物。
+    主演：柊瑠美，入野自由，夏木麻里 -->
+
+    <!-- 類似影片 -->
+    <!-- https://www.netflix.com/tw/title/70028883 -->
+    <!-- https://www.netflix.com/tw/title/60032294 -->
+    <!-- https://www.netflix.com/tw/title/60027106 -->
+    <!-- https://www.netflix.com/tw/title/70106454 -->
+    <!-- https://www.netflix.com/tw/title/70019058 -->
+    <!-- https://www.netflix.com/tw/title/60027393 -->
+    <!-- https://www.netflix.com/tw/title/70216227 -->
+    <!-- https://www.netflix.com/tw/title/70045021 -->
+
+    <header class="fixed-top p-3 d-flex justify-content-end">
+        <button class="btn btn-danger me-3">立即加入</button>
+        <button class="btn text-white border-white">登入</button>
+    </header>
+
+    <main class="container">
+        <section class="picture-container">
+            <picture>
+                <source media="(min-width:768px)" srcset="./img/spirited_away.jpg">
+                <img src="./img/spirited_away_2.jpg">
+            </picture>
+        </section>
+
+        <section class="mt-5">
+            <div class="border p-3 rounded">
+                <h5>神隱少女</h5>
+                <p>2001 | 年齡分級：7+ | 2 小時 5 分鐘 | 動漫電影</p>
+                <p>千尋意外來到一個由女巫治理的魔法世界。在這裏，所有違抗女巫的人都被變成了動物。</p>
+                <p>主演：柊瑠美，入野自由，夏木麻里</p>
+            </div>
+        </section>
+
+        <section class="sec-rel mt-5">
+            <h3>類似影片</h3>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <a href="https://www.netflix.com/tw/title/70028883">
+                        <img src="./img/img_01.jpg">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a href="https://www.netflix.com/tw/title/60032294">
+                        <img src="./img/img_02.jpg">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a href="https://www.netflix.com/tw/title/60027106">
+                        <img src="./img/img_03.jpg">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a href="https://www.netflix.com/tw/title/70106454">
+                        <img src="./img/img_04.jpg">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a href="https://www.netflix.com/tw/title/70019058">
+                        <img src="./img/img_05.jpg">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a href="https://www.netflix.com/tw/title/60027393">
+                        <img src="./img/img_06.jpg">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a href="https://www.netflix.com/tw/title/70216227">
+                        <img src="./img/img_07.jpg">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a href="https://www.netflix.com/tw/title/70045021">
+                        <img src="./img/img_08.jpg">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

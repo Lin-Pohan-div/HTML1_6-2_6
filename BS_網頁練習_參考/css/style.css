@@ -1,0 +1,22 @@
+body, 
+header {
+    background-color: black;
+}
+
+img {
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.picture-container img {
+    max-height: 100vh;
+    object-fit: cover;
+}
+
+main {
+    color: white;
+}
+
+.sec-rel .row div {
+    margin-bottom: 1.5rem;
+}
