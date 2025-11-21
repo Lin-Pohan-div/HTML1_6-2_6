@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+    <!-- 影像地圖（image map），允許將單一影像分割成多個可點擊區域，每個區域可以連結到不同頁面或動作 -->
+    <img src="https://dummyimage.com/600x100/00ff5e/ffffff" width="600" height="100" usemap="#image-map">
+
+    <map name="image-map">
+    <!-- 元素定義地圖區域，使用 name 屬性與影像的 usemap 匹配。 -->
+        <!-- 
+        .coords ==> 屬性以像素為單位指定區域邊界
+        .shape  ==> 設定形狀（這裡是矩形） 
+        -->
+        <area alt="A" title="A" href="https://dummyimage.com/600x100/00ff5e/ffffff" coords="0,0,300,100" shape="rect">
+        <area alt="B" title="B" href="https://dummyimage.com/600x100/f057c5/ffffff" coords="300,0,600,100" shape="rect">
+
+    </map>
+</body>
+
+</html>

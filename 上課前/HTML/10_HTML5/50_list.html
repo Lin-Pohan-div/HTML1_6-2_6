@@ -17,7 +17,7 @@
     3.ul下一層只會放li、li下一層都可以放 ul or ol
         </pre>
     </div>
-            
+
     <h2>
         <p id="title">全台各地飲料店名稱：</p>
     </h2>
@@ -46,8 +46,8 @@
     <!-- 試試看，如果想要改變項目符號的圖示，
          要幫<ul>設定哪一項屬性? 有哪幾種圖示? -->
     <!-- list-style-type: disc; -->
-     <p>試試看，如果想要改變項目符號的圖示，
-         要幫ul設定哪一項屬性? 有哪幾種圖示?</p>
+    <p>試試看，如果想要改變項目符號的圖示，
+        要幫ul設定哪一項屬性? 有哪幾種圖示?</p>
     <h2>全台各地飲料店名稱:</h2>
     <ul style="list-style-type: disc;">
         <li>WHO'S TEA 鬍子茶</li>
@@ -63,7 +63,7 @@
 
     <!-- list-style-type: none; -->
 
-    
+
     <hr>
 
     <!-- ol：ordered list，排序的清單 -->
@@ -75,15 +75,32 @@
     <!-- 試試看，能不能改變 <ol> 清單編號類型? 
         從 123 改成 ABC 或者其他?
         只能從 1號 開始編嗎? -->
-        
-        <h2>每日上課守則：</h2>
-        <ol type="A" start="5">
-            <!--type:編號類型、start:編號起始序-  -->
-            <li>預習</li>
-            <li>練習</li>
-            <li>複習</li>
-        </ol>
 
+    <h2>每日上課守則：</h2>
+    <ol type="A" start="5">
+        <!--type:編號類型、start:編號起始序-  -->
+        <li>預習</li>
+        <li>練習</li>
+        <li>複習</li>
+    </ol>
+    <hr>
+    reset item
+    <ol start="5">
+        <li>Item</li>
+        <li>Some Other Item</li>
+        <li value="4">A Reset Item</li>
+        <li>Another Item</li>
+        <li>Yet Another Item</li>
+    </ol>
+    <hr>
+    reversed
+    <ol reversed>
+        <li>Item</li>
+        <li>Some Other Item</li>
+        <li value="4">A Reset Item</li>
+        <li>Another Item</li>
+        <li>Yet Another Item</li>
+    </ol>
     <!-- 定義清單/描述清單 -->
     <!-- dl：description list 清單 -->
     <!-- dt：description list term 項目 -->
