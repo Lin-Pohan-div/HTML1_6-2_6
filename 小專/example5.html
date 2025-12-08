@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>科技資訊｜範例網站</title>
+    <meta name="description" content="簡潔的科技資訊網站範例：標題、列表、文章內容、按鈕與分享功能。" />
+    <style>
+        :root{
+            --bg:#0f1724; --card:#0b1220; --muted:#93a0b4; --accent:#0ea5a5;
+            --glass: rgba(255,255,255,0.02);
+            --radius:12px;
+            color-scheme: dark;
+        }
+        html,body{height:100%; margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans",Helvetica,Arial;}
+        body{
+            background: linear-gradient(180deg,#071021 0%, #081426 50%, #061226 100%);
+            color:#e6eef6; padding:24px; display:flex; justify-content:center;
+        }
+        .container{width:100%; max-width:1100px;}
+        header{display:flex; align-items:center; gap:18px; margin-bottom:18px;}
+        .logo{display:flex; gap:12px; align-items:center;}
+        .logo svg{width:44px; height:44px; border-radius:10px; background:linear-gradient(90deg,var(--accent),#6ee7b7); padding:8px;}
+        h1{margin:0; font-size:20px; letter-spacing:0.2px;}
+        nav{margin-left:auto; display:flex; gap:10px; align-items:center;}
+        .search{display:flex; align-items:center; gap:8px; background:var(--glass); padding:8px 12px; border-radius:999px;}
+        .search input{background:transparent; border:0; outline:none; color:inherit; width:180px;}
+        button{background:transparent; color:inherit; border:1px solid rgba(255,255,255,0.04); padding:8px 12px; border-radius:8px; cursor:pointer;}
+        .grid{display:grid; grid-template-columns:1fr 340px; gap:18px;}
+        .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:16px; border-radius:var(--radius); border:1px solid rgba(255,255,255,0.03);}
+        .article-list{display:grid; gap:12px;}
+        .article-item{display:flex; gap:12px; align-items:flex-start;}
+        .thumb{width:140px; height:82px; border-radius:8px; background:linear-gradient(135deg,#0ea5a5,#6ee7b7); flex-shrink:0; display:flex; align-items:end; padding:8px; color:#012; font-weight:700;}
+        .meta{font-size:12px; color:var(--muted); margin-bottom:6px;}
+        .title{font-size:16px; margin:0 0 6px 0;}
+        .summary{font-size:13px; color:var(--muted); margin:0;}
+        .label{display:inline-block; font-size:11px; background:#062a2a; color:var(--accent); padding:4px 8px; border-radius:999px; margin-right:8px;}
+        aside .card{position:sticky; top:24px;}
+        .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;}
+        .tag{background:#0b2a32; color:#87f3e6; padding:6px 10px; border-radius:999px; font-size:12px;}
+        .controls{display:flex; gap:8px; margin-top:12px;}
+        .controls button{display:inline-flex; gap:8px; align-items:center;}
+        main article{max-width:780px;}
+        .content-hero{height:220px; border-radius:10px; overflow:hidden; background:linear-gradient(135deg,#061a2b,#07263a); display:flex; align-items:end; padding:18px;}
+        .content-hero h2{margin:0; font-size:22px;}
+        .meta-row{display:flex; gap:12px; align-items:center; margin-top:10px; color:var(--muted); font-size:13px;}
+        .actions{display:flex; gap:8px; margin-top:18px;}
+        .muted{color:var(--muted);}
+        footer{margin-top:24px; text-align:center; color:var(--muted); font-size:13px;}
+        @media (max-width:900px){
+            .grid{grid-template-columns:1fr; }
+            .thumb{width:120px; height:72px;}
+            .search input{width:120px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="app">
+        <header>
+            <div class="logo" role="banner">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="0" y="0" width="24" height="24" rx="6" fill="#042a2a"/>
+                    <path d="M6 12h12M6 8h12M6 16h8" stroke="#a7f3eb" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+                <div>
+                    <h1>科技快訊範例</h1>
+                    <div class="muted" style="font-size:13px;">即時新聞、深度報導與評測</div>
+                </div>
+            </div>
+
+            <nav aria-label="主要選單">
+                <div class="search" role="search">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 21l-4.35-4.35" stroke="#93a0b4" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    <input id="searchInput" placeholder="搜尋科技、新品、AI..." />
+                </div>
+                <button id="subscribeBtn">訂閱</button>
+                <button id="themeBtn" aria-pressed="false">主題</button>
+            </nav>
+        </header>
+
+        <div class="grid">
+            <main class="card" id="listPage">
+                <section>
+                    <div class="label">最新消息</div>
+                    <div class="article-list" id="articles">
+                        <div class="article-item" data-slug="ai-chip">
+                            <div class="thumb">AI 新芯片</div>
+                            <div>
+                                <div class="meta">科技 • 2 小時前</div>
+                                <h3 class="title">國內新創發布高效能 AI 推論晶片</h3>
+                                <p class="summary">這款晶片在能耗與效能上具備突破性表現，適合邊緣運算與資料中心部署。</p>
+                                <div class="controls">
+                                    <button class="readBtn">閱讀</button>
+                                    <button class="likeBtn">讚</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="article-item" data-slug="battery-adv">
+                            <div class="thumb">電池革新</div>
+                            <div>
+                                <div class="meta">新能源 • 5 小時前</div>
+                                <h3 class="title">固態電池新材料提升循環壽命</h3>
+                                <p class="summary">研究團隊發表新型電解質，測試顯示可延長電池壽命並提高安全性。</p>
+                                <div class="controls">
+                                    <button class="readBtn">閱讀</button>
+                                    <button class="likeBtn">讚</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="article-item" data-slug="vr-headset">
+                            <div class="thumb">VR 頭戴裝置</div>
+                            <div>
+                                <div class="meta">消費 • 1 天前</div>
+                                <h3 class="title">新一代輕量 VR 頭盔上市，內建眼追蹤</h3>
+                                <p class="summary">改善配戴舒適度與畫質，同時整合眼球追蹤提升互動體驗。</p>
+                                <div class="controls">
+                                    <button class="readBtn">閱讀</button>
+                                    <button class="likeBtn">讚</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <aside class="card">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                        <div class="label">熱門標籤</div>
+                        <div class="muted" style="font-size:13px;">快速瀏覽熱門主題</div>
+                    </div>
+                </div>
+
+                <div class="tags" aria-hidden="false">
+                    <span class="tag">AI</span>
+                    <span class="tag">半導體</span>
+                    <span class="tag">綠能</span>
+                    <span class="tag">VR/AR</span>
+                    <span class="tag">安全</span>
+                </div>
+
+                <div style="margin-top:12px;">
+                    <div class="label">最新影片</div>
+                    <div style="margin-top:8px;" class="muted">精選 3 分鐘技術解說與新品開箱短片。</div>
+                    <button style="margin-top:8px; width:100%;">觀看影片</button>
+                </div>
+            </aside>
+        </div>
+
+        <!-- 單篇內容區（預設隱藏） -->
+        <main class="card" id="articlePage" style="margin-top:18px; display:none;">
+            <article id="currentArticle">
+                <div class="content-hero" aria-hidden="true">
+                    <h2 id="articleTitle">文章標題範例</h2>
+                </div>
+                <div class="meta-row">
+                    <div class="muted" id="articleMeta">作者 • 分類 • 2025-01-01</div>
+                    <div style="margin-left:auto;" class="muted">閱讀時間：3 分鐘</div>
+                </div>
+
+                <div style="margin-top:14px;">
+                    <p>這裡是文章內容的第一段。用於呈現本文的導語，簡要說明文章重點，吸引讀者繼續閱讀。</p>
+                    <p>接著提供深度資訊、技術分析、或相關數據。可以使用小標題、清單與圖片來豐富內容。</p>
+                    <h3>技術重點</h3>
+                    <ul>
+                        <li>要點一：技術效能與限制</li>
+                        <li>要點二：市場影響與應用場景</li>
+                        <li>要點三：未來發展與挑戰</li>
+                    </ul>
+
+                    <div style="margin-top:12px;">
+                        <div class="actions">
+                            <button id="backBtn">返回列表</button>
+                            <button id="saveBtn">收藏</button>
+                            <button id="shareBtn">分享</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <footer class="muted">© 2025 科技快訊範例 • 聯絡｜隱私權政策</footer>
+    </div>
+
+    <script>
+        // 簡單 SPA 行為：從列表切換到內容頁
+        const articles = {
+            'ai-chip': {
+                title: '國內新創發布高效能 AI 推論晶片',
+                meta: '記者：王小明 • AI • 2 小時前',
+                content: '這款晶片以低功耗與高推論效能為主要特色，適合邊緣設備與資料中心。實驗數據顯示，在多項常見模型上均有顯著提升。'
+            },
+            'battery-adv': {
+                title: '固態電池新材料提升循環壽命',
+                meta: '記者：陳怡萱 • 新能源 • 5 小時前',
+                content: '研究團隊在電解質材料方面取得突破，測試結果表明電池壽命提升 30% 以上，且安全性更佳。'
+            },
+            'vr-headset': {
+                title: '新一代輕量 VR 頭盔上市，內建眼追蹤',
+                meta: '記者：李志豪 • 消費科技 • 1 天前',
+                content: '新頭盔改善了配戴舒適性與顯示品質，納入眼球追蹤後可實現更省力的操作與更自然的互動。'
+            }
+        };
+
+        const listPage = document.getElementById('listPage');
+        const articlePage = document.getElementById('articlePage');
+        const currentArticle = document.getElementById('currentArticle');
+        const articleTitle = document.getElementById('articleTitle');
+        const articleMeta = document.getElementById('articleMeta');
+
+        // 點擊閱讀按鈕
+        document.querySelectorAll('.readBtn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const slug = e.target.closest('.article-item').dataset.slug;
+                openArticle(slug);
+                window.scrollTo({top:0, behavior:'smooth'});
+            });
+        });
+
+        function openArticle(slug) {
+            const data = articles[slug];
+            if(!data) return;
+            articleTitle.textContent = data.title;
+            articleMeta.textContent = data.meta;
+            // 置入文章內容
+            currentArticle.querySelector('div:nth-of-type(2)').innerHTML = `
+                <p>${data.content}</p>
+                <h3>重點摘要</h3>
+                <ul>
+                    <li>重點一：快速說明</li>
+                    <li>重點二：可能的應用場景</li>
+                    <li>重點三：待解決問題</li>
+                </ul>
+            `;
+            listPage.style.display = 'none';
+            articlePage.style.display = 'block';
+        }
+
+        // 返回列表
+        document.getElementById('backBtn').addEventListener('click', () => {
+            articlePage.style.display = 'none';
+            listPage.style.display = 'block';
+            history.replaceState(null, '', '#');
+        });
+
+        // like buttons
+        document.querySelectorAll('.likeBtn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.target.textContent = '已讚';
+                e.target.disabled = true;
+            });
+        });
+
+        // share button
+        document.getElementById('shareBtn').addEventListener('click', async () => {
+            const title = articleTitle.textContent;
+            const url = location.href;
+            if(navigator.share){
+                try{
+                    await navigator.share({title, text: title, url});
+                }catch(e){}
+            }else{
+                navigator.clipboard?.writeText(`${title} — ${url}`);
+                alert('已複製連結到剪貼簿');
+            }
+        });
+
+        // quick search (過濾列表標題)
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', () => {
+            const q = searchInput.value.trim().toLowerCase();
+            document.querySelectorAll('.article-item').forEach(item => {
+                const title = item.querySelector('.title').textContent.toLowerCase();
+                const sum = item.querySelector('.summary').textContent.toLowerCase();
+                item.style.display = (title.includes(q) || sum.includes(q)) ? 'flex' : 'none';
+            });
+        });
+
+        // small demo: clicking top logo goes home
+        document.querySelector('.logo').addEventListener('click', () => {
+            articlePage.style.display = 'none';
+            listPage.style.display = 'block';
+        });
+    </script>
+</body>
+</html>

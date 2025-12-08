@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova 科技新知 | 探索未來</title>
+    
+    <!-- 引入 Tailwind CSS (快速排版工具) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 設定自定義顏色與字型 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            500: '#3b82f6', // 科技藍
+                            600: '#2563eb', // 深藍
+                            900: '#0f172a', // 深黑背景
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- 引入 Font Awesome (圖示庫) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* 自定義一些轉場效果 */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- 導覽列 (Header) -->
+    <nav class="bg-brand-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center cursor-pointer" onclick="showHome()">
+                    <i class="fa-solid fa-microchip text-brand-500 text-2xl mr-2"></i>
+                    <span class="font-bold text-xl tracking-wider">TechNova</span>
+                </div>
+                
+                <!-- 電腦版選單 -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <button onclick="showHome()" class="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition">首頁</button>
+                        <a href="#" class="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition">人工智慧</a>
+                        <a href="#" class="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition">區塊鏈</a>
+                        <a href="#" class="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition">數位生活</a>
+                        <button class="bg-brand-500 hover:bg-brand-600 px-4 py-2 rounded-md text-sm font-medium transition shadow-md">
+                            訂閱電子報
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 手機版選單按鈕 -->
+                <div class="-mr-2 flex md:hidden">
+                    <button onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機版下拉選單 (預設隱藏) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-900">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="showHome()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">首頁</button>
+                <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">人工智慧</a>
+                <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">區塊鏈</a>
+                <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">數位生活</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主內容區域 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 min-h-screen">
+
+        <!-- 視圖 1: 首頁列表 (Home View) -->
+        <div id="home-view" class="fade-in">
+            <!-- 焦點新聞 (Hero Section) -->
+            <div class="relative bg-brand-900 rounded-2xl overflow-hidden shadow-2xl mb-12">
+                <div class="absolute inset-0">
+                    <img class="w-full h-full object-cover opacity-40" src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Technology">
+                </div>
+                <div class="relative px-8 py-16 sm:px-12 sm:py-24 lg:py-32">
+                    <h1 class="text-center text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6">
+                        探索科技的無限邊界
+                    </h1>
+                    <p class="mt-6 max-w-lg mx-auto text-center text-xl text-gray-300 sm:max-w-3xl mb-10">
+                        深入了解 AI 革命、量子計算與未來的數位趨勢。TechNova 帶您掌握第一手科技脈動。
+                    </p>
+                    <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
+                        <button onclick="openArticle(1)" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-brand-900 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition transform hover:scale-105">
+                            閱讀焦點報導
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最新文章標題 -->
+            <div class="flex justify-between items-end mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 border-l-4 border-brand-500 pl-4">最新趨勢</h2>
+                <a href="#" class="text-brand-600 hover:text-brand-800 font-medium">查看更多 <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+
+            <!-- 文章卡片網格 (Grid) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- 卡片 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition duration-500" src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="AI Robot">
+                        <div class="absolute top-4 left-4 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full">人工智慧</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="far fa-calendar-alt mr-2"></i> 2023-10-25
+                            <span class="mx-2">|</span>
+                            <i class="far fa-user mr-2"></i> 編輯部
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition">生成式 AI 如何改變程式開發？</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            隨著 Copilot 與 ChatGPT 的普及，工程師的角色正在發生轉變。本文將探討 AI 輔助編碼的利與弊...
+                        </p>
+                        <button onclick="openArticle(1)" class="text-brand-600 font-semibold hover:text-brand-800 transition flex items-center">
+                            閱讀全文 <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 卡片 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition duration-500" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cybersecurity">
+                        <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">資安</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="far fa-calendar-alt mr-2"></i> 2023-10-24
+                            <span class="mx-2">|</span>
+                            <i class="far fa-user mr-2"></i> 李大安
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition">零信任架構：企業資安新標準</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            傳統的邊界防禦已不足以應對現代威脅。「永不信任，始終驗證」成為了新的資安顯學。
+                        </p>
+                        <button onclick="openArticle(2)" class="text-brand-600 font-semibold hover:text-brand-800 transition flex items-center">
+                            閱讀全文 <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 卡片 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition duration-500" src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="VR Headset">
+                        <div class="absolute top-4 left-4 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">元宇宙</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="far fa-calendar-alt mr-2"></i> 2023-10-23
+                            <span class="mx-2">|</span>
+                            <i class="far fa-user mr-2"></i> 陳虛擬
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition">Apple Vision Pro 實測心得</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            空間運算時代真的來臨了嗎？我們親自體驗了這款跨時代的裝置，並為您帶來最真實的測評。
+                        </p>
+                        <button onclick="openArticle(3)" class="text-brand-600 font-semibold hover:text-brand-800 transition flex items-center">
+                            閱讀全文 <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 視圖 2: 文章內容頁 (Article View) - 預設隱藏 -->
+        <div id="article-view" class="hidden fade-in">
+            <button onclick="showHome()" class="mb-6 flex items-center text-gray-500 hover:text-brand-600 transition font-medium">
+                <i class="fa-solid fa-arrow-left mr-2"></i> 返回文章列表
+            </button>
+
+            <article class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <!-- 文章封面圖 -->
+                <div class="w-full h-64 md:h-96 relative">
+                    <img id="article-image" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Article Cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <div class="p-6 md:p-10 w-full">
+                            <span id="article-category" class="bg-brand-500 text-white px-3 py-1 rounded-full text-sm font-bold mb-3 inline-block">人工智慧</span>
+                            <h1 id="article-title" class="text-3xl md:text-5xl font-bold text-white mb-2 shadow-sm">生成式 AI 如何改變程式開發？</h1>
+                            <div class="flex items-center text-gray-300 text-sm">
+                                <span class="mr-4"><i class="far fa-user mr-1"></i> 編輯部</span>
+                                <span><i class="far fa-clock mr-1"></i> 2023-10-25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 文章本體 -->
+                <div class="p-6 md:p-10 lg:px-20 text-lg leading-relaxed text-gray-700">
+                    <div class="prose max-w-none">
+                        <p class="mb-6 font-semibold text-xl text-gray-800">
+                            隨著 ChatGPT、GitHub Copilot 等工具的興起，軟體工程師的工作模式正在經歷一場前所未有的變革。許多人問：AI 會取代工程師嗎？還是成為最強大的助手？
+                        </p>
+                        
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">AI 輔助開發的優勢</h2>
+                        <p class="mb-4">
+                            首先，最顯而易見的優勢是<strong>效率的提升</strong>。繁瑣的樣板程式碼 (Boilerplate code) 現在可以由 AI 一鍵生成。這讓開發者能夠將更多時間投入在系統架構設計與解決複雜的業務邏輯上。
+                        </p>
+                        <p class="mb-4">
+                            其次，對於學習新技術而言，AI 就像是一位隨叫隨到的資深導師。透過對話式的互動，新手可以更快地理解程式碼的運作原理。
+                        </p>
+
+                        <div class="bg-gray-50 border-l-4 border-brand-500 p-4 my-6 italic text-gray-600">
+                            「未來的工程師，或許不再是撰寫程式碼的人，而是最懂得如何『提問』與『審核』程式碼的人。」
+                        </div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">潛在的風險與挑戰</h2>
+                        <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
+                            <li><strong>程式碼品質與安全性：</strong>AI 生成的程式碼可能包含漏洞或不是最佳實踐。</li>
+                            <li><strong>版權爭議：</strong>AI 模型的訓練資料來源一直是法律上的灰色地帶。</li>
+                            <li><strong>過度依賴：</strong>如果工程師喪失了基礎的除錯能力，當 AI 失效時將面臨巨大危機。</li>
+                        </ul>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">結語</h2>
+                        <p>
+                            技術的洪流無法阻擋。擁抱工具，但不迷失於工具之中，或許是這個時代每一位技術從業者的必修課。
+                        </p>
+                    </div>
+
+                    <!-- 互動按鈕區 -->
+                    <div class="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div class="flex space-x-4">
+                            <button class="flex items-center text-gray-500 hover:text-red-500 transition">
+                                <i class="far fa-heart text-xl mr-2"></i> 喜歡 (128)
+                            </button>
+                            <button class="flex items-center text-gray-500 hover:text-blue-500 transition">
+                                <i class="far fa-comment text-xl mr-2"></i> 留言 (15)
+                            </button>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+                            <button class="w-10 h-10 rounded-full bg-sky-400 text-white flex items-center justify-center hover:bg-sky-500 transition">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+                            <button class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-600 transition">
+                                <i class="fab fa-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- 相關文章推薦 -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">您可能也喜歡</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow cursor-pointer hover:shadow-md transition">
+                        <h4 class="font-bold text-lg mb-2">Python 3.12 新功能解析</h4>
+                        <p class="text-sm text-gray-500">深入了解最新的語言特性與效能優化...</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow cursor-pointer hover:shadow-md transition">
+                        <h4 class="font-bold text-lg mb-2">Web 3.0 的泡沫與真相</h4>
+                        <p class="text-sm text-gray-500">去中心化網路真的是未來嗎？還是只是炒作？</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 頁尾 (Footer) -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- 關於 -->
+            <div>
+                <div class="flex items-center mb-4">
+                    <i class="fa-solid fa-microchip text-brand-500 text-xl mr-2"></i>
+                    <span class="font-bold text-xl text-white">TechNova</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    致力於提供最新、最深入的科技資訊，連結現在與未來的橋樑。
+                </p>
+            </div>
+            <!-- 快速連結 -->
+            <div>
+                <h4 class="text-white font-bold mb-4">快速連結</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-brand-500 transition">關於我們</a></li>
+                    <li><a href="#" class="hover:text-brand-500 transition">聯絡合作</a></li>
+                    <li><a href="#" class="hover:text-brand-500 transition">隱私權政策</a></li>
+                    <li><a href="#" class="hover:text-brand-500 transition">服務條款</a></li>
+                </ul>
+            </div>
+            <!-- 訂閱 -->
+            <div>
+                <h4 class="text-white font-bold mb-4">訂閱電子報</h4>
+                <div class="flex">
+                    <input type="email" placeholder="您的 Email" class="w-full px-4 py-2 rounded-l-md bg-gray-800 border-none focus:ring-2 focus:ring-brand-500 text-white outline-none">
+                    <button class="bg-brand-500 px-4 py-2 rounded-r-md text-white hover:bg-brand-600 transition font-medium">訂閱</button>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">我們承諾不會發送垃圾郵件。</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+            &copy; 2023 TechNova Inc. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript 互動邏輯 -->
+    <script>
+        // DOM 元素
+        const mobileMenu = document.getElementById('mobile-menu');
+        const homeView = document.getElementById('home-view');
+        const articleView = document.getElementById('article-view');
+
+        // 手機選單切換
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // 模擬文章資料庫 (簡單示範用)
+        const articles = {
+            1: {
+                title: "生成式 AI 如何改變程式開發？",
+                category: "人工智慧",
+                image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+                color: "bg-brand-500"
+            },
+            2: {
+                title: "零信任架構：企業資安新標準",
+                category: "資安",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+                color: "bg-green-500"
+            },
+            3: {
+                title: "Apple Vision Pro 實測心得",
+                category: "元宇宙",
+                image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+                color: "bg-purple-500"
+            }
+        };
+
+        // 打開文章功能
+        function openArticle(id) {
+            const data = articles[id];
+            if(data) {
+                // 更新文章內容 (這裡僅更新標題與圖片做示範，實際專案會從後端載入內容)
+                document.getElementById('article-title').innerText = data.title;
+                document.getElementById('article-category').innerText = data.category;
+                document.getElementById('article-category').className = `${data.color} text-white px-3 py-1 rounded-full text-sm font-bold mb-3 inline-block`;
+                document.getElementById('article-image').src = data.image;
+
+                // 切換視圖
+                homeView.classList.add('hidden');
+                articleView.classList.remove('hidden');
+                
+                // 捲動到頂部
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // 返回首頁功能
+        function showHome() {
+            articleView.classList.add('hidden');
+            homeView.classList.remove('hidden');
+            window.scrollTo(0, 0);
+            
+            // 如果手機選單是開的，順便關掉
+            if(!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

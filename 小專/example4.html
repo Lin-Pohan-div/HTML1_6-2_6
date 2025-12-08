@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechView 科技新視界</title>
+    <!-- 引入 Tailwind CSS (用於快速樣式設計) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 FontAwesome (用於圖標) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 自定義字體設定 */
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        /* 平滑捲動 */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* 自定義圖片懸停效果 */
+        .article-img {
+            transition: transform 0.3s ease;
+        }
+        .article-card:hover .article-img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <!-- 導覽列 (Navbar) -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center gap-2">
+                        <i class="fa-solid fa-microchip text-blue-600 text-2xl"></i>
+                        <span class="font-bold text-xl tracking-wide text-gray-900">Tech<span class="text-blue-600">View</span></span>
+                    </a>
+                </div>
+                
+                <!-- 電腦版選單 -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#featured" class="text-gray-600 hover:text-blue-600 px-3 py-2 font-medium transition">專題報導</a>
+                    <a href="#latest" class="text-gray-600 hover:text-blue-600 px-3 py-2 font-medium transition">最新消息</a>
+                    <a href="#reviews" class="text-gray-600 hover:text-blue-600 px-3 py-2 font-medium transition">產品評測</a>
+                    <a href="#gadgets" class="text-gray-600 hover:text-blue-600 px-3 py-2 font-medium transition">酷玩意</a>
+                    <button onclick="openModal()" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition shadow-sm">
+                        訂閱週報
+                    </button>
+                </div>
+
+                <!-- 手機版選單按鈕 -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機版下拉選單 (預設隱藏) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#featured" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">專題報導</a>
+                <a href="#latest" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">最新消息</a>
+                <a href="#reviews" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">產品評測</a>
+                <button onclick="openModal()" class="w-full text-left block px-3 py-2 text-base font-medium text-blue-600 hover:bg-gray-50 rounded-md font-bold">
+                    訂閱週報
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主內容區 -->
+    <main class="flex-grow">
+        
+        <!-- 頭條新聞 (Hero Section) -->
+        <section id="featured" class="bg-gray-900 text-white py-12 md:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <span class="bg-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">最新趨勢</span>
+                        <h1 class="text-4xl md:text-5xl font-bold leading-tight">AI 世代來臨：生成式人工智慧如何重塑程式開發？</h1>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            隨著 GPT-4 和 Claude 3.5 等模型的發布，工程師的角色正在發生轉變。本文將深入探討 AI 輔助編程的未來，以及它對軟體產業的深遠影響。
+                        </p>
+                        <div class="flex gap-4 pt-4">
+                            <a href="#" class="bg-white text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition shadow-lg">閱讀全文</a>
+                            <button class="flex items-center gap-2 text-gray-300 hover:text-white transition">
+                                <i class="fa-regular fa-bookmark"></i> 稍後再讀
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AI Technology" class="relative rounded-xl shadow-2xl w-full object-cover h-80 md:h-96">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新消息網格 (Latest News) -->
+        <section id="latest" class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-end mb-10">
+                    <h2 class="text-3xl font-bold text-gray-900 border-l-4 border-blue-600 pl-4">最新科技快訊</h2>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1 group">
+                        查看更多 <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 文章卡片 1 -->
+                    <article class="article-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col h-full">
+                        <div class="overflow-hidden h-48">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cybersecurity" class="article-img w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">資安</span>
+                                <span class="text-xs text-gray-500">2 小時前</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600 cursor-pointer">零信任架構：企業資安的新標準</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                                傳統的邊界防護已不足以應對現代威脅。了解零信任模型如何保護您的數位資產。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- 文章卡片 2 -->
+                    <article class="article-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col h-full">
+                        <div class="overflow-hidden h-48">
+                            <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="VR Headset" class="article-img w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-purple-600 bg-purple-100 px-2 py-1 rounded">元宇宙</span>
+                                <span class="text-xs text-gray-500">5 小時前</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600 cursor-pointer">Apple Vision Pro 實測：空間運算的未來？</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                                我們深入測試了這款備受矚目的頭戴裝置，分析其在生產力與娛樂方面的實際表現。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- 文章卡片 3 -->
+                    <article class="article-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col h-full">
+                        <div class="overflow-hidden h-48">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chip" class="article-img w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-red-600 bg-red-100 px-2 py-1 rounded">硬體</span>
+                                <span class="text-xs text-gray-500">1 天前</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600 cursor-pointer">次世代晶片戰：3奈米製程的挑戰</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                                台積電與三星在先進製程上的競爭日趨白熱化，良率與效能成為決勝關鍵。
+                            </p>
+                        </div>
+                    </article>
+                    
+                     <!-- 文章卡片 4 -->
+                     <article class="article-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col h-full">
+                        <div class="overflow-hidden h-48">
+                            <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="PC Gaming" class="article-img w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-orange-600 bg-orange-100 px-2 py-1 rounded">電競</span>
+                                <span class="text-xs text-gray-500">2 天前</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600 cursor-pointer">RTX 5090 傳聞匯總：功耗與效能怪獸</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                                根據最新的洩漏消息，新一代顯卡可能會帶來前所未有的光追性能提升。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- 文章卡片 5 -->
+                     <article class="article-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col h-full">
+                        <div class="overflow-hidden h-48">
+                            <img src="https://images.unsplash.com/photo-1526304640152-d4619684e484?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cryptocurrency" class="article-img w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-yellow-600 bg-yellow-100 px-2 py-1 rounded">區塊鏈</span>
+                                <span class="text-xs text-gray-500">2 天前</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600 cursor-pointer">Web3 的困境與轉機：去中心化的下一步</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                                經歷了市場寒冬後，開發者正專注於解決實際應用場景的問題。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- 文章卡片 6 -->
+                     <article class="article-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col h-full">
+                        <div class="overflow-hidden h-48">
+                            <img src="https://images.unsplash.com/photo-1555664424-778a18a21c60?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coding" class="article-img w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-indigo-600 bg-indigo-100 px-2 py-1 rounded">開發</span>
+                                <span class="text-xs text-gray-500">3 天前</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600 cursor-pointer">Python 4.0 會有什麼改變？</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                                雖然 Python 3.12 剛發布不久，但社群已經開始討論下一個主要版本的方向。
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 訂閱區塊 -->
+        <section class="bg-blue-900 py-16">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">掌握最新科技脈動</h2>
+                <p class="text-blue-100 mb-8 text-lg">每週一早上，將最重要的科技新聞與趨勢分析直接寄送到您的信箱。</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+                    <input type="email" placeholder="輸入您的 Email" class="px-6 py-3 rounded-lg flex-grow text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <button onclick="openModal()" class="bg-blue-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-400 transition shadow-lg whitespace-nowrap">
+                        免費訂閱
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 (Footer) -->
+    <footer class="bg-gray-900 text-gray-400 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                     <a href="#" class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-microchip text-blue-600 text-xl"></i>
+                        <span class="font-bold text-xl text-white">Tech<span class="text-blue-600">View</span></span>
+                    </a>
+                    <p class="text-sm">致力於提供最深入、最即時的科技產業分析與報導。</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">探索</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-500 transition">人工智慧</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition">區塊鏈</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition">消費電子</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition">軟體開發</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">關於我們</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-500 transition">編輯團隊</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition">聯絡方式</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition">隱私權政策</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition">服務條款</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">關注我們</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-400 hover:text-white transition">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 hover:text-white transition">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+                <p>&copy; 2023 TechView Media. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 自定義模態視窗 (Modal) -->
+    <div id="subscribe-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- 背景遮罩 -->
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity backdrop-blur-sm" onclick="closeModal()"></div>
+
+        <!-- 視窗內容 -->
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+                                <i class="fa-solid fa-check text-green-600"></i>
+                            </div>
+                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                <h3 class="text-xl font-semibold leading-6 text-gray-900" id="modal-title">訂閱成功！</h3>
+                                <div class="mt-2">
+                                    <p class="text-sm text-gray-500">
+                                        感謝您的訂閱。您將會每週一收到我們精心整理的科技趨勢週報。請記得檢查您的垃圾郵件信箱。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="button" onclick="closeModal()" class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto transition">
+                            好，我知道了
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript 邏輯 -->
+    <script>
+        // 手機版選單切換邏輯
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // 點擊選單連結後自動關閉選單 (優化手機體驗)
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // 模態視窗邏輯
+        const modal = document.getElementById('subscribe-modal');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            // 防止背景捲動
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            // 恢復背景捲動
+            document.body.style.overflow = 'auto';
+        }
+
+        // 按下 ESC 鍵也可以關閉視窗
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

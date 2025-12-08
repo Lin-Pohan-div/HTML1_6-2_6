@@ -1,0 +1,569 @@
+<!--
+檔案名稱: example.html
+路徑: /g:/HTML1_6-2_6/小專/example.html
+
+摘要:
+    TechNova 範例頁面（繁體中文 / zh-Hant）。此檔案為響應式科技媒體網站首頁模板，
+    使用 Tailwind CSS 與 Font Awesome，包含：導覽列（支援桌機/行動）、英雄區（Hero）、
+    多欄新聞卡片、側邊欄（訂閱、熱門話題、標籤雲）、頁尾與互動 JavaScript。
+
+主要技術棧:
+    - HTML5（語系：zh-Hant）
+    - Tailwind CSS（以 CDN 動態配置 theme 及自訂顏色/字體）
+    - Google Fonts (Noto Sans TC)
+    - Font Awesome（圖示）
+    - 原生 JavaScript（互動：行動選單、深色模式、滾動陰影）
+    - 圖片範例來自 Unsplash
+
+主要區塊說明:
+    - <head>
+        - meta: charset, viewport, description (SEO)
+        - 引入 Google Fonts、Tailwind CDN、Font Awesome
+        - tailwind.config: 使用 extend 增加字體與客製顏色 (primary, secondary, dark)
+        - 內嵌 style: glass-nav（毛玻璃導覽列）、line-clamp-2、hover-lift（卡片懸浮效果）
+    - <nav> (id="navbar")
+        - 固定於頁首、玻璃毛玻璃樣式、桌機/手機支援
+        - 桌機顯示完整選單（含搜尋圖示、深色模式切換、CTA）
+        - 行動視圖顯示漢堡按鈕，點擊後開啟行動選單（id="mobile-menu"）
+        - 建議：為互動按鈕補 aria-label、aria-expanded，改善可及性
+    - Hero
+        - 左側為標題、副標與 CTA 按鈕；右側為示意圖（含漸層及縮放動畫）
+    - 主內容（Main）
+        - 篩選分頁（可橫向滑動）
+        - 新聞卡片網格（四則卡片 + 可擴充）
+        - 側邊欄：電子報訂閱表單、熱門話題、標籤雲
+    - Footer
+        - 公司資訊、連結、社群圖示與版權訊息
+
+互動行為（JS）:
+    - 行動選單切換:
+        - Elements: #mobile-menu-btn、#mobile-menu
+        - 使用 classList.toggle('hidden')
+        - 建議：新增 aria-expanded 與鍵盤事件處理，以及在開啟狀態時鎖定滾動（body overflow）
+    - 深色模式:
+        - Elements: #theme-toggle、#theme-icon、#mobile-theme-toggle
+        - setTheme(isDark) 會增/移除 document.documentElement 的 'dark' class，並寫入 localStorage
+        - 初始化：根據 localStorage 或者系統傾向 (prefers-color-scheme)
+        - icon 切換：透過 Font Awesome 的 fa-moon / fa-sun
+        - 建議：確保在 themes 切換時提供無障礙提示（aria-pressed / aria-label）
+    - 導覽列卷動陰影效果:
+        - 根據 window.scrollY 在 navbar 上加/移除 'shadow-md'
+    - 表單送出:
+        - 訂閱表單使用 event.preventDefault() 並顯示 alert（示範用途）
+        - 建議：實作真正的後端 API 或使用第三方郵件服務以完成訂閱流程
+
+可及性 / SEO 建議:
+    - 為互動元素提供 aria-label、aria-hidden（必要時）、aria-expanded；
+      對於只用圖示的按鈕（漢堡、搜尋、深色模式）應補充說明。
+    - CTA 及連結應有明確文字（避免只用圖示）。
+    - 圖片建議加入 loading="lazy" 屬性與適當的 srcset 以提升效能與響應式顯示。
+    - 保留 focus 樣式以利鍵盤使用者（目前部分使用 focus:outline-none 移除預設樣式）；
+      建議替換為明顯的 focus ring 樣式。
+    - title、meta description 已設置；建議補充 Open Graph / Twitter Card metadata。
+
+效能優化建議:
+    - 將 JavaScript 置於 body 結束前並標記 defer（如使用外部檔案可避免阻塞）
+    - 大量圖片改用 WebP / 縮圖並搭配 srcset，確保圖像尺寸適當
+    - 若脫離開發環境，建議改採本地編譯 Tailwind 以減少未使用 CSS（purge/Content）
+    - 將 Font Awesome 改為 SVG sprite 或僅載入需要的 Icon，降低資源大小
+
+安全性 / 隱私注意:
+    - 如果整合第三方資源（Font, Analytics, Ads），請注意 GDPR / 隱私政策
+    - 避免在圖片/資源上載入不受信任的外部腳本或樣式
+
+可擴展性與維護:
+    - 以模組化方式將 header/footer/aside 與卡片拆為共用元件（伺服器端模板或前端元件化）
+    - 建議將 interactivity（menu、theme、scroll）提取至獨立 JS 檔案並使用嚴謹的 null 檢查或 event delegation
+    - 若為動態 CMS，可在卡片與側欄處串接 API 取得資料
+
+圖片授權:
+    - 範例使用 Unsplash 圖片做佈景示範（已於 hero 與卡片顯示圖片來源標註）
+
+已知限制 / TODO:
+    - 尚未全面實作鍵盤導覽（Tab 鍵友善）、ARIA 屬性與訊息提示
+    - Subscription 目前為範例 alert，實務上應接 API
+    - 若無 JS，行動選單 /主題切換將不可用；可考慮漸進增強 (progressive enhancement)
+    - 檔名/路徑中含中文與特殊字元可能影響某些部署環境；上線前檢查路徑與編碼
+
+維護者提醒:
+    - 若新增 Tailwind 自定義 class 或 plugin，請同步更新 tailwind.config 與樣式文件
+    - 在改善設計與互動時，優先考量無障礙（accessibility）與行動裝置使用體驗
+
+版本: 初始樣板（範例）
+作者: TechNova 範例團隊
+-->
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova 科技新知 | 探索未來</title>
+    <meta name="description" content="最新科技新聞、評測與趨勢分析">
+    
+    <!-- Google Fonts: Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3b82f6', // Blue-500
+                        secondary: '#8b5cf6', // Violet-500
+                        dark: '#0f172a', // Slate-900
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* 自定義樣式補充 */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-slate-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mr-2 text-white font-bold">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">TechNova</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium">人工智慧</a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium">消費電子</a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium">軟體開發</a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium">評測專欄</a>
+                    
+                    <!-- Search Icon -->
+                    <button class="text-gray-500 hover:text-primary focus:outline-none">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors focus:outline-none">
+                        <i id="theme-icon" class="fa-solid fa-moon text-gray-600 dark:text-yellow-300"></i>
+                    </button>
+
+                    <a href="#" class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors shadow-lg shadow-blue-500/30">
+                        訂閱電子報
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 dark:text-gray-200 hover:text-primary focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800 border-t border-gray-100 dark:border-slate-700 absolute w-full left-0">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700">人工智慧</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700">消費電子</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700">軟體開發</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700">評測專欄</a>
+                <div class="flex items-center justify-between px-3 py-2 mt-2 border-t border-gray-100 dark:border-slate-700">
+                    <span class="text-gray-600 dark:text-gray-300">切換模式</span>
+                    <button id="mobile-theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-slate-600">
+                         <i class="fa-solid fa-moon text-gray-600 dark:text-yellow-300"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-24 pb-12 lg:pt-32 lg:pb-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="space-y-6 animate-fade-in-up">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-primary text-sm font-semibold mb-2">
+                        <span class="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
+                        本日頭條
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white">
+                        生成式 AI 的下一步：<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">邁向通用人工智慧</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-lg">
+                        深度解析最新的 LLM 模型架構，以及它將如何徹底改變軟體開發、創意產業與我們的日常生活。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#" class="px-8 py-3.5 rounded-lg bg-primary hover:bg-blue-600 text-white font-semibold shadow-lg shadow-blue-500/30 transition-all text-center">
+                            閱讀完整報導
+                        </a>
+                        <a href="#" class="px-8 py-3.5 rounded-lg border border-gray-300 dark:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-200 font-semibold transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-bookmark"></i> 稍後閱讀
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <!-- Using Unsplash for tech placeholder -->
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="AI Technology" class="w-full h-auto transform transition duration-500 hover:scale-105">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                            <p class="text-white/80 text-sm font-mono">Image Source: Unsplash / AI Concept</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Filter Tabs -->
+        <div class="flex overflow-x-auto space-x-4 mb-10 pb-2 border-b border-gray-200 dark:border-slate-700 no-scrollbar">
+            <button class="whitespace-nowrap pb-2 border-b-2 border-primary text-primary font-semibold">最新發布</button>
+            <button class="whitespace-nowrap pb-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">硬體評測</button>
+            <button class="whitespace-nowrap pb-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">軟體教學</button>
+            <button class="whitespace-nowrap pb-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">區塊鏈</button>
+            <button class="whitespace-nowrap pb-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">資安專題</button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- News Grid (Left 2 Columns) -->
+            <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
+                
+                <!-- Card 1 -->
+                <article class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700 hover-lift group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Workplace" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">軟體</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
+                            <i class="fa-regular fa-calendar mr-1"></i> 2小時前
+                            <span class="mx-2">•</span>
+                            <span>編輯：張小明</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                            <a href="#">遠端工作的未來：2025 年協作工具大盤點</a>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4">
+                            隨著混合辦公成為常態，哪些工具能真正提升團隊效率？我們實測了市面上最熱門的十款協作軟體。
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-semibold text-sm hover:underline">
+                            閱讀更多 <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700 hover-lift group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Electronics" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">硬體</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
+                            <i class="fa-regular fa-calendar mr-1"></i> 5小時前
+                            <span class="mx-2">•</span>
+                            <span>編輯：李科技</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                            <a href="#">下一代 GPU 架構流出：效能提升 40%？</a>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4">
+                            據供應鏈消息指出，新的晶片製程技術將帶來巨大的效能飛躍，這對遊戲玩家意味著什麼？
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-semibold text-sm hover:underline">
+                            閱讀更多 <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700 hover-lift group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cybersecurity" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">資安</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
+                            <i class="fa-regular fa-calendar mr-1"></i> 1天前
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                            <a href="#">零信任架構：企業資安的最後一道防線</a>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4">
+                            傳統的防火牆已不足以應對現代威脅，深度探討為何「永不信任，始終驗證」是唯一解方。
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-semibold text-sm hover:underline">
+                            閱讀更多 <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700 hover-lift group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="VR" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <span class="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">VR/AR</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
+                            <i class="fa-regular fa-calendar mr-1"></i> 1天前
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                            <a href="#">Apple Vision Pro 半年回顧：殺手級應用在哪？</a>
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4">
+                            硬體規格無懈可擊，但生態系是否跟上了？開發者與用戶的真實反饋彙整。
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-semibold text-sm hover:underline">
+                            閱讀更多 <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Sidebar (Right Column) -->
+            <aside class="space-y-8">
+                
+                <!-- Newsletter Box -->
+                <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-xl p-6 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mr-4 -mt-4 w-24 h-24 bg-primary rounded-full opacity-20 blur-2xl"></div>
+                    <h3 class="text-lg font-bold mb-2">每週科技精選</h3>
+                    <p class="text-slate-300 text-sm mb-4">不錯過任何重大科技突破，每週一早上準時發送。</p>
+                    <form class="space-y-3" onsubmit="event.preventDefault(); alert('感謝您的訂閱！');">
+                        <input type="email" placeholder="您的 Email 地址" class="w-full px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+                        <button type="submit" class="w-full bg-primary hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition-colors text-sm">
+                            立即訂閱
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Trending Topics -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-6 shadow-sm">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white border-l-4 border-primary pl-3">熱門話題</h3>
+                    <div class="space-y-4">
+                        <a href="#" class="group flex items-start gap-3">
+                            <span class="text-2xl font-bold text-gray-200 dark:text-slate-600 group-hover:text-primary transition-colors">01</span>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">Android 15 新功能預覽</h4>
+                                <span class="text-xs text-gray-500">3.5k 閱讀</span>
+                            </div>
+                        </a>
+                        <hr class="border-gray-100 dark:border-slate-700">
+                        <a href="#" class="group flex items-start gap-3">
+                            <span class="text-2xl font-bold text-gray-200 dark:text-slate-600 group-hover:text-primary transition-colors">02</span>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">SpaceX 星艦第 4 次試飛</h4>
+                                <span class="text-xs text-gray-500">2.8k 閱讀</span>
+                            </div>
+                        </a>
+                        <hr class="border-gray-100 dark:border-slate-700">
+                        <a href="#" class="group flex items-start gap-3">
+                            <span class="text-2xl font-bold text-gray-200 dark:text-slate-600 group-hover:text-primary transition-colors">03</span>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">Python vs Rust：誰是贏家？</h4>
+                                <span class="text-xs text-gray-500">2.1k 閱讀</span>
+                            </div>
+                        </a>
+                        <hr class="border-gray-100 dark:border-slate-700">
+                        <a href="#" class="group flex items-start gap-3">
+                            <span class="text-2xl font-bold text-gray-200 dark:text-slate-600 group-hover:text-primary transition-colors">04</span>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">電動車電池技術大突破</h4>
+                                <span class="text-xs text-gray-500">1.9k 閱讀</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tags Cloud -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 p-6 shadow-sm">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white border-l-4 border-secondary pl-3">標籤雲</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-full text-xs hover:bg-primary hover:text-white dark:hover:bg-primary cursor-pointer transition-colors">#ChatGPT</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-full text-xs hover:bg-primary hover:text-white dark:hover:bg-primary cursor-pointer transition-colors">#iPhone</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-full text-xs hover:bg-primary hover:text-white dark:hover:bg-primary cursor-pointer transition-colors">#Tesla</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-full text-xs hover:bg-primary hover:text-white dark:hover:bg-primary cursor-pointer transition-colors">#Web3</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-full text-xs hover:bg-primary hover:text-white dark:hover:bg-primary cursor-pointer transition-colors">#Startup</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-full text-xs hover:bg-primary hover:text-white dark:hover:bg-primary cursor-pointer transition-colors">#Coding</span>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mr-2 text-white font-bold">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <span class="font-bold text-xl text-gray-900 dark:text-white">TechNova</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">
+                        連結科技與生活的橋樑，為您帶來最即時、最深入的科技觀點。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors"><i class="fa-brands fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors"><i class="fa-brands fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-4">探索</h4>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="#" class="hover:text-primary">人工智慧</a></li>
+                        <li><a href="#" class="hover:text-primary">區塊鏈技術</a></li>
+                        <li><a href="#" class="hover:text-primary">綠色能源</a></li>
+                        <li><a href="#" class="hover:text-primary">5G 通訊</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-4">公司</h4>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="#" class="hover:text-primary">關於我們</a></li>
+                        <li><a href="#" class="hover:text-primary">加入團隊</a></li>
+                        <li><a href="#" class="hover:text-primary">廣告合作</a></li>
+                        <li><a href="#" class="hover:text-primary">隱私權政策</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-4">聯絡我們</h4>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                        <li class="flex items-center"><i class="fa-regular fa-envelope mr-2"></i> contact@technova.com</li>
+                        <li class="flex items-center"><i class="fa-solid fa-location-dot mr-2"></i> 台北市信義區科技路 88 號</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-100 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-400 text-center md:text-left">
+                    &copy; 2024 TechNova Inc. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0 text-sm text-gray-400">
+                    <a href="#" class="hover:text-gray-600 dark:hover:text-gray-200">條款</a>
+                    <a href="#" class="hover:text-gray-600 dark:hover:text-gray-200">Cookie 設定</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+        
+        // Function to set theme
+        function setTheme(isDark) {
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        // Initialize theme based on local storage or system preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            setTheme(true);
+        } else {
+            setTheme(false);
+        }
+
+        // Event Listeners for Toggles
+        themeToggleBtn.addEventListener('click', () => {
+            setTheme(!document.documentElement.classList.contains('dark'));
+        });
+        
+        if(mobileThemeToggleBtn) {
+            mobileThemeToggleBtn.addEventListener('click', () => {
+                setTheme(!document.documentElement.classList.contains('dark'));
+            });
+        }
+
+        // Navbar Blur Effect on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
