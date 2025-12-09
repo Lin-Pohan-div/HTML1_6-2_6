@@ -1,6 +1,6 @@
 		/* Reset & base */
 		:root{
-			--bg:#fafafa;
+			/* --bg:#fafafa; */
 			--muted:#8a8a8a;
 			--accent:#222;
 			--accent-2:#111;
@@ -125,8 +125,8 @@
 		}
 		.dest-card{
 			background:var(--card);
-			padding:12px;
-			border-radius:12px;
+			padding:16px;
+			border-radius:16px;
 		}
 		.dest-card .img{height:140px;background:#ddd;border-radius:10px;margin-bottom:8px}
 		.dest-title{font-weight:700;font-size:14px}
