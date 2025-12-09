@@ -10,15 +10,20 @@
 </head>
 
 <body>
-    <header style="background-color: aqua;">
-        <div class="container header">
+    <header class="site-header" role="banner" aria-label="主導覽">
+        <div class="container header-inner">
             <div class="logo">Logo</div>
+
             <nav class="nav" role="navigation" aria-label="主選單">
                 <a href="#">Destinations</a>
                 <a href="#">Stories</a>
                 <a href="#">Plan</a>
                 <a href="#">About</a>
             </nav>
+
+            <div style="display:flex;gap:12px;align-items:center">
+                <button class="signin-btn" aria-label="sign in">Sign in</button>
+            </div>
         </div>
     </header>
 </body>
