@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Discover the World's Hidden Wonders</title>
+    <link rel="stylesheet" href="./practice3.css">
+    <link rel="stylesheet" href="../example/example6.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <div class="nav-left">
+                <div class="logo">Logo</div>
+                <nav class="nav-links" aria-label="主選單">
+                    <a href="#">新聞</a>
+                    <a href="#">深度專題</a>
+                    <a href="#">社群</a>
+                    <a href="#">活動</a>
+                </nav>
+            </div>
+            <div class="nav-actions">
+                <button class="btn">登入</button>
+                <!-- <button class="btn primary">Start</button> -->
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            </div>
+        </div>
+        <!-- 行動裝置選單 -->
+        <div class="container drawer" id="drawer" role="menu" aria-label="行動裝置選單">
+            <a href="#">新聞</a>
+            <a href="#">深度專題</a>
+            <a href="#">社群</a>
+            <a href="#">活動</a>
+            <button class="btn">Sign in</button>
+            <!-- <button class="btn primary">Start</button> -->
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-bg" aria-hidden="true"></div>
+            <div class="hero-inner">
+                <div>
+                    <h1>探索科技的無限邊界</h1>
+                    <p class="muted">深入了解 AI 革命、量子計算與未來的數位趨勢，帶您掌握第一手科技脈動。</p>
+                    <div class="hero-cta">
+                        <button class="btn primary">閱讀焦點報導</button>
+                        <button class="btn">Explore</button>
+                    </div>
+                </div>
+                <div class="card-grid">
+                    <!-- <div class="ph-card">Image</div> -->
+                    <!-- <div class="ph-card">Image</div> -->
+                    <!-- <div class="ph-card">Image</div> -->
+                    <!-- <div class="ph-card">Image</div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Destinations -->
+        <section>
+            <div class="section-head">
+                <div class="section-title">最新趨勢</div>
+                <button class="pill">Explore all destinations</button>
+            </div>
+            <div class="dest-toolbar">
+                <span class="muted">Popular</span>
+                <div class="dropdown" id="destDropdown">
+                    <button class="dropdown-btn" id="ddBtn" aria-haspopup="menu" aria-expanded="false">時事焦點
+                        ▾</button>
+                    <div class="dropdown-menu" id="ddMenu" role="menu" aria-label="Filter destinations">
+                        <button data-filter="popular">時事焦點</button>
+                        <button data-filter="Tech">白話科技</button>
+                        <button data-filter="nature">前端科技</button>
+                        <button data-filter="cities">產業應用</button>
+                        <button data-filter="beach">數位生活</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dest-grid" id="destGrid">
+                <!-- ...existing code... -->
+                <!-- for data-filter="popular"-->
+                <div class="dest-card" data-type="popular">
+                    <div class="dest-media">#####</div>
+                    <div class="dest-body">
+                        <div class="dest-title">##########</div>
+                        <div class="dest-sub">Vietnam</div>
+                    </div>
+                </div>
+                <div class="dest-card" data-type="popular">
+                    <div class="dest-media">Dublin</div>
+                    <div class="dest-body">
+                        <div class="dest-title">Dublin</div>
+                        <div class="dest-sub">Ireland</div>
+                    </div>
+                </div>
+                <div class="dest-card" data-type="popular">
+                    <div class="dest-media">Her Āo Suilven</div>
+                    <div class="dest-body">
+                        <div class="dest-title">Her Āo Suilven</div>
+                        <div class="dest-sub">Scotland</div>
+                    </div>
+                </div>
+                <div class="dest-card" data-type="popular">
+                    <div class="dest-media">Sydney Harbour Bridge</div>
+                    <div class="dest-body">
+                        <div class="dest-title">Sydney Harbour Bridge</div>
+                        <div class="dest-sub">Australia</div>
+                    </div>
+                </div>
+                <!-- ...existing code... -->
+                <!-- for data-filter="Tech"-->
+                <div class="dest-card" data-type="Tech">
+                    <div class="dest-media">#####</div>
+                    <div class="dest-body">
+                        <div class="dest-title">##########</div>
+                        <div class="dest-sub">Vietnam</div>
+                    </div>
+                </div>
+                <div class="dest-card" data-type="Tech">
+                    <div class="dest-media">Dublin</div>
+                    <div class="dest-body">
+                        <div class="dest-title">Dublin</div>
+                        <div class="dest-sub">Ireland</div>
+                    </div>
+                </div>
+                <div class="dest-card" data-type="Tech">
+                    <div class="dest-media">Her Āo Suilven</div>
+                    <div class="dest-body">
+                        <div class="dest-title">Her Āo Suilven</div>
+                        <div class="dest-sub">Scotland</div>
+                    </div>
+                </div>
+                <div class="dest-card" data-type="Tech">
+                    <div class="dest-media">Sydney Harbour Bridge</div>
+                    <div class="dest-body">
+                        <div class="dest-title">Sydney Harbour Bridge</div>
+                        <div class="dest-sub">Australia</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Stories -->
+        <!-- <section>
+            <div class="section-head">
+                <div class="section-title">Latest Stories</div>
+                <button class="pill" id="readMore">Read more articles</button>
+            </div>
+            <div class="story-media">
+                <div class="story-media"> -->
+        <!-- <div class="story-media">Image</div> -->
+        <!-- <div class="story-body">
+                        <div class="story-meta">Food and Drinks · Aug 10, 2024 · 4 min read</div>
+                        <div class="story-title">Los Angeles food & drink guide: 10 things to try in Los Angeles,
+                            California</div>
+                        <p class="muted">在洛杉磯，任何味道都有可能出現，從融合、創新到經典，為你的味蕾帶來驚喜。</p>
+                    </div> -->
+        <!-- </div>
+                <div class="story-list" id="storyList">
+                    <div class="story-small">
+                        <div class="story-media">Image</div>
+                        <div class="story-body">
+                            <div class="story-meta">Shopping · 6 min read</div>
+                            <div class="story-title">15 South London Markets You'll Love</div>
+                        </div>
+                    </div>
+                    <div class="story-small">
+                        <div class="story-media">Image</div>
+                        <div class="story-body">
+                            <div class="story-meta">Hotels · 7 min read</div>
+                            <div class="story-title">10 incredible hotels around the world</div>
+                        </div>
+                    </div>
+                    <div class="story-small">
+                        <div class="story-media">Image</div>
+                        <div class="story-body">
+                            <div class="story-meta">Travel Budget · 8 min read</div>
+                            <div class="story-title">Visiting Chicago on a Budget</div>
+                        </div>
+                    </div> -->
+
+        <!-- Top Destinations -->
+        <section class="container section">
+            <div class="section-header">
+                <h2>產業應用</h2>
+                <div class="filter-row" role="tablist" aria-label="篩選">
+                    <!-- <span>Popular</span>
+                                <span style="padding-left:8px">Asia</span>
+                                <span style="padding-left:8px">Europe</span> -->
+                    <button class="signin-btn" style="background:#fff;border:1px solid #ddd">Explore all
+                        destinations</button>
+                </div>
+            </div>
+
+            <div class="card-grid" aria-live="polite">
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Golden Bridge, Bà Nà Hills</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Vietnam</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Durmitor</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Montenegro</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Hot Air Balloon Cappadocia</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Turkey</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Sydney Harbour Bridge</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Australia</div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Top Destinations2 -->
+        <section class="container section">
+            <div class="section-header">
+                <h2>未來商務</h2>
+                <div class="filter-row" role="tablist" aria-label="篩選">
+                    <!-- <span>Popular</span>
+                                <span style="padding-left:8px">Asia</span>
+                                <span style="padding-left:8px">Europe</span> -->
+                    <button class="signin-btn" style="background:#fff;border:1px solid #ddd">Explore all
+                        destinations</button>
+                </div>
+            </div>
+
+            <div class="card-grid" aria-live="polite">
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Golden Bridge, Bà Nà Hills</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Vietnam</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Durmitor</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Montenegro</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Hot Air Balloon Cappadocia</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Turkey</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Sydney Harbour Bridge</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Australia</div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Top Destinations3 -->
+        <section class="container section">
+            <div class="section-header">
+                <h2>新零售</h2>
+                <div class="filter-row" role="tablist" aria-label="篩選">
+                    <!-- <span>Popular</span>
+                                <span style="padding-left:8px">Asia</span>
+                                <span style="padding-left:8px">Europe</span> -->
+                    <button class="signin-btn" style="background:#fff;border:1px solid #ddd">Explore all
+                        destinations</button>
+                </div>
+            </div>
+
+            <div class="card-grid" aria-live="polite">
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Golden Bridge, Bà Nà Hills</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Vietnam</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Durmitor</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Montenegro</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Hot Air Balloon Cappadocia</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Turkey</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Sydney Harbour Bridge</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Australia</div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Top Destinations4 -->
+        <section class="container section">
+            <div class="section-header">
+                <h2>創新創業</h2>
+                <div class="filter-row" role="tablist" aria-label="篩選">
+                    <!-- <span>Popular</span>
+                                <span style="padding-left:8px">Asia</span>
+                                <span style="padding-left:8px">Europe</span> -->
+                    <button class="signin-btn" style="background:#fff;border:1px solid #ddd">Explore all
+                        destinations</button>
+                </div>
+            </div>
+
+            <div class="card-grid" aria-live="polite">
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Golden Bridge, Bà Nà Hills</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Vietnam</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Durmitor</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Montenegro</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Hot Air Balloon Cappadocia</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Turkey</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Sydney Harbour Bridge</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Australia</div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Top Destinations5 -->
+        <section class="container section">
+            <div class="section-header">
+                <h2>行銷與Martech</h2>
+                <div class="filter-row" role="tablist" aria-label="篩選">
+                    <!-- <span>Popular</span>
+                                <span style="padding-left:8px">Asia</span>
+                                <span style="padding-left:8px">Europe</span> -->
+                    <button class="signin-btn" style="background:#fff;border:1px solid #ddd">Explore all
+                        destinations</button>
+                </div>
+            </div>
+
+            <div class="card-grid" aria-live="polite">
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Golden Bridge, Bà Nà Hills</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Vietnam</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Durmitor</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Montenegro</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Hot Air Balloon Cappadocia</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Turkey</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Sydney Harbour Bridge</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Australia</div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Top Destinations6 -->
+        <section class="container section">
+            <div class="section-header">
+                <h2>程式開發</h2>
+                <div class="filter-row" role="tablist" aria-label="篩選">
+                    <!-- <span>Popular</span>
+                                <span style="padding-left:8px">Asia</span>
+                                <span style="padding-left:8px">Europe</span> -->
+                    <button class="signin-btn" style="background:#fff;border:1px solid #ddd">Explore all
+                        destinations</button>
+                </div>
+            </div>
+
+            <div class="card-grid" aria-live="polite">
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Golden Bridge, Bà Nà Hills</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Vietnam</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Durmitor</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Montenegro</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Hot Air Balloon Cappadocia</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Turkey</div>
+                </article>
+                <article class="dest-card">
+                    <div class="img placeholder">Image</div>
+                    <div class="dest-title">Sydney Harbour Bridge</div>
+                    <div class="muted" style="color:var(--muted);font-size:13px">Australia</div>
+                </article>
+            </div>
+        </section>
+        <!-- 更多項目（初始隱藏，由 JS 展開） -->
+        <!-- <div class="story-small" data-extra hidden>
+                        <div class="story-media">Image</div>
+                        <div class="story-body">
+                            <div class="story-meta">Museums · 5 min read</div>
+                            <div class="story-title">Underrated museums you should visit</div>
+                        </div>
+                    </div>
+                    <div class="story-small" data-extra hidden>
+                        <div class="story-media">Image</div>
+                        <div class="story-body">
+                            <div class="story-meta">Hiking · 9 min read</div>
+                            <div class="story-title">Hidden trails in the Alps</div>
+                        </div>
+                    </div> -->
+        </div>
+        </div>
+        </section>
+
+        <!-- Trekker’s Highlights -->
+        <section>
+            <div class="section-head">
+                <div class="section-title"> 深度專題</div>
+                <button class="pill" id="swapHighlight">See the best picks</button>
+            </div>
+            <div class="highlights" id="highlights">
+                <div class="hl-profile">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+                        <div
+                            style="width:46px;height:46px;border-radius:50%;background:var(--card);border:1px solid var(--border)">
+                        </div>
+                        <div>
+                            <div style="font-weight:600">編輯部</div>
+                            <div class="muted" style="font-size:12px">2023-10-25 ★★★★☆</div>
+                        </div>
+                    </div>
+                    <p class="muted">生成式 AI 如何改變程式開發？隨著 Copilot 與 ChatGPT 的普及，工程師的角色正在發生轉變。本文將探討 AI 輔助編碼的利與弊...</p>
+                    <button class="btn" style="margin-top:6px">Read more</button>
+                </div>
+                <div class="hl-card">
+                    <div class="hl-media">Image</div>
+                    <div class="hl-body">
+                        <div class="dest-title">零信任架構：企業資安新標準</div>
+                        <p class="muted">傳統的邊界防禦已不足以應對現代威脅。「永不信任，始終驗證」成為了新的資安顯學。</p>
+                    </div>
+                </div>
+                <div class="hl-card">
+                    <div class="hl-media">▶ Video</div>
+                    <div class="hl-body">
+                        <div class="dest-title">Apple Vision Pro 實測心得</div>
+                        <p class="muted">空間運算時代真的來臨了嗎？我們親自體驗了這款跨時代的裝置，並為您帶來最真實的測評。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <h3>掌握最新科技脈動</h3>
+            <p class="muted">每週一早上，將最重要的科技新聞與趨勢分析直接寄送到您的信箱。</p>
+            <div class="subscribe">
+                <input class="input" type="email" id="email" placeholder="you@example.com" />
+                <button class="btn primary" id="subscribeBtn">Subscribe</button>
+            </div>
+            <div id="subMsg" class="muted" style="margin-top:8px"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="foot-col">
+                <div class="logo">Logo</div>
+                <p class="muted">Follow us on</p>
+                <div style="display:flex;gap:8px">
+                    <div class="ph-card" style="width:36px;height:36px">F</div>
+                    <div class="ph-card" style="width:36px;height:36px">T</div>
+                    <div class="ph-card" style="width:36px;height:36px">I</div>
+                    <div class="ph-card" style="width:36px;height:36px">Y</div>
+
+                </div>
+            </div>
+            <div class="foot-col">
+                <h4>About us</h4>
+                <a href="#" class="muted">Company</a><br />
+                <a href="#" class="muted">Team</a><br />
+                <a href="#" class="muted">Careers</a>
+            </div>
+            <div class="foot-col">
+                <h4>Travel Guides</h4>
+                <a href="#" class="muted">Cities</a><br />
+                <a href="#" class="muted">Nature</a><br />
+                <a href="#" class="muted">Budget</a>
+            </div>
+            <div class="foot-col">
+                <h4>Resources</h4>
+                <a href="#" class="muted">Blog</a><br />
+                <a href="#" class="muted">Help Center</a><br />
+                <a href="#" class="muted">Contact</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // 手機選單開合 + 可存取性
+        const hamburger = document.querySelector('.hamburger');
+        const drawer = document.getElementById('drawer');
+        function toggleDrawer(open) {
+            const isOpen = open ?? (getComputedStyle(drawer).display === 'none');
+            drawer.style.display = isOpen ? 'flex' : 'none';
+            hamburger.setAttribute('aria-expanded', String(isOpen));
+            if (isOpen) drawer.querySelector('a,button')?.focus();
+        }
+        hamburger.addEventListener('click', () => toggleDrawer());
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') toggleDrawer(false);
+        });
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) { drawer.style.display = 'none'; hamburger.setAttribute('aria-expanded', 'false'); }
+        });
+
+        // 目的地下拉篩選
+        const ddBtn = document.getElementById('ddBtn');
+        const ddMenu = document.getElementById('ddMenu');
+        const destGrid = document.getElementById('destGrid');
+        ddBtn.setAttribute('aria-haspopup', 'menu');
+        ddBtn.setAttribute('aria-expanded', 'false');
+        ddBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const open = ddMenu.style.display !== 'block';
+            ddMenu.style.display = open ? 'block' : 'none';
+            ddBtn.setAttribute('aria-expanded', String(open));
+        });
+        document.addEventListener('click', () => { ddMenu.style.display = 'none'; ddBtn.setAttribute('aria-expanded', 'false'); });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') { ddMenu.style.display = 'none'; ddBtn.setAttribute('aria-expanded', 'false'); ddBtn.focus(); }
+        });
+        ddMenu.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                ddBtn.textContent = btn.textContent + ' ▾';
+                destGrid.querySelectorAll('.dest-card').forEach(card => {
+                    card.style.display = (filter === 'popular') ? '' : (card.dataset.type === filter ? '' : 'none');
+                });
+                ddMenu.style.display = 'none';
+                ddBtn.setAttribute('aria-expanded', 'false');
+                ddBtn.focus();
+            });
+        });
+
+        // 最新文章展開
+        const readMore = document.getElementById('readMore');
+        const storyList = document.getElementById('storyList');
+        readMore.addEventListener('click', () => {
+            storyList.querySelectorAll('[data-extra]').forEach(el => el.hidden = false);
+            readMore.disabled = true;
+            readMore.textContent = 'All caught up';
+        });
+
+        // Highlights 簡易切換
+        const swapBtn = document.getElementById('swapHighlight');
+        const hl = document.getElementById('highlights');
+        let swapped = false;
+        swapBtn.addEventListener('click', () => {
+            swapped = !swapped;
+            const cards = hl.querySelectorAll('.hl-card .hl-media');
+            cards.forEach((m, i) => {
+                m.textContent = swapped ? (i === 0 ? '▶ Video' : 'Image') : (i === 0 ? 'Image' : '▶ Video');
+            });
+        });
+
+        // Newsletter 訂閱（假驗證）
+        const emailInput = document.getElementById('email');
+        const subscribeBtn = document.getElementById('subscribeBtn');
+        const subMsg = document.getElementById('subMsg');
+        subscribeBtn.addEventListener('click', () => {
+            const email = emailInput.value.trim();
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                subMsg.textContent = '請輸入有效的 Email。';
+                subMsg.style.color = 'red';
+            } else {
+                subMsg.textContent = '訂閱成功！請至信箱確認。';
+                subMsg.style.color = 'green';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

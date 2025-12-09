@@ -1,0 +1,109 @@
+:root{
+	--bg:#f5f5f5;
+	--card:#e6e6e6;
+	--muted:#8a8a8a;
+	--text:#111;
+	--accent:#333;
+	--container:1100px;
+}
+*{box-sizing:border-box}
+body{
+	font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	margin:0;
+	color:var(--text);
+	background:var(--bg);
+	line-height:1.4;
+}
+.container{
+	max-width:var(--container);
+	margin:0 auto;
+	padding:0 20px;
+}
+
+/* header */
+.site-header{background:#fff;border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:20}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.logo{font-weight:700}
+.main-nav{display:flex;gap:18px}
+.main-nav a{color:var(--muted);text-decoration:none;font-size:14px}
+.actions .btn.ghost{background:transparent;border:1px solid #ddd;padding:8px 12px;border-radius:20px}
+
+/* hero */
+.hero{padding:48px 0}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
+.hero-content h1{font-size:40px;margin:0 0 12px}
+.lead{color:var(--muted);max-width:520px;margin-bottom:18px}
+.btn{padding:12px 20px;border-radius:28px;border:0;cursor:pointer}
+.btn.primary{background:#222;color:#fff}
+.media-stack{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.media{background:var(--card);width:220px;height:140px;display:flex;align-items:center;justify-content:center;border-radius:12px;color:var(--muted)}
+.media.large{width:320px;height:220px}
+.media.small{width:180px;height:100px}
+.media.alt{transform:translateY(12px)}
+
+/* sections */
+.section{padding:36px 0}
+.section-title{font-size:22px;margin:0 0 12px}
+
+/* tabs */
+.tabs{display:flex;gap:8px;margin-bottom:18px}
+.tab{background:transparent;border:1px solid #ddd;padding:8px 12px;border-radius:20px}
+.tab.active{background:#fff;border-color:#bbb}
+
+/* cards grid */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fff;padding:12px;border-radius:10px;box-shadow:0 1px 0 rgba(0,0,0,0.03)}
+.thumb{background:var(--card);height:140px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);margin-bottom:10px}
+.card h3{margin:0 0 6px;font-size:16px}
+.muted{color:var(--muted);font-size:13px}
+
+/* stories layout */
+.stories-layout{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+.story-large .thumb.large{height:220px}
+.story-list{display:flex;flex-direction:column;gap:12px}
+.story-small{background:#fff;padding:10px;border-radius:8px;display:flex;gap:10px;align-items:center}
+.story-small .thumb.small{width:72px;height:72px}
+
+/* trekkers */
+.trekkers{padding-bottom:18px}
+.trekker-grid{display:flex;gap:18px;align-items:flex-start}
+.profile{display:flex;gap:12px;align-items:flex-start}
+.avatar{width:56px;height:56px;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.highlight-cards{display:flex;gap:12px}
+.card.medium .thumb{height:140px;width:220px}
+
+/* CTA subscribe */
+.cta-subscribe{background:#d9d9d9;padding:36px 0;margin-top:18px}
+.cta-inner{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
+.subscribe-form{display:flex;gap:12px;width:100%;max-width:640px}
+.subscribe-form input{flex:1;padding:12px;border-radius:28px;border:1px solid #cfcfcf}
+.subscribe-form .btn.primary{border-radius:28px}
+
+/* footer */
+.site-footer{background:#fff;padding:32px 0;border-top:1px solid #e6e6e6;margin-top:24px}
+.footer-grid{display:grid;grid-template-columns:1fr repeat(3,1fr);gap:24px}
+.footer-col h4{margin:0 0 8px}
+.footer-col ul{list-style:none;padding:0;margin:0}
+.footer-col a{color:var(--muted);text-decoration:none;font-size:14px}
+
+/* responsive */
+@media (max-width:900px){
+	.hero-grid{grid-template-columns:1fr 300px}
+	.grid-4{grid-template-columns:repeat(2,1fr)}
+	.stories-layout{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+	.header-inner{padding:12px 0}
+	.main-nav{display:none}
+	.hero-grid{grid-template-columns:1fr;gap:16px}
+	.media.large{width:100%;height:160px}
+	.media.small{width:140px;height:88px}
+	.grid-4{grid-template-columns:1fr}
+	.story-small{flex-direction:row}
+	.trekker-grid{flex-direction:column}
+	.footer-grid{grid-template-columns:1fr 1fr}
+	.section{padding:18px 0}
+	.hero-content h1{font-size:28px}
+	.cta-inner{padding:12px}
+	.subscribe-form{flex-direction:column;align-items:stretch}
+}
