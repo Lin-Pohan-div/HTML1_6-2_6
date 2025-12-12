@@ -1,27 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template Engine and Web Components practice</title>
-    <link rel="stylesheet" href="../../BS_網頁練習_參考/css/style.css">
-    <link rel="stylesheet" href="../../BS_網頁練習_參考/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="../../BS_網頁練習_參考/css/style.css">
+    <link rel="stylesheet" href="../../BS_網頁練習_參考/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="js_template.css">
 </head>
-<body>
-    <header>
-        <slot name="header"></slot>
+
+<body style="background: cadetblue;">
+
+    <header class="site-header" role="banner" aria-label="主導覽">
+        <div class="header-inner">
+            <div class="logo" style="left:12px">Logo</div>
+
+            <nav class="nav-links" role="navigation" aria-label="主選單">
+                <a href="#">Destinations</a>
+                <a href="#">Stories</a>
+                <a href="#">Plan</a>
+                <a href="#">About</a>
+            </nav>
+
+            <div style="display:flex;gap:12px;align-items:end">
+                <button class="signin-btn" aria-label="sign in">Sign in</button>
+            </div>
+        </div>
     </header>
 
+
     <main>
-        <section class="hero-bg nav_list" id="hero_page">
-            <nav>
-                <ul class="nav_list">
-                    <li class="nav_item"><a href="../../BS_網頁練習_參考/index.html">回首頁</a></li>
-                    <li class="nav_item"><a href="../html_template.html">HTML Template</a></li>
-                    <li class="nav_item"><a href="js_template.html">JS Template</a></li>
-                    <li class="nav_item"><a href="web_components.html">Web Components</a></li>
-                </ul>
-            </nav>
+        <section class="header" id="hero">
+            <br>
+
+
+            <!-- <article class="card" role="article">
+                <img class="card-img-top" src="https://picsum.photos/seed/1/300/200" alt="Sample Image">
+                <div class="card-body">
+                    <h3 class="card-title">Sample Card</h3>
+                    <h5 class="card-text">This is a sample card to demonstrate structure and accessibility.</h5>
+                    <h6 class="card-meta" aria-label="published date">Published <time datetime="2025-12-12">Dec 12,
+                            2025</time></h6>
+                    <a class="btn" href="#" aria-label="more about">more about</a>
+                </div>
+            </article> -->
+            <template id="card-template">
+                <article class="card" role="article">
+                    <img class="card-img-top" src="" alt="" style="width:100%;height:auto;border-radius:14px;">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>   
+                        <a class="btn btn-primary" href="#">Go somewhere</a>
+                    </div>
+                </article>
+
+            </template>
+
+
         </section>
 
         <!-- card section => will reusable often -->
@@ -31,5 +67,47 @@
 
 
     </main>
+
+    <!-- <template id="card-template">
+        <article class="card" role="article">
+            <img class="card-img-top" src="" alt="" style="width:100%;height:auto;border-radius:14px;">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <a class="btn btn-primary" href="#">Go somewhere</a>
+            </div>
+        </article>
+    </template> -->
+
+    <div id="cards-container" style="display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;"></div>
+    <script>
+        (function () {
+            const data = [
+                { img: 'https://picsum.photos/seed/1/300/180', title: 'Coastal Escape', text: 'Sun, sand and sea.', href: '#dest1' },
+                { img: 'https://picsum.photos/seed/2/300/180', title: 'Mountain Hike', text: 'Trails and scenic views.', href: '#dest2' },
+                { img: 'https://picsum.photos/seed/3/300/180', title: 'City Break', text: 'Explore urban life and cuisine.', href: '#dest3' }
+            ];
+
+            const tpl = document.getElementById('card-template');
+            const container = document.getElementById('cards-container');
+
+            data.forEach(item => {
+                const clone = tpl.content.cloneNode(true);
+                const img = clone.querySelector('.card-img-top');
+                const title = clone.querySelector('.card-title');
+                const text = clone.querySelector('.card-text');
+                const link = clone.querySelector('a');
+
+                img.src = item.img;
+                img.alt = item.title;
+                title.textContent = item.title;
+                text.textContent = item.text;
+                link.href = item.href;
+
+                container.appendChild(clone);
+            });
+        })();
+    </script>
 </body>
+
 </html>
