@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Engine and Web Components practice</title>
+    <link rel="stylesheet" href="../../BS_網頁練習_參考/css/style.css">
+    <link rel="stylesheet" href="../../BS_網頁練習_參考/css/bootstrap.css">
+</head>
+<body>
+    <header>
+        <slot name="header"></slot>
+    </header>
+
+    <main>
+        <section class="hero-bg nav_list" id="hero_page">
+            <nav>
+                <ul class="nav_list">
+                    <li class="nav_item"><a href="../../BS_網頁練習_參考/index.html">回首頁</a></li>
+                    <li class="nav_item"><a href="../html_template.html">HTML Template</a></li>
+                    <li class="nav_item"><a href="js_template.html">JS Template</a></li>
+                    <li class="nav_item"><a href="web_components.html">Web Components</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- card section => will reusable often -->
+        <section>
+
+        </section>
+
+
+    </main>
+</body>
+</html>
