@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即時新聞</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <div>
+                    <!-- Logo -->
+                    <div>
+                        <style>
+                            .subscribe-LogoButton {
+                                margin-left: auto;
+                                background: #2b6df6;
+                                color: #fff;
+                                border: none;
+                                padding: 10px 14px;
+                                border-radius: 999px;
+                                font-weight: 700;
+                                cursor: pointer;
+                                box-shadow: 0 8px 24px rgba(43, 132, 242, .18);
+                            }
+
+                            .Logo {
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 6px;
+                                display: block;
+                            }
+
+                            .Logo-styleOne {
+                                font-weight: 800;
+                                color: #111;
+                            }
+
+                            .Logo-styleTwo {
+                                font-weight: 800;
+                                color: #72caff;
+                            }
+                        </style>
+                        <div class="brand-row" style="display:flex;align-items:center;gap:12px;width:100%;">
+                            <a href="http://127.0.0.1:5501/%E5%B0%8F%E5%B0%88/webpage_1215.html"
+                                style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+                                <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
+                                    alt="Logo" class="Logo">
+                                <span class="Logo-styleOne">Lorem Ipsum<span class="Logo-styleTwo">Lorem
+                                        Ipsum</span></span>
+                            </a>
+
+                            <button type="button" onclick="openModal()" aria-label="訂閱週報" title="訂閱週報"
+                                class="subscribe-LogoButton">
+                                訂閱週報
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 電腦版選單 -->
+                    <div>
+                        <style>
+                            .nav-menu {
+                                display: flex;
+                                gap: 8px;
+                                align-items: center;
+                                flex-wrap: nowrap;
+                                /* 一列不換行 */
+                                justify-content: space-evenly;
+                                /* 平均分布 */
+                                width: 100%;
+                            }
+
+                            .dropdown {
+                                position: relative;
+                                flex: 1;
+                                text-align: center;
+                                min-width: 0;
+                            }
+
+                            .dropbtn {
+                                background: none;
+                                border: none;
+                                padding: 10px 12px;
+                                cursor: pointer;
+                                font-weight: 700;
+                                font-size: 1.1rem;
+                                /* 放大選單字體 */
+                                width: 100%;
+                                text-align: center;
+                            }
+
+                            /* 初始隱藏但可過渡顯示的下拉內容 */
+                            .dropdown-content {
+                                display: block;
+                                /* 固定為 block，透過高度/不透明度控制顯示 */
+                                position: absolute;
+                                left: 0;
+                                top: 100%;
+                                min-width: 160px;
+                                background: #fff;
+                                border: 1px solid #ddd;
+                                box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+                                z-index: 50;
+
+                                /* 動畫相關：起始為往上並透明 */
+                                opacity: 0;
+                                transform: translateY(-8px) scale(.98);
+                                transform-origin: top center;
+                                max-height: 0;
+                                overflow: hidden;
+                                pointer-events: none;
+                                transition: opacity .18s ease, transform .18s ease, max-height .22s ease;
+                            }
+
+                            .dropdown-content a {
+                                display: block;
+                                padding: 8px 12px;
+                                color: #222;
+                                text-decoration: none;
+                                font-size: 1rem;
+                                /* 放大下拉選單字體 */
+                            }
+
+                            .dropdown-content a:hover {
+                                background: #f5f5f5
+                            }
+
+                            /* hover 也使用相同的顯示效果 */
+                            .dropdown:hover .dropdown-content,
+                            .dropdown.open .dropdown-content {
+                                opacity: 1;
+                                transform: translateY(0) scale(1);
+                                max-height: 400px;
+                                /* 足夠顯示內容 */
+                                pointer-events: auto;
+                            }
+
+                            @media (max-width:768px) {
+
+                                /* 小螢幕改為水平滾動，避免過窄換行 */
+                                .nav-menu {
+                                    flex-direction: row;
+                                    align-items: center;
+                                    overflow-x: auto;
+                                    -webkit-overflow-scrolling: touch;
+                                    gap: 6px;
+                                    padding: 6px;
+                                }
+
+                                .dropdown {
+                                    flex: 0;
+                                    min-width: auto
+                                }
+
+                                .dropdown-content {
+                                    position: static;
+                                    border: none;
+                                    box-shadow: none;
+                                    transform: none;
+                                    opacity: 1;
+                                    max-height: none;
+                                    pointer-events: auto
+                                }
+                            }
+                        </style>
+
+                        <div class="nav-menu">
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">新聞</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#news-local">即時新聞</a>
+                                    <a href="#news-industry">產業快訊</a>
+                                    <a href="#news-analysis">深度解析</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">專題</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#feature-1">專題報導 A</a>
+                                    <a href="#feature-2">專題報導 B</a>
+                                    <a href="#feature-archive">歷史專題</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">計術</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#tech-howto">實作教學</a>
+                                    <a href="#tech-opinion">技術觀點</a>
+                                    <a href="#tech-tools">工具推薦</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">AI</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#ai-research">研究動態</a>
+                                    <a href="#ai-products">AI 新品</a>
+                                    <a href="#ai-ethics">倫理與法規</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Cloud</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#cloud-news">雲端新聞</a>
+                                    <a href="#cloud-guides">部署指南</a>
+                                    <a href="#cloud-cost">成本優化</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">永續IT</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#sustainability">綠色設計</a>
+                                    <a href="#sustainability-policy">政策趨勢</a>
+                                    <a href="#sustainability-cases">案例研究</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">醫療IT</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#medtech-news">醫療科技</a>
+                                    <a href="#medtech-standards">法規標準</a>
+                                    <a href="#medtech-startups">新創專區</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">資安</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#sec-alerts">資安警示</a>
+                                    <a href="#sec-bestpractices">最佳實務</a>
+                                    <a href="#sec-tools">工具與評測</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">研討會</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#events-upcoming">即將舉辦</a>
+                                    <a href="#events-recordings">錄影回放</a>
+                                    <a href="#events-apply">報名資訊</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">社群</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#community-forum">論壇</a>
+                                    <a href="#community-meetups">聚會活動</a>
+                                    <a href="#community-contribute">投稿指南</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            document.querySelectorAll('.dropbtn').forEach(btn => {
+                                btn.addEventListener('click', e => {
+                                    e.stopPropagation();
+                                    const parent = btn.parentElement;
+                                    const open = parent.classList.contains('open');
+                                    // 關閉所有
+                                    document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+                                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+                                    if (!open) {
+                                        parent.classList.add('open');
+                                        btn.setAttribute('aria-expanded', 'true');
+                                    }
+                                });
+                            });
+                            document.addEventListener('click', e => {
+                                if (!e.target.closest('.dropdown')) {
+                                    document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+                                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+                                }
+                            });
+                        </script>
+
+
+
+                        <script>
+                            // scroll to the subscribe section and focus the email input to avoid undefined function errors
+                            function openModal() {
+                                const section = document.getElementById('subscribe');
+                                if (section) {
+                                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    const input = section.querySelector('input[type="email"]');
+                                    if (input) input.focus();
+                                }
+                            }
+                        </script>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </nav>
+
+    </header>
+    <!-- 側邊欄 -->
+    <section id="sideBar">
+        <style>
+            /* The sidebar menu */
+            .sidebar {
+                height: 100%;
+                /* 100% Full-height */
+                width: 0;
+                /* 0 width - change this with JavaScript */
+                position: fixed;
+                /* Stay in place */
+                z-index: 1;
+                /* Stay on top */
+                top: 0;
+                left: 0;
+                background-color: #111;
+                /* Black*/
+                overflow-x: hidden;
+                /* Disable horizontal scroll */
+                padding-top: 60px;
+                /* Place content 60px from the top */
+                transition: 0.5s;
+                /* 0.5 second transition effect to slide in the sidebar */
+            }
+
+            /* The sidebar links */
+            .sidebar a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+            /* When you mouse over the navigation links, change their color */
+            .sidebar a:hover {
+                color: #f1f1f1;
+            }
+
+            /* Position and style the close button (top right corner) */
+            .sidebar .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+            /* The button used to open the sidebar */
+            .openbtn {
+                font-size: 20px;
+                cursor: pointer;
+                background-color: #111;
+                color: white;
+                padding: 10px 15px;
+                border: none;
+            }
+
+            .openbtn:hover {
+                background-color: #444;
+            }
+
+            /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+            #main {
+                transition: margin-left .5s;
+                /* If you want a transition effect */
+                padding: 20px;
+            }
+
+            /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+            @media screen and (max-height: 450px) {
+                .sidebar {
+                    padding-top: 15px;
+                }
+
+                .sidebar a {
+                    font-size: 18px;
+                }
+            }
+        </style>
+
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div id="main">
+            <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
+            <h2>Collapsed Sidebar</h2>
+            <p>Content...</p>
+        </div>
+        <script>
+            /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+            function openNav() {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+
+            /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+            function closeNav() {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+        </script>
+
+    </section>
+    <!-- 文字雲 -->
+    <!-- Tags Cloud -->
+
+    <main>
+        <!-- 圖片 -->
+        <section>
+
+        </section>
+
+        <!-- 文章內容 -->
+        <section>
+
+        </section>
+
+        <!-- 推薦內容 -->
+        <section>
+
+        </section>
+
+    </main>
+</body>
+
+</html>
