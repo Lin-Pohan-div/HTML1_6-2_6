@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 導覽列 (Navbar) -->
+    <header>
+        <nav>
+            <div>
+                <div>
+                    <!-- Logo -->
+                    <div>
+                        <a href="#">
+                            <i></i>
+                            <span>Tech<span>View</span></span>
+                        </a>
+                    </div>
+
+                    <!-- 電腦版選單 -->
+                    <div>
+                        <style>
+                            .nav-menu {
+                                display: flex;
+                                gap: 8px;
+                                align-items: center;
+                                flex-wrap: nowrap;
+                                /* 一列不換行 */
+                                justify-content: space-evenly;
+                                /* 平均分布 */
+                                width: 100%;
+                            }
+
+                            .dropdown {
+                                position: relative;
+                                flex: 1;
+                                text-align: center;
+                                min-width: 0;
+                            }
+
+                            .dropbtn {
+                                background: none;
+                                border: none;
+                                padding: 10px 12px;
+                                cursor: pointer;
+                                font-weight: 700;
+                                font-size: 1.1rem;
+                                /* 放大選單字體 */
+                                width: 100%;
+                                text-align: center;
+                            }
+
+                            /* 初始隱藏但可過渡顯示的下拉內容 */
+                            .dropdown-content {
+                                display: block;
+                                /* 固定為 block，透過高度/不透明度控制顯示 */
+                                position: absolute;
+                                left: 0;
+                                top: 100%;
+                                min-width: 160px;
+                                background: #fff;
+                                border: 1px solid #ddd;
+                                box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+                                z-index: 50;
+
+                                /* 動畫相關：起始為往上並透明 */
+                                opacity: 0;
+                                transform: translateY(-8px) scale(.98);
+                                transform-origin: top center;
+                                max-height: 0;
+                                overflow: hidden;
+                                pointer-events: none;
+                                transition: opacity .18s ease, transform .18s ease, max-height .22s ease;
+                            }
+
+                            .dropdown-content a {
+                                display: block;
+                                padding: 8px 12px;
+                                color: #222;
+                                text-decoration: none;
+                                font-size: 1rem;
+                                /* 放大下拉選單字體 */
+                            }
+
+                            .dropdown-content a:hover {
+                                background: #f5f5f5
+                            }
+
+                            /* hover 也使用相同的顯示效果 */
+                            .dropdown:hover .dropdown-content,
+                            .dropdown.open .dropdown-content {
+                                opacity: 1;
+                                transform: translateY(0) scale(1);
+                                max-height: 400px;
+                                /* 足夠顯示內容 */
+                                pointer-events: auto;
+                            }
+
+                            @media (max-width:768px) {
+
+                                /* 小螢幕改為水平滾動，避免過窄換行 */
+                                .nav-menu {
+                                    flex-direction: row;
+                                    align-items: center;
+                                    overflow-x: auto;
+                                    -webkit-overflow-scrolling: touch;
+                                    gap: 6px;
+                                    padding: 6px;
+                                }
+
+                                .dropdown {
+                                    flex: 0;
+                                    min-width: auto
+                                }
+
+                                .dropdown-content {
+                                    position: static;
+                                    border: none;
+                                    box-shadow: none;
+                                    transform: none;
+                                    opacity: 1;
+                                    max-height: none;
+                                    pointer-events: auto
+                                }
+                            }
+                        </style>
+
+                        <div class="nav-menu">
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">新聞</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#news-local">即時新聞</a>
+                                    <a href="#news-industry">產業快訊</a>
+                                    <a href="#news-analysis">深度解析</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">專題</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#feature-1">專題報導 A</a>
+                                    <a href="#feature-2">專題報導 B</a>
+                                    <a href="#feature-archive">歷史專題</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">計術</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#tech-howto">實作教學</a>
+                                    <a href="#tech-opinion">技術觀點</a>
+                                    <a href="#tech-tools">工具推薦</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">AI</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#ai-research">研究動態</a>
+                                    <a href="#ai-products">AI 新品</a>
+                                    <a href="#ai-ethics">倫理與法規</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Cloud</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#cloud-news">雲端新聞</a>
+                                    <a href="#cloud-guides">部署指南</a>
+                                    <a href="#cloud-cost">成本優化</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">永續IT</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#sustainability">綠色設計</a>
+                                    <a href="#sustainability-policy">政策趨勢</a>
+                                    <a href="#sustainability-cases">案例研究</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">醫療IT</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#medtech-news">醫療科技</a>
+                                    <a href="#medtech-standards">法規標準</a>
+                                    <a href="#medtech-startups">新創專區</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">資安</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#sec-alerts">資安警示</a>
+                                    <a href="#sec-bestpractices">最佳實務</a>
+                                    <a href="#sec-tools">工具與評測</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">研討會</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#events-upcoming">即將舉辦</a>
+                                    <a href="#events-recordings">錄影回放</a>
+                                    <a href="#events-apply">報名資訊</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">社群</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#community-forum">論壇</a>
+                                    <a href="#community-meetups">聚會活動</a>
+                                    <a href="#community-contribute">投稿指南</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            document.querySelectorAll('.dropbtn').forEach(btn => {
+                                btn.addEventListener('click', e => {
+                                    e.stopPropagation();
+                                    const parent = btn.parentElement;
+                                    const open = parent.classList.contains('open');
+                                    // 關閉所有
+                                    document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+                                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+                                    if (!open) {
+                                        parent.classList.add('open');
+                                        btn.setAttribute('aria-expanded', 'true');
+                                    }
+                                });
+                            });
+                            document.addEventListener('click', e => {
+                                if (!e.target.closest('.dropdown')) {
+                                    document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+                                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+                                }
+                            });
+                        </script>
+
+                        <!-- <button onclick="openModal()"
+                            class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition shadow-sm">
+                            訂閱週報
+                        </button> -->
+                    </div>
+
+                    <!-- 手機版選單按鈕 -->
+                    <!-- <div class="flex items-center md:hidden">
+                        <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none p-2">
+                            <i class="fa-solid fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div> -->
+
+                    <!-- 手機版下拉選單 (預設隱藏) -->
+                    <!-- <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#featured"
+                        class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">專題報導</a>
+                    <a href="#latest"
+                        class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">最新消息</a>
+                    <a href="#reviews"
+                        class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">產品評測</a>
+                    <button onclick="openModal()"
+                        class="w-full text-left block px-3 py-2 text-base font-medium text-blue-600 hover:bg-gray-50 rounded-md font-bold">
+                        訂閱週報
+                    </button>
+                </div>
+            </div> -->
+        </nav>
+    </header>
+    <!-- 主內容區 -->
+
+    <!-- 頭條新聞 (Hero Section) -->
+    <!-- Slideshow container -->
+    <section class="hero">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            /* Hero layout: slideshow left, list right */
+            .hero {
+                display: flex;
+                gap: 24px;
+                align-items: flex-start;
+                margin: 24px;
+                box-sizing: border-box;
+            }
+
+            /* slideshow and side will share 50/50 */
+            .slideshow-wrap,
+            .hero-side {
+                flex: 1 1 50%;
+                max-width: 50%;
+                min-width: 260px;
+                box-sizing: border-box;
+            }
+
+            /* Slideshow container */
+            .slideshow-container {
+                width: 100%;
+                position: relative;
+                border-radius: 12px;
+                overflow: hidden;
+                background: #111;
+            }
+
+            /* 確保圖片填滿容器並裁切 */
+            .slideshow-container img {
+                width: 100% ;
+                height: 400px;
+                object-fit: cover;
+                display: block;
+            }
+
+            /* Hide the images by default */
+            .mySlides {
+                display: none;
+            }
+
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                margin-top: -22px;
+                padding: 16px;
+                color: white;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+                background: rgba(0, 0, 0, 0.3);
+            }
+
+            .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+
+            .prev:hover,
+            .next:hover {
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+
+            .text {
+                color: #f2f2f2;
+                font-size: 15px;
+                padding: 8px 12px;
+                position: absolute;
+                bottom: 8px;
+                width: 100%;
+                text-align: center;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+            }
+
+            .numbertext {
+                color: #f2f2f2;
+                font-size: 12px;
+                padding: 8px 12px;
+                position: absolute;
+                top: 0;
+                left: 8px;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+            }
+
+            /* dots centered under the slideshow */
+            .dots {
+                text-align: center;
+                margin-top: 12px;
+            }
+
+            .dot {
+                cursor: pointer;
+                height: 12px;
+                width: 12px;
+                margin: 0 6px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.3s ease, transform 0.18s ease;
+            }
+
+            .dot:hover {
+                transform: scale(1.08);
+            }
+
+            .dot.active {
+                background-color: #00b8a9; /* accent color like the sample */
+                box-shadow: 0 0 0 4px rgba(0, 184, 169, 0.12);
+            }
+
+            .fade {
+                animation-name: fade;
+                animation-duration: 1.5s;
+            }
+
+            @keyframes fade {
+                from {
+                    opacity: .4
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            /* Right side article list */
+            .hero-side {
+                background: #fff;
+                border-left: 1px solid #eee;
+                padding-left: 16px;
+                flex-shrink: 0;
+            }
+
+            .hero-side h3 {
+                margin: 4px 0 12px;
+                font-size: 1.1rem;
+                border-bottom: 2px solid #111;
+                display: inline-block;
+                padding-bottom: 6px;
+            }
+
+            .article-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            /* 移除圖片並改為垂直堆疊，放大標題文字 */
+            .article-list li {
+                display: block;
+                padding: 12px 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .article-list img {
+                display: none; /* 刪除圖片顯示 */
+            }
+
+            .article-meta {
+                font-size: 1rem; /* 放大整體文字 */
+            }
+
+            .article-meta a {
+                color: #222;
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 1.15rem; /* 放大文章標題 */
+                display: block;
+                line-height: 1.3;
+            }
+
+            .article-meta .meta {
+                font-size: 0.85rem;
+                color: #888;
+                margin-top: 6px;
+            }
+
+            /* 在中等寬度下維持平分但容器稍微調整 */
+            @media (max-width: 1100px) {
+                .slideshow-wrap,
+                .hero-side {
+                    max-width: 50%;
+                }
+            }
+
+            @media (max-width: 820px) {
+                .hero {
+                    display: block;
+                    margin: 12px;
+                }
+
+                .slideshow-wrap,
+                .hero-side {
+                    width: 100%;
+                    max-width: 100%;
+                    min-width: 0;
+                }
+
+                .slideshow-container img {
+                    height: auto !important;
+                }
+
+                .hero-side {
+                    border-left: none;
+                    padding: 12px 0 0 0;
+                }
+            }
+        </style>
+
+        <div class="slideshow-wrap">
+            <div class="slideshow-container">
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Slide 1">
+                    <div class="text">PAPAYA 電腦教室｜極簡風簡報技巧</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Slide 2">
+                    <div class="text">最新 AI 工具整理</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Slide 3">
+                    <div class="text">雲端部署最佳實務</div>
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)" aria-label="Previous slide">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)" aria-label="Next slide">&#10095;</a>
+            </div>
+
+            <!-- The dots/circles - centered under the slideshow -->
+            <div class="dots" aria-hidden="false">
+                <span class="dot" onclick="currentSlide(1)" role="button" aria-label="第一張"></span>
+                <span class="dot" onclick="currentSlide(2)" role="button" aria-label="第二張"></span>
+                <span class="dot" onclick="currentSlide(3)" role="button" aria-label="第三張"></span>
+            </div>
+        </div>
+
+        <!-- 側欄文章清單 (右側) -->
+        <aside class="hero-side" aria-labelledby="side-title">
+            <h3 id="side-title">最新文章</h3>
+            <ul class="article-list">
+                <li>
+                    <!-- <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt=""> -->
+                    <div class="article-meta">
+                        <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                        <div class="meta">2025-12-14 • 教學</div>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="">
+                    <div class="article-meta">
+                        <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                        <div class="meta">2025-12-12 • 新品</div>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="">
+                    <div class="article-meta">
+                        <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                        <div class="meta">2025-12-10 • AI</div>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="">
+                    <div class="article-meta">
+                        <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                        <div class="meta">2025-12-08 • 健康科技</div>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="">
+                    <div class="article-meta">
+                        <a href="#">指令經濟正夯：AI 對未來十年的影響淺談</a>
+                        <div class="meta">2025-12-06 • 專欄</div>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                if (slides.length > 0) {
+                    slides[slideIndex - 1].style.display = "block";
+                }
+                if (dots.length > 0) {
+                    dots[slideIndex - 1].className += " active";
+                }
+            }
+
+            // optional: keyboard navigation
+            document.addEventListener('keydown', e => {
+                if (e.key === 'ArrowLeft') plusSlides(-1);
+                if (e.key === 'ArrowRight') plusSlides(1);
+            });
+        </script>
+    </section>
+
+
+    <!-- 圖文穿插排版 (Mosaic) -->
+    <section id="mosaic" aria-labelledby="mosaic-title">
+        <style>
+            /* container */
+            #mosaic { padding: 36px 16px; background: #e6f0f4; }
+            .mosaic-wrap { max-width: 1280px; margin: 0 auto; text-align: center; }
+
+            /* heading */
+            #mosaic-title {
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 2.0rem;
+                letter-spacing: 4px;
+                margin: 6px 0 20px;
+                color: #2f4b50;
+            }
+
+            /* grid: 3 rows x 6 columns */
+            .mosaic-grid {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                grid-auto-rows: 160px;
+                gap: 8px;
+                background: rgba(0,0,0,0.03);
+                padding: 12px;
+                border-radius: 6px;
+                justify-items: stretch;
+                align-items: stretch;
+            }
+
+            .tile {
+                position: relative;
+                border-radius: 6px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-family: "Helvetica Neue", Arial, sans-serif;
+
+                /* hover/focus base */
+                transition: transform .25s ease, box-shadow .25s ease;
+                will-change: transform;
+            }
+
+            .tile img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: transform .45s ease, filter .25s ease;
+            }
+
+            /* 色塊樣式 */
+            .tile.light {
+                background: #9fb8bd;
+                color: #274044;
+                text-align: left;
+                padding: 12px;
+                box-sizing: border-box;
+                transition: background-color .22s ease, transform .25s ease, box-shadow .25s ease;
+            }
+
+            .tile.dark {
+                background: #3f5660;
+            }
+
+            /* 文字區塊 */
+            .tile .title {
+                font-weight: 700;
+                letter-spacing: 1px;
+                margin-bottom: 6px;
+            }
+
+            .tile .desc {
+                font-size: 0.92rem;
+                opacity: 0.95;
+                line-height: 1.3;
+                transition: opacity .22s ease, transform .22s ease;
+            }
+
+            .tile .overlay {
+                position: absolute;
+                left: 12px;
+                bottom: 12px;
+                right: 12px;
+                color: #fff;
+                text-align: left;
+                text-shadow: 0 2px 6px rgba(0,0,0,.35);
+
+                /* start hidden for image tiles */
+                opacity: 0;
+                transform: translateY(8px);
+                transition: opacity .22s ease, transform .22s ease;
+                pointer-events: none;
+            }
+
+            /* Hover / focus effects */
+            .tile:hover,
+            .tile:focus,
+            .tile:focus-within,
+            .tile:focus-visible {
+                transform: translateY(-6px) scale(1.02);
+                box-shadow: 0 12px 30px rgba(15, 40, 50, .18);
+                z-index: 2;
+            }
+
+            .tile:hover img,
+            .tile:focus img,
+            .tile:focus-within img {
+                transform: scale(1.05);
+                filter: brightness(.96) saturate(1.04) contrast(1.02);
+            }
+
+            /* reveal overlay on hover/focus */
+            .tile:hover .overlay,
+            .tile:focus .overlay,
+            .tile:focus-within .overlay {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+
+            /* lighter effect for text tiles */
+            .tile.light:hover,
+            .tile.light:focus {
+                transform: translateY(-4px) scale(1.01);
+                box-shadow: 0 8px 20px rgba(15, 40, 50, .12);
+            }
+
+            .tile.light:hover .desc,
+            .tile.light:focus .desc {
+                opacity: 1;
+            }
+
+            /* keyboard accessibility: make tiles focusable style */
+            .tile:focus {
+                outline: 3px solid rgba(0,184,169,0.18);
+                outline-offset: 2px;
+            }
+
+            /* small screens: reduce columns to keep readability */
+            @media (max-width: 1100px) {
+                .mosaic-wrap { max-width: 1000px; }
+                .mosaic-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 140px; }
+            }
+
+            @media (max-width: 820px) {
+                .mosaic-wrap { padding: 20px 10px; }
+                .mosaic-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 140px; }
+                #mosaic-title { font-size: 1.6rem; letter-spacing: 3px; }
+            }
+
+            @media (max-width: 480px) {
+                .mosaic-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 120px; gap: 6px; }
+                .mosaic-wrap { max-width: 420px; }
+                #mosaic-title { font-size: 1.4rem; letter-spacing: 2px; }
+            }
+        </style>
+
+        <div class="mosaic-wrap" role="region" aria-label="圖文穿插範例">
+            <h2 id="mosaic-title">Lorem Ipsum</h2>
+
+            <div class="mosaic-grid" role="grid" aria-hidden="false" aria-rowcount="2" aria-colcount="6">
+                <!-- 2 rows x 6 cols = 12 tiles -->
+                <!-- 第一行 -->
+                <div class="tile dark" role="gridcell" aria-label="圖片 1" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=800&q=60" alt="示例圖 1">
+                    <div class="overlay">
+                        <div class="title">圖說 1</div>
+                    </div>
+                </div>
+
+                <div class="tile light" role="gridcell" aria-label="文字 2" tabindex="0">
+                    <div>
+                        <div class="title">標題 2</div>
+                        <div class="desc">簡短描述文字二。</div>
+                    </div>
+                </div>
+
+                <div class="tile dark" role="gridcell" aria-label="圖片 3" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60" alt="示例圖 3">
+                    <div class="overlay">
+                        <div class="title">圖說 3</div>
+                    </div>
+                </div>
+
+                <div class="tile dark" role="gridcell" aria-label="圖片 4" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=800&q=60" alt="示例圖 4">
+                </div>
+
+                <div class="tile light" role="gridcell" aria-label="文字 5" tabindex="0">
+                    <div>
+                        <div class="title">標題 5</div>
+                        <div class="desc">簡短描述文字五。</div>
+                    </div>
+                </div>
+
+                <div class="tile dark" role="gridcell" aria-label="圖片 6" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=800&q=60" alt="示例圖 6">
+                </div>
+
+                <!-- 第二行 -->
+                <div class="tile dark" role="gridcell" aria-label="圖片 7" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?auto=format&fit=crop&w=800&q=60" alt="示例圖 7">
+                </div>
+
+                <div class="tile light" role="gridcell" aria-label="文字 8" tabindex="0">
+                    <div>
+                        <div class="title">標題 8</div>
+                        <div class="desc">簡短描述文字八。</div>
+                    </div>
+                </div>
+
+                <div class="tile dark" role="gridcell" aria-label="圖片 9" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=60" alt="示例圖 9">
+                </div>
+
+                <div class="tile light" role="gridcell" aria-label="文字 10" tabindex="0">
+                    <div>
+                        <div class="title">標題 10</div>
+                        <div class="desc">簡短描述文字十。</div>
+                    </div>
+                </div>
+
+                <div class="tile dark" role="gridcell" aria-label="圖片 11" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=60" alt="示例圖 11">
+                </div>
+
+                <div class="tile light" role="gridcell" aria-label="文字 12" tabindex="0">
+                    <div>
+                        <div class="title">標題 12</div>
+                        <div class="desc">簡短描述文字十二。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 類別區塊：左側大圖 + 四張縮圖，右側大圖 + 垂直列表 -->
+    <section id="categories">
+        <style>
+            .category-grid {
+                display: flex;
+                gap: 24px;
+                margin: 24px;
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .cat {
+                background: #fff;
+                padding: 16px;
+                border-radius: 12px;
+                box-sizing: border-box;
+                flex: 1 1 48%;
+                min-width: 280px;
+                border: 1px solid #eee;
+            }
+
+            .cat h2 {
+                margin: 0 0 12px;
+                font-size: 1.1rem;
+                border-bottom: 2px solid #111;
+                display: inline-block;
+                padding-bottom: 6px;
+            }
+
+            .featured img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+                display: block;
+                border-radius: 8px;
+            }
+
+            /* 左側縮圖網格 */
+            .thumb-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                margin-top: 12px;
+            }
+
+            .thumb {
+                text-align: center;
+                font-size: 0.9rem;
+            }
+
+            .thumb img {
+                width: 100%;
+                height: 84px;
+                object-fit: cover;
+                display: block;
+                border-radius: 6px;
+            }
+
+            .thumb .caption {
+                margin-top: 6px;
+                color: #444;
+            }
+
+            /* 右側文章列表 */
+            .mini-list {
+                list-style: none;
+                padding: 0;
+                margin: 12px 0 0;
+            }
+
+            .mini-list li {
+                display: flex;
+                gap: 12px;
+                padding: 10px 0;
+                align-items: center;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .mini-list img {
+                width: 72px;
+                height: 56px;
+                object-fit: cover;
+                border-radius: 6px;
+                flex-shrink: 0;
+            }
+
+            .mini-meta {
+                font-size: 0.95rem;
+            }
+
+            .mini-meta a {
+                display: block;
+                font-weight: 700;
+                color: #222;
+                text-decoration: none;
+                line-height: 1.2;
+            }
+
+            .mini-meta .meta {
+                font-size: 0.85rem;
+                color: #888;
+                margin-top: 6px;
+            }
+
+            @media (max-width: 820px) {
+                .category-grid { display: block; margin: 12px; }
+                .cat { width: 100%; max-width: 100%; }
+                .featured img { height: 180px; }
+                .thumb-grid { grid-template-columns: repeat(4, minmax(140px, 1fr)); overflow-x: auto; }
+                .thumb img { height: 72px; }
+            }
+        </style>
+
+        <div class="category-grid">
+
+            <div class="cat" aria-labelledby="cat-2-title">
+                <h2 id="cat-2-title">類別二：推薦新聞</h2>
+
+                <div class="featured" role="region" aria-label="分類特色">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Category feature">
+                </div>
+
+                <ul class="mini-list" role="list" aria-label="文章清單">
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="">
+                        <div class="mini-meta">
+                            <a href="#">PAPAYA 電腦教室｜極簡風簡報技巧</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="">
+                        <div class="mini-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="">
+                        <div class="mini-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="">
+                        <div class="mini-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 右側：大圖 + 垂直列表 -->
+            <div class="cat" aria-labelledby="cat-2-title">
+                <h2 id="cat-2-title">類別二：推薦新聞</h2>
+
+                <div class="featured" role="region" aria-label="分類特色">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Category feature">
+                </div>
+
+                <ul class="mini-list" role="list" aria-label="文章清單">
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="">
+                        <div class="mini-meta">
+                            <a href="#">PAPAYA 電腦教室｜極簡風簡報技巧</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="">
+                        <div class="mini-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="">
+                        <div class="mini-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="">
+                        <div class="mini-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 類別3 -->
+    <!-- 頭條 -->
+    <!--  文章卡片 1 -->
+    <!--  文章卡片 2 -->
+    <!--  文章卡片 3 -->
+    <!--  文章卡片 4 -->
+    <section id="news3">
+        <div id="title">
+            <div>
+                <h2>最新科技快訊</h2>
+            </div>
+            <!--  文章卡片 1 -->
+            <article>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Cybersecurity">
+                </div>
+                <div>
+                    <div>
+                        <span>資安</span>
+                        <span>2 小時前</span>
+                    </div>
+                    <h3>零信任架構：企業資安的新標準
+                    </h3>
+                    <p>
+                        傳統的邊界防護已不足以應對現代威脅。了解零信任模型如何保護您的數位資產。
+                    </p>
+                </div>
+            </article>
+            <!--  文章卡片 2 -->
+            <article>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Cybersecurity" class="article-img w-full h-full object-cover">
+                </div>
+                <div>
+                    <div>
+                        <span>資安</span>
+                        <span>2 小時前</span>
+                    </div>
+                    <h3>零信任架構：企業資安的新標準
+                    </h3>
+                    <p>
+                        傳統的邊界防護已不足以應對現代威脅。了解零信任模型如何保護您的數位資產。
+                    </p>
+                </div>
+            </article>
+
+            <!--  文章卡片 3 -->
+
+            <article>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Cybersecurity">
+                </div>
+                <div>
+                    <div>
+                        <span>資安</span>
+                        <span>2 小時前</span>
+                    </div>
+                    <h3>零信任架構：企業資安的新標準
+                    </h3>
+                    <p>
+                        傳統的邊界防護已不足以應對現代威脅。了解零信任模型如何保護您的數位資產。
+                    </p>
+                </div>
+            </article>
+            <!--  文章卡片 4 -->
+            <article>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Cybersecurity">
+                </div>
+                <div>
+                    <div>
+                        <span>資安</span>
+                        <span>2 小時前</span>
+                    </div>
+                    <h3>零信任架構：企業資安的新標準
+                    </h3>
+                    <p>
+                        傳統的邊界防護已不足以應對現代威脅。了解零信任模型如何保護您的數位資產。
+                    </p>
+                </div>
+            </article>
+    </section>
+
+    <!-- 類別4 -->
+    <!-- 頭條 -->
+    <!--  文章卡片 1 -->
+    <!--  文章卡片 2 -->
+    <!--  文章卡片 3 -->
+    <!--  文章卡片 4 -->
+    <section id="news1">
+        <div id="title">
+            <div>
+                <h2>最新科技快訊</h2>
+            </div>
+            <!--  文章卡片 1 -->
+            <article>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Cybersecurity">
+                </div>
+                <div>
+                    <div>
+                        <span>資安</span>
+                        <span>2 小時前</span>
+                    </div>
+                    <h3>零信任架構：企業資安的新標準
+                    </h3>
+                    <p>
+                        傳統的邊界防護已不足以應對現代威脅。了解零信任模型如何保護您的數位資產。
+                    </p>
+                </div>
+            </article>
+            <!--  文章卡片 2 -->
+            <article>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Cybersecurity" class="article-img w-full h-full object-cover">
+                </div>
+                <div>
+                    <div>
+                        <span>資安</span>
+                        <span>2 小時前</span>
+                    </div>
+                    <h3>零信任架構：企業資安的新標準
+                    </h3>
+                    <p>
+                        傳統的邊界防護已不足以應對現代威脅。了解零信任模型如何保護您的數位資產。
+                    </p>
+                </div>
+            </article>
+
+            <!--  文章卡片 3 -->
+
+            <article>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Cybersecurity">
+                </div>
+                <div>
+                    <div>
+                        <span>資安</span>
+                        <span>2 小時前</span>
+                    </div>
+                    <h3>零信任架構：企業資安的新標準
+                    </h3>
+                    <p>
+                        傳統的邊界防護已不足以應對現代威脅。了解零信任模型如何保護您的數位資產。
+                    </p>
+                </div>
+            </article>
+            <!--  文章卡片 4 -->
+            <article>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Cybersecurity">
+                </div>
+                <div>
+                    <div>
+                        <span>資安</span>
+                        <span>2 小時前</span>
+                    </div>
+                    <h3>零信任架構：企業資安的新標準
+                    </h3>
+                    <p>
+                        傳統的邊界防護已不足以應對現代威脅。了解零信任模型如何保護您的數位資產。
+                    </p>
+                </div>
+            </article>
+    </section>
+
+
+
+    <!-- 訂閱區塊 -->
+    <section id="surgribe">
+        <div>
+            <h2>掌握最新科技脈動</h2>
+            <p>每週一早上，將最重要的科技新聞與趨勢分析直接寄送到您的信箱。</p>
+            <div>
+                <input type="email" placeholder="輸入您的 Email" class=>
+                <button onclick="openModal()">
+                    免費訂閱
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 (Footer) -->
+    <footer>
+        <div>
+            <div>
+                <div>
+                    <a href="#">
+                        <i></i>
+                        <span>Tech<span>View</span></span>
+                    </a>
+                    <p>致力於提供最深入、最即時的科技產業分析與報導。</p>
+                </div>
+                <div>
+                    <h4>探索</h4>
+                    <ul>
+                        <li><a href="#">消費電子</a></li>
+                        <li><a href="#">區塊鏈</a></li>
+                        <li><a href="#">軟體開發</a></li>
+                        <li><a href="#">人工智慧</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>關於我們</h4>
+                    <ul>
+                        <li><a href="#">編輯團隊</a></li>
+                        <li><a href="#">聯絡方式</a></li>
+                        <li><a href="#">隱私權政策</a></li>
+                        <li><a href="#">服務條款</a></li>
+                    </ul>
+                </div>
+                <!-- 超連結icon -->
+                <div>
+                    <h4>關注我們</h4>
+                    <div>
+                        <a href="#">
+                            <!-- facebook icon -->
+                            <i></i>
+                        </a>
+                        <a href="#">
+                            <!-- twitter icon -->
+                            <i></i>
+                        </a>
+                        <a href="#">
+                            <!-- instagram icon -->
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p>&copy; 2025 TechView Media. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
