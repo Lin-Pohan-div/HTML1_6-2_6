@@ -245,112 +245,87 @@
 
 
         <!-- 文章內容 -->
-        <p class="body">
-            如果說 2007 年史蒂夫·賈伯斯從信封裡抽出 MacBook Air 改變了筆記型電腦的定義，或者初代 iPhone 的多點觸控抹去了實體鍵盤；
-            那麼今天，Aetheria 的執行長艾琳娜·范斯（Elena Vance）走上莫斯康中心（Moscone Center）的舞台時，她雙手空空如也的姿態，
-            或許正預示著一個更為激進的未來——螢幕的消失。
-        </p>
-        <p class="body" style="text-indent: 0%;">
-            在長達兩小時的發布會中，全球市值最高的科技巨頭 Aetheria 正式揭開了傳聞已久的「Project Silence」的神祕面紗，正式定名為
-            Aetheria Synapse（突觸）。這不是一款手機，不是一副 AR 眼鏡，而是一個僅有硬幣大小、貼附於耳後的非侵入式神經介面裝置。
-        </p>
-        <p class="body" style="text-indent: 0%;">
-            「過去五十年，人類為了與數位世界溝通，被迫低頭看著發光的玻璃板，」范斯在台上說道，身後巨大的全息投影展示著人類頸椎病變的
-            演化圖，「今天，我們把頭抬起來。今天，運算不再是手中的工具，而是思想的延伸。
-        </p>
-        <h3>
-            <p class="title" id="first_pre">硬體解析：看不見的革命</p>
-        </h3>
-        <p class="body">
-            Synapse 的核心技術在於其專利的「共振神經映射」（Resonant Neural Mapping, RNM）技術。與馬斯克早期 Neuralink 需要開顱手
-            術的侵入式方案不同，Synapse採用了一種高靈敏度的石墨烯-生物聚合物貼片。根據 Aetheria 的技術白皮書，Synapse 能夠感測大腦
-            皮層的微伏級電位變化，特別是負責視覺處理的枕葉與負責語言生成的布若卡氏區（Broca's area）。
-        </p>
-        <p class="body">
-            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-            Sections
-            1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact
-            original
-            form, accompanied by English versions from the 1914 translation by H. Rackham.
-        </p>
+        <section id="article-content" aria-label="文章內容"></section>
 
+        <script>
+        /* 批量輸入文章內容範例：將原本靜態的 HTML 以資料陣列方式生成 */
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('article-content');
 
+            // 由外部 JSON 檔載入 blocks 資料；若載入失敗，使用內嵌備援資料
+            let blocks;
+            try {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', './article-blocks.json', false); // 同步請求（保證在後續程式使用前完成）
+                xhr.send(null);
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    blocks = JSON.parse(xhr.responseText);
+                } else {
+                    throw new Error('HTTP ' + xhr.status);
+                }
+            } catch (err) {
+                console.warn('載入 article-blocks.json 失敗，使用內建備援內容', err);
+                blocks = [
+                    { "tag": "p", "class": "body", "text":
+                        "如果說 2007 年史蒂夫·賈伯斯從信封裡抽出 MacBook Air 改變了筆記型電腦的定義，或者初代 iPhone 的多點觸控抹去了實體鍵盤；那麼今天，Aetheria 的執行長艾琳娜·范斯（Elena Vance）走上莫斯康中心（Moscone Center）的舞台時，她雙手空空如也的姿態，或許正預示著一個更為激進的未來——螢幕的消失。" },
 
-        <p class="title" id="second_pre">Where does it come from?</p>
-        <p class="body">
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
-            Latin
-            literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
-            Hampden-Sydney
-            College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
-            passage,
-            and going through the cites of the word in classical literature, discovered the undoubtable source.
-            Lorem Ipsum
-            comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
-            Evil)
-            by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the
-            Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section
-            1.10.32.
-        </p>
-        <p class="body">
-            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-            Sections
-            1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact
-            original
-            form, accompanied by English versions from the 1914 translation by H. Rackham.
-        </p>
+                    { "tag": "p", "class": "body", "text":
+                        "在長達兩小時的發布會中，全球市值最高的科技巨頭 Aetheria 正式揭開了傳聞已久的「Project Silence」的神祕面紗，正式定名為 Aetheria Synapse（突觸）。這不是一款手機，不是一副 AR 眼鏡，而是一個僅有硬幣大小、貼附於耳後的非侵入式神經介面裝置。", "style": { "textIndent": "0%" } },
 
-        <section id="picture">
-            <figure class="picture">
-                <picture>
-                    <source
-                        srcset="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=1200&q=80 1200w,
-                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80 800w,
-                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=400&q=80 400w"
-                        sizes="(max-width:800px) 100vw, 800px" type="image/jpeg">
-                    <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80"
-                        alt="示意圖：新聞編輯與排版畫面"
-                        style="width:100%;height: 500px;border-radius:8px;display:block;object-fit:cover;margin-top: 50px;"
-                        width="800" height="450" loading="lazy" decoding="async">
-                </picture>
-                <figcaption class="figcaption">
-                    示意圖：Lorem Ipsum（來源：Unsplash）
-                </figcaption>
-            </figure>
-        </section>
+                    { "tag": "p", "class": "body", "text":
+                        "「過去五十年，人類為了與數位世界溝通，被迫低頭看著發光的玻璃板，」范斯在台上說道，身後巨大的全息投影展示著人類頸椎病變的演化圖，「今天，我們把頭抬起來。今天，運算不再是手中的工具，而是思想的延伸。』", "style": { "textIndent": "0%" } },
 
-        <p class="title" id="third_pre">Why do we use it?</ㄣ>
-        <p class="body">
-            It is a long established fact that a reader will be distracted by the readable content of a page when
-            looking
-            at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
-            letters, as
-            opposed to using 'Content here, content here', making it look like readable English. Many desktop
-            publishing
-            packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
-            ipsum'
-            will uncover many web sites still in their infancy. Various versions have evolved over the years,
-            sometimes by
-            accident, sometimes on purpose (injected humour and the like).
-        </p>
+                    { "tag": "h3", "html": "<p class=\"title\" id=\"first_pre\">硬體解析：看不見的革命</p>" },
 
-        <p class="title" id="fourth_pre">Where can I get some?</ㄣ>
-        <p class="body">
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-            alteration in
-            some form, by injected humour, or randomised words which don't look even slightly believable. If you are
-            going
-            to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the
-            middle of
-            text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
-            making this
-            the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a
-            handful
-            of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
-            is
-            therefore always free from repetition, injected humour, or non-characteristic words etc.
-        </p>
-        </section>
+                    { "tag": "p", "class": "body", "text":
+                        "Synapse 的核心技術在於其專利的「共振神經映射」（Resonant Neural Mapping, RNM）技術。與馬斯克早期 Neuralink 需要開顱手術的侵入式方案不同，Synapse採用了一種高靈敏度的石墨烯-生物聚合物貼片。根據 Aetheria 的技術白皮書，Synapse 能夠感測大腦皮層的微伏級電位變化，特別是負責視覺處理的枕葉與負責語言生成的布若卡氏區（Broca's area）。" },
+
+                    { "tag": "p", "class": "body", "text":
+                        "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham." },
+
+                    { "tag": "p", "class": "title", "id": "second_pre", "text": "Where does it come from?" },
+
+                    { "tag": "p", "class": "body", "text":
+                        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source." },
+
+                    { "tag": "p", "class": "body", "text":
+                        "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham." },
+
+                    { "tag": "section", "id": "picture", "html":
+                        "<figure class=\"picture\">\n  <picture>\n    <source srcset=\"https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=1200&q=80 1200w, https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=400&q=80 400w\" sizes=\"(max-width:800px) 100vw, 800px\" type=\"image/jpeg\">\n    <img src=\"https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80\" alt=\"示意圖：新聞編輯與排版畫面\" style=\"width:100%;height: 500px;border-radius:8px;display:block;object-fit:cover;margin-top: 50px;\" width=\"800\" height=\"450\" loading=\"lazy\" decoding=\"async\">\n  </picture>\n  <figcaption class=\"figcaption\">示意圖：Lorem Ipsum（來源：Unsplash）</figcaption>\n</figure>" },
+
+                    { "tag": "p", "class": "title", "id": "third_pre", "text": "Why do we use it?ㄣ" },
+
+                    { "tag": "p", "class": "body", "text":
+                        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \"Content here, content here\", making it look like readable English." },
+
+                    { "tag": "p", "class": "title", "id": "fourth_pre", "text": "Where can I get some?ㄣ" },
+
+                    { "tag": "p", "class": "body", "text":
+                        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc." }
+                ];
+            }
+
+            const frag = document.createDocumentFragment();
+
+            blocks.forEach(item => {
+                const el = document.createElement(item.tag);
+                if (item.class) el.className = item.class;
+                if (item.id) el.id = item.id;
+                if (item.html) {
+                    el.innerHTML = item.html;
+                } else if (item.text) {
+                    el.textContent = item.text;
+                }
+                if (item.style) {
+                    Object.entries(item.style).forEach(([k,v]) => el.style[k] = v);
+                }
+                frag.appendChild(el);
+            });
+
+            container.appendChild(frag);
+        });
+        </script>
 
 
 
