@@ -11,6 +11,7 @@
 <body>
     <header>
         <nav>
+            <script src="../小專/ProjectJs/nav-menu.js"></script>
             <div>
                 <div>
                     <!-- Logo -->
@@ -124,53 +125,14 @@
                                 </div>
                             </div>
                         </div>
-
-                        <script>
-                            document.querySelectorAll('.dropbtn').forEach(btn => {
-                                btn.addEventListener('click', e => {
-                                    e.stopPropagation();
-                                    const parent = btn.parentElement;
-                                    const open = parent.classList.contains('open');
-                                    // 關閉所有
-                                    document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
-                                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
-                                    if (!open) {
-                                        parent.classList.add('open');
-                                        btn.setAttribute('aria-expanded', 'true');
-                                    }
-                                });
-                            });
-                            document.addEventListener('click', e => {
-                                if (!e.target.closest('.dropdown')) {
-                                    document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
-                                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
-                                }
-                            });
-                        </script>
-
-
-
-                        <script>
-                            // scroll to the subscribe section and focus the email input to avoid undefined function errors
-                            function openModal() {
-                                const section = document.getElementById('subscribe');
-                                if (section) {
-                                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    const input = section.querySelector('input[type="email"]');
-                                    if (input) input.focus();
-                                }
-                            }
-                        </script>
                     </div>
                 </div>
             </div>
         </nav>
-
     </header>
     <!-- 側邊欄 -->
     <section id="sideBar">
-
-
+        <script src="../小專/ProjectJs/sideBar.js"></script>
         <div class="toc-wrap" aria-labelledby="toc-title">
             <h3 id="toc-title" class="sr-only">文章目錄</h3>
             <nav class="toc" role="navigation" aria-label="文章目錄">
@@ -186,74 +148,9 @@
                 </ul>
             </nav>
         </div>
-        <script>
-            // 動態計算 .toc-wrap 的 top 與 max-height，確保在 header 高度變動時仍能貼齊並不會超出視窗
-            (function () {
-                function updateTocPosition() {
-                    const toc = document.querySelector('.toc-wrap');
-                    if (!toc) return;
-                    const header = document.querySelector('header');
-                    const headerHeight = header ? header.getBoundingClientRect().height : 0;
-                    const offset = Math.round(Math.max(12, headerHeight + 8));
-                    toc.style.top = offset + 'px';
-                    toc.style.maxHeight = `calc(100vh - ${offset + 16}px)`;
-                }
-                window.addEventListener('load', updateTocPosition);
-                window.addEventListener('resize', updateTocPosition);
-                // 若動態改變 header（如展開式選單）需時常更新，可監聽 DOM 變化
-                const header = document.querySelector('header');
-                if (header && 'MutationObserver' in window) {
-                    const mo = new MutationObserver(updateTocPosition);
-                    mo.observe(header, { attributes: true, childList: true, subtree: true });
-                }
-                // 初次執行
-                updateTocPosition();
-            })();
-        </script>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const container = document.getElementById('sideBar');
-                if (!container) return;
-                const links = container.querySelectorAll('.toc a');
-                if (!links.length) return;
-
-                // 取得對應的 section 元素
-                const sections = Array.from(links)
-                    .map(a => document.getElementById(a.getAttribute('href').slice(1)))
-                    .filter(Boolean);
-
-                // 交叉觀察，當區塊進入視窗時標記對應連結為 active
-                const io = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        const id = entry.target.id;
-                        const link = container.querySelector(`.toc a[href="#${id}"]`);
-                        if (!link) return;
-                        if (entry.isIntersecting) {
-                            container.querySelectorAll('.toc a').forEach(a => a.classList.remove('is-active'));
-                            link.classList.add('is-active');
-                        }
-                    });
-                }, { root: null, rootMargin: '0px 0px -60% 0px', threshold: 0 });
-
-                sections.forEach(s => io.observe(s));
-
-                // 點擊平滑捲動並設定 active
-                links.forEach(a => {
-                    a.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const id = a.getAttribute('href').slice(1);
-                        const el = document.getElementById(id);
-                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        links.forEach(l => l.classList.remove('is-active'));
-                        a.classList.add('is-active');
-                    });
-                });
-            });
-        </script>
     </section>
     <!-- 文字雲 -->
     <!-- Tags Cloud -->
-
     <main>
         <!-- 標題內容 -->
         <section>
@@ -278,6 +175,7 @@
             </section>
 
             <h1 class="title" id="head">Lorem Ipsum</h1>
+            <script src="../小專/ProjectJs/post-meta.js"></script>
             <section class="post-meta"
                 style="margin-inline:40px; width:800px; max-width:100%; display:flex; align-items:center; gap:12px; color:#666; font-size:14px;">
                 <div style="display:flex; align-items:center; gap:12px;">
@@ -290,26 +188,11 @@
                 </div>
                 <div style="margin-left:auto; font-size:13px; color:#888;">閱讀時間：<span id="readingTime">3 分鐘</span></div>
             </section>
-
-            <script>
-                (function () {
-                    // 自動填入今天日期 (YYYY/MM/DD) 與 datetime 屬性 (YYYY-MM-DD)
-                    const t = document.getElementById('pubDate');
-                    if (t) {
-                        const d = new Date();
-                        const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0');
-                        const iso = `${y}-${m}-${day}`, disp = `${y}/${m}/${day}`;
-                        t.textContent = '發布：' + disp;
-                        t.setAttribute('datetime', iso);
-                    }
-                })();
-            </script>
             <blockquote class="body" style="font-style: italic; margin-inline: 40px; padding-left: 16px;">
                 <p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
                 <p>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is
                     pain..."</p>
             </blockquote>
-
         </section>
 
         <!-- 文章內容 -->
@@ -394,12 +277,8 @@
             </p>
         </section>
 
-
-
         <!-- 推薦內容 -->
         <section id="categories">
-
-
             <div class="category-grid">
                 <div class="cat" aria-labelledby="cat-2-title">
                     <h2 id="cat-2-title">延伸閱讀</h2>
@@ -466,109 +345,7 @@
 
                 <!-- 把訂閱區塊移入 categories 的 grid 中，作為一個獨立的欄位 -->
                 <section id="subscribe" class="cat subscribe-cat" role="region" aria-labelledby="subscribe-title">
-                    <style>
-                        /* 訂閱區塊樣式（與貼圖相近） */
-                        #subscribe {
-                            background: linear-gradient(180deg, #fff 0%, #fff 100%);
-                            color: black;
-                            padding: 24px;
-                            text-align: center;
-                            border-radius: 8px;
-                            border: 1px solid #eee;
-                            box-sizing: border-box;
-                            min-width: 240px;
-                            height: 100%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                        }
-
-                        .subscribe-inner {
-                            width: 100%;
-                            max-width: 500px;
-                            margin: 0 auto;
-                        }
-
-                        .subscribe-inner h1 {
-                            margin: 0 0 12px;
-                            font-size: 1.6rem;
-                            font-weight: 800;
-                            letter-spacing: .6px;
-                        }
-
-                        .subscribe-inner p {
-                            margin: 0 0 22px;
-                            color: rgba(0, 0, 0, 0.75);
-                            font-size: 1rem;
-                            text-align: center;
-                        }
-
-                        .subscribe-form {
-                            display: inline-flex;
-                            gap: 12px;
-                            align-items: center;
-                            justify-content: center;
-                            background: transparent;
-                        }
-
-                        .subscribe-form input[type="email"] {
-                            padding: 12px 14px;
-                            border-radius: 12px;
-                            border: none;
-                            width: 240px;
-                            max-width: calc(100% - 140px);
-                            font-size: 1rem;
-                            outline: none;
-                            box-shadow: 0 6px 20px rgba(11, 37, 80, .08), inset 0 1px 0 rgba(255, 255, 255, 0.02);
-                        }
-
-                        .subscribe-form input::placeholder {
-                            color: rgba(0, 0, 0, 0.5);
-                        }
-
-                        .subscribe-form button {
-                            background: linear-gradient(180deg, #3ea0ff, #2b84f2);
-                            color: #fff;
-                            border: none;
-                            padding: 12px 18px;
-                            border-radius: 12px;
-                            font-weight: 700;
-                            font-size: 1rem;
-                            cursor: pointer;
-                            box-shadow: 0 10px 30px rgba(43, 132, 242, .18);
-                            transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
-                        }
-
-                        .subscribe-form button:hover {
-                            transform: translateY(-2px);
-                        }
-
-                        .subscribe-form button:active {
-                            transform: translateY(0);
-                        }
-
-                        @media (max-width:700px) {
-                            .subscribe-inner h1 {
-                                font-size: 1.3rem;
-                            }
-
-                            .subscribe-form {
-                                display: block;
-                            }
-
-                            .subscribe-form input[type="email"],
-                            .subscribe-form button {
-                                width: 100%;
-                                max-width: none;
-                                display: block;
-                            }
-
-                            .subscribe-form button {
-                                margin-top: 10px;
-                            }
-                        }
-                    </style>
-
+                    <script src="../小專/ProjectJs/subscribe.js"></script>
                     <div class="subscribe-inner" role="region" aria-labelledby="subscribe-title">
                         <h1 id="subscribe-title">掌握最新科技脈動</h1>
                         <p>每週一早上，將最重要的科技新聞與趨勢分析直接寄送到您的信箱。</p>
@@ -578,21 +355,6 @@
                             <button type="submit" aria-label="免費訂閱">免費訂閱</button>
                         </form>
                     </div>
-
-                    <script>
-                        function subscribe(e) {
-                            e.preventDefault();
-                            const form = e.target;
-                            const email = form.email.value.trim();
-                            if (!email) {
-                                alert('請輸入 Email');
-                                return;
-                            }
-                            // 暫時回饋：可改為實際 API 呼叫
-                            alert('已訂閱：' + email);
-                            form.reset();
-                        }
-                    </script>
                 </section>
             </div>
         </section>
@@ -601,40 +363,12 @@
 
 
         <div class="floating-toc" aria-label="快速導覽">
+            <script src="../小專/ProjectJs/floating-toc.js"></script>
             <button id="floatingLogoBtn" class="floating-btn" title="回到標誌" aria-label="回到標誌">
                 <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
                     alt="">
             </button>
         </div>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const btn = document.getElementById('floatingLogoBtn');
-                const target = document.getElementById('Logo');
-                if (!btn || !target) return;
-
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const link = target.querySelector('a') || target;
-                    if (link) {
-                        link.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        // 若有可 focus 的元素則聚焦，提升無障礙
-                        const focusable = link.querySelector('a,button,[tabindex]') || link;
-                        if (focusable && typeof focusable.focus === 'function') focusable.focus({ preventScroll: true });
-                    }
-                });
-
-                // 觀察 Logo 可見性以切換按鈕狀態
-                const io = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) btn.classList.add('is-active');
-                        else btn.classList.remove('is-active');
-                    });
-                }, { threshold: 0.5 });
-
-                io.observe(target);
-            });
-        </script>
     </main>
     <footer>
         <footer>
