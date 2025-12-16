@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../小專/webpage.css">
     <title>即時新聞</title>
-    <link rel="stylesheet" href="../BS_網頁練習_參考/css/bootstrap.css">
 </head>
 
 <body>
@@ -15,37 +15,7 @@
                 <div>
                     <!-- Logo -->
                     <div>
-                        <style>
-                            .subscribe-LogoButton {
-                                margin-left: auto;
-                                background: #2b6df6;
-                                color: #fff;
-                                border: none;
-                                padding: 10px 14px;
-                                border-radius: 999px;
-                                font-weight: 700;
-                                cursor: pointer;
-                                box-shadow: 0 8px 24px rgba(43, 132, 242, .18);
-                            }
-
-                            .Logo {
-                                width: 40px;
-                                height: 40px;
-                                border-radius: 6px;
-                                display: block;
-                            }
-
-                            .Logo-styleOne {
-                                font-weight: 800;
-                                color: #111;
-                            }
-
-                            .Logo-styleTwo {
-                                font-weight: 800;
-                                color: #72caff;
-                            }
-                        </style>
-                        <div class="brand-row" style="display:flex;align-items:center;gap:12px;width:100%;">
+                        <div id="Logo" class="brand-row" style="display:flex;align-items:center;gap:12px;width:100%;">
                             <a href="http://127.0.0.1:5501/%E5%B0%8F%E5%B0%88/webpage_1215.html"
                                 style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
                                 <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
@@ -63,112 +33,6 @@
 
                     <!-- 電腦版選單 -->
                     <div>
-                        <style>
-                            .nav-menu {
-                                display: flex;
-                                gap: 8px;
-                                align-items: center;
-                                flex-wrap: nowrap;
-                                /* 一列不換行 */
-                                justify-content: space-evenly;
-                                /* 平均分布 */
-                                width: 100%;
-                            }
-
-                            .dropdown {
-                                position: relative;
-                                flex: 1;
-                                text-align: center;
-                                min-width: 0;
-                            }
-
-                            .dropbtn {
-                                background: none;
-                                border: none;
-                                padding: 10px 12px;
-                                cursor: pointer;
-                                font-weight: 700;
-                                font-size: 1.1rem;
-                                /* 放大選單字體 */
-                                width: 100%;
-                                text-align: center;
-                            }
-
-                            /* 初始隱藏但可過渡顯示的下拉內容 */
-                            .dropdown-content {
-                                display: block;
-                                /* 固定為 block，透過高度/不透明度控制顯示 */
-                                position: absolute;
-                                left: 0;
-                                top: 100%;
-                                min-width: 160px;
-                                background: #fff;
-                                border: 1px solid #ddd;
-                                box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
-                                z-index: 50;
-
-                                /* 動畫相關：起始為往上並透明 */
-                                opacity: 0;
-                                transform: translateY(-8px) scale(.98);
-                                transform-origin: top center;
-                                max-height: 0;
-                                overflow: hidden;
-                                pointer-events: none;
-                                transition: opacity .18s ease, transform .18s ease, max-height .22s ease;
-                            }
-
-                            .dropdown-content a {
-                                display: block;
-                                padding: 8px 12px;
-                                color: #222;
-                                text-decoration: none;
-                                font-size: 1rem;
-                                /* 放大下拉選單字體 */
-                            }
-
-                            .dropdown-content a:hover {
-                                background: #f5f5f5
-                            }
-
-                            /* hover 也使用相同的顯示效果 */
-                            .dropdown:hover .dropdown-content,
-                            .dropdown.open .dropdown-content {
-                                opacity: 1;
-                                transform: translateY(0) scale(1);
-                                max-height: 400px;
-                                /* 足夠顯示內容 */
-                                pointer-events: auto;
-                            }
-
-                            @media (max-width:768px) {
-
-                                /* 小螢幕改為水平滾動，避免過窄換行 */
-                                .nav-menu {
-                                    flex-direction: row;
-                                    align-items: center;
-                                    overflow-x: auto;
-                                    -webkit-overflow-scrolling: touch;
-                                    gap: 6px;
-                                    padding: 6px;
-                                }
-
-                                .dropdown {
-                                    flex: 0;
-                                    min-width: auto
-                                }
-
-                                .dropdown-content {
-                                    position: static;
-                                    border: none;
-                                    box-shadow: none;
-                                    transform: none;
-                                    opacity: 1;
-                                    max-height: none;
-                                    pointer-events: auto
-                                }
-                            }
-                        </style>
-
                         <div class="nav-menu">
                             <div class="dropdown">
                                 <button class="dropbtn" aria-haspopup="true" aria-expanded="false">新聞</button>
@@ -298,124 +162,94 @@
                             }
                         </script>
                     </div>
-
-
                 </div>
             </div>
-
-
         </nav>
 
     </header>
     <!-- 側邊欄 -->
     <section id="sideBar">
-        <style>
-            /* The sidebar menu */
-            .sidebar {
-                height: 100%;
-                /* 100% Full-height */
-                width: 0;
-                /* 0 width - change this with JavaScript */
-                position: fixed;
-                /* Stay in place */
-                z-index: 1;
-                /* Stay on top */
-                top: 0;
-                left: 0;
-                background-color: #111;
-                /* Black*/
-                overflow-x: hidden;
-                /* Disable horizontal scroll */
-                padding-top: 60px;
-                /* Place content 60px from the top */
-                transition: 0.5s;
-                /* 0.5 second transition effect to slide in the sidebar */
-            }
 
-            /* The sidebar links */
-            .sidebar a {
-                padding: 8px 8px 8px 32px;
-                text-decoration: none;
-                font-size: 25px;
-                color: #818181;
-                display: block;
-                transition: 0.3s;
-            }
 
-            /* When you mouse over the navigation links, change their color */
-            .sidebar a:hover {
-                color: #f1f1f1;
-            }
-
-            /* Position and style the close button (top right corner) */
-            .sidebar .closebtn {
-                position: absolute;
-                top: 0;
-                right: 25px;
-                font-size: 36px;
-                margin-left: 50px;
-            }
-
-            /* The button used to open the sidebar */
-            .openbtn {
-                font-size: 20px;
-                cursor: pointer;
-                background-color: #111;
-                color: white;
-                padding: 10px 15px;
-                border: none;
-            }
-
-            .openbtn:hover {
-                background-color: #444;
-            }
-
-            /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-            #main {
-                transition: margin-left .5s;
-                /* If you want a transition effect */
-                padding: 20px;
-            }
-
-            /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-            @media screen and (max-height: 450px) {
-                .sidebar {
-                    padding-top: 15px;
-                }
-
-                .sidebar a {
-                    font-size: 18px;
-                }
-            }
-        </style>
-
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
-        </div>
-
-        <div id="main">
-            <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
-            <h2>Collapsed Sidebar</h2>
-            <p>Content...</p>
+        <div class="toc-wrap" aria-labelledby="toc-title">
+            <h3 id="toc-title" class="sr-only">文章目錄</h3>
+            <nav class="toc" role="navigation" aria-label="文章目錄">
+                <ul>
+                    <li><a href="#head">嘗試一下</a></li>
+                    <li><a href="#first_pre">語法</a></li>
+                    <li><a href="#second_pre">形式定義</a></li>
+                    <li><a href="#second_pre">形式語法</a></li>
+                    <li><a href="#third_pre">示例</a></li>
+                    <li><a href="#third_pre">規範</a></li>
+                    <li><a href="#fourth_pre">瀏覽器兼容性</a></li>
+                    <li><a href="#newsList">參見</a></li>
+                </ul>
+            </nav>
         </div>
         <script>
-            /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
-            function openNav() {
-                document.getElementById("mySidebar").style.width = "250px";
-                document.getElementById("main").style.marginLeft = "250px";
-            }
-
-            /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-            function closeNav() {
-                document.getElementById("mySidebar").style.width = "0";
-                document.getElementById("main").style.marginLeft = "0";
-            }
+            // 動態計算 .toc-wrap 的 top 與 max-height，確保在 header 高度變動時仍能貼齊並不會超出視窗
+            (function () {
+                function updateTocPosition() {
+                    const toc = document.querySelector('.toc-wrap');
+                    if (!toc) return;
+                    const header = document.querySelector('header');
+                    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+                    const offset = Math.round(Math.max(12, headerHeight + 8));
+                    toc.style.top = offset + 'px';
+                    toc.style.maxHeight = `calc(100vh - ${offset + 16}px)`;
+                }
+                window.addEventListener('load', updateTocPosition);
+                window.addEventListener('resize', updateTocPosition);
+                // 若動態改變 header（如展開式選單）需時常更新，可監聽 DOM 變化
+                const header = document.querySelector('header');
+                if (header && 'MutationObserver' in window) {
+                    const mo = new MutationObserver(updateTocPosition);
+                    mo.observe(header, { attributes: true, childList: true, subtree: true });
+                }
+                // 初次執行
+                updateTocPosition();
+            })();
         </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const container = document.getElementById('sideBar');
+                if (!container) return;
+                const links = container.querySelectorAll('.toc a');
+                if (!links.length) return;
 
+                // 取得對應的 section 元素
+                const sections = Array.from(links)
+                    .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+                    .filter(Boolean);
+
+                // 交叉觀察，當區塊進入視窗時標記對應連結為 active
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const id = entry.target.id;
+                        const link = container.querySelector(`.toc a[href="#${id}"]`);
+                        if (!link) return;
+                        if (entry.isIntersecting) {
+                            container.querySelectorAll('.toc a').forEach(a => a.classList.remove('is-active'));
+                            link.classList.add('is-active');
+                        }
+                    });
+                }, { root: null, rootMargin: '0px 0px -60% 0px', threshold: 0 });
+
+                sections.forEach(s => io.observe(s));
+
+                // 點擊平滑捲動並設定 active
+                links.forEach(a => {
+                    a.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const id = a.getAttribute('href').slice(1);
+                        const el = document.getElementById(id);
+                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        links.forEach(l => l.classList.remove('is-active'));
+                        a.classList.add('is-active');
+                    });
+                });
+            });
+        </script>
     </section>
     <!-- 文字雲 -->
     <!-- Tags Cloud -->
@@ -423,86 +257,460 @@
     <main>
         <!-- 標題內容 -->
         <section>
-            <style>
-                .body {
-                    font-family: Arial, Helvetica, sans-serif;
-                    font-size: 18px;
-                    line-height: 1.5;
-                    text-align: justify;
-                    text-indent: 20px;
-                    margin: 40px;
-                    margin-top: 5px;
-                    padding-top: 1px;
-                    padding: 20px;
-                    width: 800px;
-                    height: 200px;
-                }
-
-                .title {
-                    font-family: Arial, Helvetica, sans-serif;
-                    font-size: 26px;
-                    line-height: 1.5;
-                    text-align: justify;
-                    text-indent: 20px;
-                    margin-inline: 40px;
-                }
-            </style>
-            <div>
-                <h1 class="title">
-                    Lorem Ipsum
-                </h1>
-                <h3>
-                    <p class="body ">
-                        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-                        "There is no one who loves pain itself, who seeks after it and wants to have it, simply
-                        becauseit is pain..."
-                    </p>
-                </h3>
-            </div>
             <!-- 圖片 -->
             <section id="picture">
-
-
-                <h3 class="title">What is Lorem Ipsum?</h3>
-                <div class="body">
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                    classical
-                    Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
-                    Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
-                    a
-                    Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the
-                    undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
-                    Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the
-                    theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum
-                    dolor
-                    sit amet..", comes from a line in section 1.10.32.
-
-                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-                    Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in
-                    their
-                    exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-                </div>
+                <figure style="margin-inline:40px; width:800px; max-width:100%;">
+                    <picture>
+                        <source
+                            srcset="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=1200&q=80 1200w,
+                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80 800w,
+                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=400&q=80 400w"
+                            sizes="(max-width:800px) 100vw, 800px" type="image/jpeg">
+                        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80"
+                            alt="示意圖：新聞編輯與排版畫面"
+                            style="width:100%;height: 500px;border-radius:8px;display:block;object-fit:cover;margin-top: 50px;"
+                            width="800" height="450" loading="lazy" decoding="async">
+                    </picture>
+                    <figcaption style="font-size:14px;color:#666;margin-top:8px;">
+                        示意圖：Lorem Ipsum（來源：Unsplash）
+                    </figcaption>
+                </figure>
             </section>
+
+            <h1 class="title" id="head">Lorem Ipsum</h1>
+            <section class="post-meta"
+                style="margin-inline:40px; width:800px; max-width:100%; display:flex; align-items:center; gap:12px; color:#666; font-size:14px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
+                        alt="" style="width:40px;height:40px;border-radius:6px;object-fit:cover;">
+                    <div>
+                        <div style="font-weight:700;color:#111;">作者：<span id="articleAuthor">張三</span></div>
+                        <div><time id="pubDate" datetime="">發布：2025/12/16</time></div>
+                    </div>
+                </div>
+                <div style="margin-left:auto; font-size:13px; color:#888;">閱讀時間：<span id="readingTime">3 分鐘</span></div>
+            </section>
+
+            <script>
+                (function () {
+                    // 自動填入今天日期 (YYYY/MM/DD) 與 datetime 屬性 (YYYY-MM-DD)
+                    const t = document.getElementById('pubDate');
+                    if (t) {
+                        const d = new Date();
+                        const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0');
+                        const iso = `${y}-${m}-${day}`, disp = `${y}/${m}/${day}`;
+                        t.textContent = '發布：' + disp;
+                        t.setAttribute('datetime', iso);
+                    }
+                })();
+            </script>
+            <blockquote class="body" style="font-style: italic; margin-inline: 40px; padding-left: 16px;">
+                <p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
+                <p>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is
+                    pain..."</p>
+            </blockquote>
+
         </section>
-        <!-- <a href="#id_name">: # 符號表示連結到當前頁面中的特定元素。
-        <section id="id_name">: 加上 id 屬性，讓頁面中的段落或區塊可以被連結跳轉到。
-        <a href="URL">: 指向其他網站或內部頁面的網址。
-        target="_blank": 在新分頁中打開連結。  -->
 
         <!-- 文章內容 -->
-        <article>
-            <pre></pre>
 
-        </article>
+        <section class="article">
+            <p class="title" id="first_pre">What is Lorem Ipsum?</p>
+            <p class="body">
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
+                Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
+                Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a
+                Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the
+                undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
+                Malorum"
+                (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of
+                ethics,
+                very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
+                comes from
+                a line in section 1.10.32.
+            </p>
+            <p class="body">
+                The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+                Sections
+                1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact
+                original
+                form, accompanied by English versions from the 1914 translation by H. Rackham.
+            </p>
 
-        <!-- 段落連結 -->
+            <p class="title" id="second_pre">Where does it come from?</p>
+            <p class="body">
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
+                Latin
+                literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
+                Hampden-Sydney
+                College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
+                passage,
+                and going through the cites of the word in classical literature, discovered the undoubtable source.
+                Lorem Ipsum
+                comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+                Evil)
+                by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the
+                Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section
+                1.10.32.
+            </p>
+            <p class="body">
+                The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+                Sections
+                1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact
+                original
+                form, accompanied by English versions from the 1914 translation by H. Rackham.
+            </p>
 
-        <!-- 推薦內容 -->
-        <section>
+            <p class="title" id="third_pre">Why do we use it?</ㄣ>
+            <p class="body">
+                It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking
+                at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
+                letters, as
+                opposed to using 'Content here, content here', making it look like readable English. Many desktop
+                publishing
+                packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
+                ipsum'
+                will uncover many web sites still in their infancy. Various versions have evolved over the years,
+                sometimes by
+                accident, sometimes on purpose (injected humour and the like).
+            </p>
 
+            <p class="title" id="fourth_pre">Where can I get some?</ㄣ>
+            <p class="body">
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                alteration in
+                some form, by injected humour, or randomised words which don't look even slightly believable. If you are
+                going
+                to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the
+                middle of
+                text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
+                making this
+                the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a
+                handful
+                of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
+                is
+                therefore always free from repetition, injected humour, or non-characteristic words etc.
+            </p>
         </section>
 
+
+
+        <!-- 推薦內容 -->
+        <section id="categories">
+
+
+            <div class="category-grid">
+                <div class="cat" aria-labelledby="cat-2-title">
+                    <h2 id="cat-2-title">延伸閱讀</h2>
+
+                    <ul class="mini-grid" role="list" aria-label="文章清單">
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">PAPAYA 電腦教室｜極簡風簡報技巧</a>
+                                <div class="meta">2025-12-14 • 教學</div>
+                            </div>
+                        </li>
+
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                                <div class="meta">2025-12-12 • 新品</div>
+                            </div>
+                        </li>
+
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                                <div class="meta">2025-12-10 • AI</div>
+                            </div>
+                        </li>
+
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                                <div class="meta">2025-12-08 • 健康科技</div>
+                            </div>
+                        </li>
+
+                        <!-- 重複項目以湊滿 4 行 x 2 欄（共 8 項） -->
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">PAPAYA 電腦教室｜極簡風簡報技巧</a>
+                                <div class="meta">2025-12-14 • 教學</div>
+                            </div>
+                        </li>
+
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                                <div class="meta">2025-12-12 • 新品</div>
+                            </div>
+                        </li>
+
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                                <div class="meta">2025-12-10 • AI</div>
+                            </div>
+                        </li>
+
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                                <div class="meta">2025-12-08 • 健康科技</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 把訂閱區塊移入 categories 的 grid 中，作為一個獨立的欄位 -->
+                <section id="subscribe" class="cat subscribe-cat" role="region" aria-labelledby="subscribe-title">
+                    <style>
+                        /* 訂閱區塊樣式（與貼圖相近） */
+                        #subscribe {
+                            background: linear-gradient(180deg, #fff 0%, #fff 100%);
+                            color: black;
+                            padding: 24px;
+                            text-align: center;
+                            border-radius: 8px;
+                            border: 1px solid #eee;
+                            box-sizing: border-box;
+                            min-width: 240px;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        .subscribe-inner {
+                            width: 100%;
+                            max-width: 500px;
+                            margin: 0 auto;
+                        }
+
+                        .subscribe-inner h1 {
+                            margin: 0 0 12px;
+                            font-size: 1.6rem;
+                            font-weight: 800;
+                            letter-spacing: .6px;
+                        }
+
+                        .subscribe-inner p {
+                            margin: 0 0 22px;
+                            color: rgba(0, 0, 0, 0.75);
+                            font-size: 1rem;
+                            text-align: center;
+                        }
+
+                        .subscribe-form {
+                            display: inline-flex;
+                            gap: 12px;
+                            align-items: center;
+                            justify-content: center;
+                            background: transparent;
+                        }
+
+                        .subscribe-form input[type="email"] {
+                            padding: 12px 14px;
+                            border-radius: 12px;
+                            border: none;
+                            width: 240px;
+                            max-width: calc(100% - 140px);
+                            font-size: 1rem;
+                            outline: none;
+                            box-shadow: 0 6px 20px rgba(11, 37, 80, .08), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+                        }
+
+                        .subscribe-form input::placeholder {
+                            color: rgba(0, 0, 0, 0.5);
+                        }
+
+                        .subscribe-form button {
+                            background: linear-gradient(180deg, #3ea0ff, #2b84f2);
+                            color: #fff;
+                            border: none;
+                            padding: 12px 18px;
+                            border-radius: 12px;
+                            font-weight: 700;
+                            font-size: 1rem;
+                            cursor: pointer;
+                            box-shadow: 0 10px 30px rgba(43, 132, 242, .18);
+                            transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+                        }
+
+                        .subscribe-form button:hover {
+                            transform: translateY(-2px);
+                        }
+
+                        .subscribe-form button:active {
+                            transform: translateY(0);
+                        }
+
+                        @media (max-width:700px) {
+                            .subscribe-inner h1 {
+                                font-size: 1.3rem;
+                            }
+
+                            .subscribe-form {
+                                display: block;
+                            }
+
+                            .subscribe-form input[type="email"],
+                            .subscribe-form button {
+                                width: 100%;
+                                max-width: none;
+                                display: block;
+                            }
+
+                            .subscribe-form button {
+                                margin-top: 10px;
+                            }
+                        }
+                    </style>
+
+                    <div class="subscribe-inner" role="region" aria-labelledby="subscribe-title">
+                        <h1 id="subscribe-title">掌握最新科技脈動</h1>
+                        <p>每週一早上，將最重要的科技新聞與趨勢分析直接寄送到您的信箱。</p>
+
+                        <form class="subscribe-form" onsubmit="subscribe(event)" aria-label="訂閱表單">
+                            <input type="email" name="email" placeholder="輸入您的 Email" aria-label="輸入電子郵件" required>
+                            <button type="submit" aria-label="免費訂閱">免費訂閱</button>
+                        </form>
+                    </div>
+
+                    <script>
+                        function subscribe(e) {
+                            e.preventDefault();
+                            const form = e.target;
+                            const email = form.email.value.trim();
+                            if (!email) {
+                                alert('請輸入 Email');
+                                return;
+                            }
+                            // 暫時回饋：可改為實際 API 呼叫
+                            alert('已訂閱：' + email);
+                            form.reset();
+                        }
+                    </script>
+                </section>
+            </div>
+        </section>
+
+        <!-- 浮動圓形按鈕（右下） -->
+
+
+        <div class="floating-toc" aria-label="快速導覽">
+            <button id="floatingLogoBtn" class="floating-btn" title="回到標誌" aria-label="回到標誌">
+                <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
+                    alt="">
+            </button>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const btn = document.getElementById('floatingLogoBtn');
+                const target = document.getElementById('Logo');
+                if (!btn || !target) return;
+
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const link = target.querySelector('a') || target;
+                    if (link) {
+                        link.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // 若有可 focus 的元素則聚焦，提升無障礙
+                        const focusable = link.querySelector('a,button,[tabindex]') || link;
+                        if (focusable && typeof focusable.focus === 'function') focusable.focus({ preventScroll: true });
+                    }
+                });
+
+                // 觀察 Logo 可見性以切換按鈕狀態
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) btn.classList.add('is-active');
+                        else btn.classList.remove('is-active');
+                    });
+                }, { threshold: 0.5 });
+
+                io.observe(target);
+            });
+        </script>
     </main>
+    <footer>
+        <footer>
+            <div>
+                <div>
+                    <div>
+                        <a href="#Logo">
+                            <i></i><span>Lorem Ipsum</span>
+                        </a>
+                        <p>致力於提供最深入、最即時的科技產業分析與報導。</p>
+                    </div>
+                    <div>
+                        <h4>探索</h4>
+                        <ul>
+                            <li><a href="#">消費電子</a></li>
+                            <li><a href="#">區塊鏈</a></li>
+                            <li><a href="#">軟體開發</a></li>
+                            <li><a href="#">人工智慧</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>關於我們</h4>
+                        <ul>
+                            <li><a href="#">編輯團隊</a></li>
+                            <li><a href="#">聯絡方式</a></li>
+                            <li><a href="#">隱私權政策</a></li>
+                            <li><a href="#">服務條款</a></li>
+                        </ul>
+                    </div>
+                    <!-- 超連結icon -->
+                    <div>
+                        <h4>關注我們</h4>
+                        <div>
+                            <div class="social" role="list" aria-label="社群連結">
+                                <a href="#" class="icon" role="link" aria-label="Facebook" title="Facebook">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+                                        aria-hidden="true" focusable="false">
+                                        <title>Facebook</title>
+                                        <desc>Facebook icon</desc>
+                                        <path fill="currentColor"
+                                            d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.99H7.898V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.888h-2.33v6.99C18.343 21.128 22 16.991 22 12z" />
+
+                                    </svg>
+                                </a>
+
+                                <a href="#" class="icon" role="link" aria-label="Twitter" title="Twitter">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+                                        aria-hidden="true" focusable="false">
+                                        <title>Twitter</title>
+                                        <desc>Twitter icon</desc>
+                                        <path fill="currentColor"
+                                            d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 0 0 1.88-2.37 8.59 8.59 0 0 1-2.72 1.04A4.28 4.28 0 0 0 11.1 8.7c0 .34.04.67.11.99A12.14 12.14 0 0 1 3.15 4.9a4.27 4.27 0 0 0 1.33 5.71 4.25 4.25 0 0 1-1.94-.54v.05c0 2.1 1.49 3.84 3.46 4.24a4.3 4.3 0 0 1-1.93.07 4.28 4.28 0 0 0 3.99 2.97A8.59 8.59 0 0 1 2 19.54a12.11 12.11 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2l-.01-.56A8.7 8.7 0 0 0 22.46 6z" />
+                                    </svg>
+                                </a>
+
+                                <a href="#" class="icon" role="link" aria-label="Line" title="Line">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+                                        aria-hidden="true" focusable="false">
+                                        <title>Line</title>
+                                        <desc>Line icon</desc>
+                                        <rect x="0" y="0" width="24" height="24" rx="3" fill="currentColor" />
+                                        <text x="12" y="15" text-anchor="middle"
+                                            font-family="Helvetica, Arial, sans-serif" font-size="9" font-weight="700"
+                                            fill="#fff">LINE</text>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>&copy; 2025 Lorem Ipsum. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </footer>
 </body>
 
 </html>

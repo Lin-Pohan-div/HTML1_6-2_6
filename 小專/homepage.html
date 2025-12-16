@@ -45,7 +45,7 @@
                                 color: #72caff;
                             }
                         </style>
-                        <div class="brand-row" style="display:flex;align-items:center;gap:12px;width:100%;">
+                        <div id="Logo" class="brand-row" style="display:flex;align-items:center;gap:12px;width:100%;">
                             <a href="http://127.0.0.1:5501/%E5%B0%8F%E5%B0%88/webpage_1215.html"
                                 style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
                                 <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
@@ -303,7 +303,7 @@
                 </div>
             </div>
 
-          
+
         </nav>
     </header>
     <!-- 主內容區 -->
@@ -2012,6 +2012,113 @@
         </script>
 
     </section>
+
+    <!-- 浮動圓形按鈕（右下） -->
+    <style>
+        .floating-toc {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 9999;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: auto;
+        }
+
+        .floating-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: none;
+            background: #2b6df6;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            cursor: pointer;
+            box-shadow: 0 8px 28px rgba(43, 109, 246, .22);
+            transition: transform .12s ease, box-shadow .12s ease;
+        }
+
+        .floating-btn img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .floating-btn:active {
+            transform: translateY(1px);
+        }
+
+        .floating-btn:focus-visible {
+            outline: none;
+            box-shadow: 0 8px 28px rgba(43, 109, 246, .30), 0 0 0 4px rgba(43, 109, 246, .12);
+        }
+
+        /* 當目標在視窗中時顯示強調圈 */
+        .floating-btn.is-active {
+            box-shadow: 0 10px 34px rgba(43, 109, 246, .30), 0 0 0 6px rgba(43, 109, 246, .08);
+        }
+
+        /* 小螢幕微調 */
+        @media (max-width: 520px) {
+            .floating-toc {
+                right: 12px;
+                bottom: 12px;
+            }
+
+            .floating-btn {
+                width: 48px;
+                height: 48px;
+                padding: 4px;
+            }
+
+            .floating-btn img {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    </style>
+
+    <div class="floating-toc" aria-label="快速導覽">
+        <button id="floatingLogoBtn" class="floating-btn" title="回到標誌" aria-label="回到標誌">
+            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
+                alt="">
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('floatingLogoBtn');
+            const target = document.getElementById('Logo');
+            if (!btn || !target) return;
+
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const link = target.querySelector('a') || target;
+                if (link) {
+                    link.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // 若有可 focus 的元素則聚焦，提升無障礙
+                    const focusable = link.querySelector('a,button,[tabindex]') || link;
+                    if (focusable && typeof focusable.focus === 'function') focusable.focus({ preventScroll: true });
+                }
+            });
+
+            // 觀察 Logo 可見性以切換按鈕狀態
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) btn.classList.add('is-active');
+                    else btn.classList.remove('is-active');
+                });
+            }, { threshold: 0.5 });
+
+            io.observe(target);
+        });
+    </script>
 
     <!-- 頁尾 (Footer) -->
     <footer>
