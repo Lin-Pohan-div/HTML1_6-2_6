@@ -198,7 +198,99 @@
                                 </div>
                             </div>
                             <!-- 模擬搜尋結果（放在導覽列的搜尋區塊旁） -->
+                            <style>
+                                .overlay-results {
+                                    position: fixed;
+                                    top: 18%;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    width: 84%;
+                                    max-width: 920px;
+                                    background: #fff;
+                                    color: #111;
+                                    border-radius: 10px;
+                                    padding: 14px;
+                                    z-index: 1010;
+                                    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+                                    display: none;
+                                }
 
+                                .overlay-results header {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    gap: 12px;
+                                    align-items: center;
+                                    margin-bottom: 10px;
+                                }
+
+                                .overlay-results h3 {
+                                    margin: 0;
+                                    font-size: 16px;
+                                }
+
+                                .overlay-results .close-results {
+                                    background: transparent;
+                                    border: 1px solid #ccc;
+                                    padding: 6px 10px;
+                                    border-radius: 6px;
+                                    cursor: pointer;
+                                }
+
+                                .search-results-list {
+                                    list-style: none;
+                                    margin: 0;
+                                    padding: 0;
+                                    max-height: 360px;
+                                    overflow: auto;
+                                }
+
+                                .search-results-list li {
+                                    padding: 10px 8px;
+                                    border-top: 1px solid #eee;
+                                    display: flex;
+                                    gap: 12px;
+                                    align-items: flex-start;
+                                }
+
+                                .search-results-list li:first-child {
+                                    border-top: none;
+                                }
+
+                                .result-thumb {
+                                    width: 72px;
+                                    height: 48px;
+                                    object-fit: cover;
+                                    border-radius: 6px;
+                                    flex: 0 0 72px;
+                                }
+
+                                .result-body {
+                                    flex: 1;
+                                }
+
+                                .result-title {
+                                    font-weight: 600;
+                                    margin: 0 0 6px 0;
+                                }
+
+                                .result-snippet {
+                                    margin: 0;
+                                    color: #555;
+                                    font-size: 13px;
+                                }
+
+                                .result-meta {
+                                    margin-top: 6px;
+                                    color: #999;
+                                    font-size: 12px;
+                                }
+
+                                .no-results {
+                                    padding: 18px 6px;
+                                    color: #666;
+                                    text-align: center;
+                                }
+                            </style>
 
                             <div id="searchResults" class="overlay-results" role="region" aria-live="polite"
                                 aria-hidden="true" aria-labelledby="searchResultsTitle">

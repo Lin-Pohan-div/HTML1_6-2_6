@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <div id="data-container"></div>
+
+    <article>
+        <p class="body">
+            如果說 2007 年史蒂夫·賈伯斯從信封裡抽出 MacBook Air 改變了筆記型電腦的定義，或者初代 iPhone 的多點觸控抹去了實體鍵盤；
+            那麼今天，Aetheria 的執行長艾琳娜·范斯（Elena Vance）走上莫斯康中心（Moscone Center）的舞台時，她雙手空空如也的姿態，
+            或許正預示著一個更為激進的未來——螢幕的消失。
+        </p>
+        <p class="body" style="text-indent: 0%;">
+            在長達兩小時的發布會中，全球市值最高的科技巨頭 Aetheria 正式揭開了傳聞已久的「Project Silence」的神祕面紗，正式定名為
+            Aetheria Synapse（突觸）。這不是一款手機，不是一副 AR 眼鏡，而是一個僅有硬幣大小、貼附於耳後的非侵入式神經介面裝置。
+        </p>
+        <p class="body" style="text-indent: 0%;">
+            「過去五十年，人類為了與數位世界溝通，被迫低頭看著發光的玻璃板，」范斯在台上說道，身後巨大的全息投影展示著人類頸椎病變的
+            演化圖，「今天，我們把頭抬起來。今天，運算不再是手中的工具，而是思想的延伸。
+        </p>
+        <h3>
+            <p class="title" id="first_pre">硬體解析：看不見的革命</p>
+        </h3>
+        <p class="body">
+            Synapse 的核心技術在於其專利的「共振神經映射」（Resonant Neural Mapping, RNM）技術。與馬斯克早期 Neuralink 需要開顱手
+            術的侵入式方案不同，Synapse採用了一種高靈敏度的石墨烯-生物聚合物貼片。根據 Aetheria 的技術白皮書，Synapse 能夠感測大腦
+            皮層的微伏級電位變化，特別是負責視覺處理的枕葉與負責語言生成的布若卡氏區（Broca's area）。
+        </p>
+        <p class="body">
+            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+            Sections
+            1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact
+            original
+            form, accompanied by English versions from the 1914 translation by H. Rackham.
+        </p>
+    </article>
+
+    <script>
+        fetch('data.json') // 獲取 data.json 檔案
+            .then(response => response.json()) // 將回應解析為 JSON 格式
+            .then(data => {
+                // 成功獲取並解析資料 (data 是一個 JavaScript 物件)
+                console.log(data);
+                const container = document.getElementById('data-container');
+                // 假設 data 是一個 { name: "...", age: ... } 的物件
+                container.innerHTML = `<h2>${data.name}</h2><p>Age: ${data.age}</p>`; // 將資料顯示到 HTML
+            })
+            .catch(error => {
+                console.error('讀取 JSON 檔案時發生錯誤:', error); // 處理錯誤
+            });
+    </script>
 
 </body>
+
 </html>
