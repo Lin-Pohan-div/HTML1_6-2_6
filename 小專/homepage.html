@@ -34,7 +34,7 @@
 
                     <!-- 電腦版選單 -->
                     <div>
-                        <div class="nav-menu">
+                        <div class="nav-menu" id="nav-menu">
                             <div class="dropdown">
                                 <button class="dropbtn" aria-haspopup="true" aria-expanded="false">新聞</button>
                                 <div class="dropdown-content" role="menu">
@@ -124,6 +124,187 @@
                                     <a href="#community-contribute">投稿指南</a>
                                 </div>
                             </div>
+                            <!-- full screen search bar -->
+                            <!-- add an explicit search open button and make overlay accessible -->
+                            <button id="openSearchBtn" class="search-open-btn" type="button" aria-label="開啟搜尋"
+                                title="開啟搜尋" onclick="openSearch()">🔍</button>
+
+                            <div id="myOverlay" class="overlay" role="dialog" aria-modal="true" aria-hidden="true"
+                                aria-labelledby="overlay-search-title">
+                                <button class="closebtn" type="button" onclick="closeSearch()"
+                                    aria-label="關閉搜尋">×</button>
+                                <div class="overlay-content">
+                                    <h2 id="overlay-search-title" class="sr-only"
+                                        style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+                                        搜尋</h2>
+                                    <script>
+                                        (function () {
+                                            const container = document.querySelector('.overlay-content');
+                                            if (!container) return;
+
+                                            // build form
+                                            const form = document.createElement('form');
+                                            form.setAttribute('role', 'search');
+                                            form.setAttribute('aria-label', '搜尋');
+                                            form.className = 'overlay-form';
+                                            // prevent native submit and forward to performOverlaySearch
+                                            form.addEventListener('submit', function (e) {
+                                                e.preventDefault();
+                                                if (typeof performOverlaySearch === 'function') {
+                                                    performOverlaySearch(e);
+                                                }
+                                            });
+
+                                            const input = document.createElement('input');
+                                            input.id = 'overlay-search-input';
+                                            input.type = 'text';
+                                            input.name = 'search';
+                                            input.placeholder = 'Search..';
+                                            input.setAttribute('aria-label', '搜尋');
+                                            input.autocomplete = 'off';
+
+                                            const button = document.createElement('button');
+                                            button.type = 'submit';
+                                            button.className = 'search-submit';
+                                            button.setAttribute('aria-label', '提交搜尋');
+                                            button.innerHTML = '<span aria-hidden="true">🔍</span>';
+
+                                            form.appendChild(input);
+                                            form.appendChild(button);
+
+                                            // insert before the following script (where the original form was)
+                                            const nextScript = container.querySelector('script');
+                                            if (nextScript) container.insertBefore(form, nextScript);
+                                            else container.appendChild(form);
+
+                                            // optional: simple debounce live-search to call performOverlaySearch while typing
+                                            let timer;
+                                            input.addEventListener('input', function () {
+                                                clearTimeout(timer);
+                                                timer = setTimeout(function () {
+                                                    if (typeof performOverlaySearch === 'function') performOverlaySearch();
+                                                }, 220);
+                                            });
+                                        })();
+                                    </script>
+                                    <script>
+                                        // Handle overlay search submission; return true to allow normal submit,
+                                        // or call e.preventDefault() and handle via JavaScript.
+                                        function performOverlaySearch(e) {
+                                            // e.preventDefault(); // uncomment to handle the search with JS
+                                            return true;
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+                            <!-- 模擬搜尋結果（放在導覽列的搜尋區塊旁） -->
+                            <style>
+                                .overlay-results {
+                                    position: fixed;
+                                    top: 18%;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    width: 84%;
+                                    max-width: 920px;
+                                    background: #fff;
+                                    color: #111;
+                                    border-radius: 10px;
+                                    padding: 14px;
+                                    z-index: 1010;
+                                    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+                                    display: none;
+                                }
+
+                                .overlay-results header {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    gap: 12px;
+                                    align-items: center;
+                                    margin-bottom: 10px;
+                                }
+
+                                .overlay-results h3 {
+                                    margin: 0;
+                                    font-size: 16px;
+                                }
+
+                                .overlay-results .close-results {
+                                    background: transparent;
+                                    border: 1px solid #ccc;
+                                    padding: 6px 10px;
+                                    border-radius: 6px;
+                                    cursor: pointer;
+                                }
+
+                                .search-results-list {
+                                    list-style: none;
+                                    margin: 0;
+                                    padding: 0;
+                                    max-height: 360px;
+                                    overflow: auto;
+                                }
+
+                                .search-results-list li {
+                                    padding: 10px 8px;
+                                    border-top: 1px solid #eee;
+                                    display: flex;
+                                    gap: 12px;
+                                    align-items: flex-start;
+                                }
+
+                                .search-results-list li:first-child {
+                                    border-top: none;
+                                }
+
+                                .result-thumb {
+                                    width: 72px;
+                                    height: 48px;
+                                    object-fit: cover;
+                                    border-radius: 6px;
+                                    flex: 0 0 72px;
+                                }
+
+                                .result-body {
+                                    flex: 1;
+                                }
+
+                                .result-title {
+                                    font-weight: 600;
+                                    margin: 0 0 6px 0;
+                                }
+
+                                .result-snippet {
+                                    margin: 0;
+                                    color: #555;
+                                    font-size: 13px;
+                                }
+
+                                .result-meta {
+                                    margin-top: 6px;
+                                    color: #999;
+                                    font-size: 12px;
+                                }
+
+                                .no-results {
+                                    padding: 18px 6px;
+                                    color: #666;
+                                    text-align: center;
+                                }
+                            </style>
+
+                            <div id="searchResults" class="overlay-results" role="region" aria-live="polite"
+                                aria-hidden="true" aria-labelledby="searchResultsTitle">
+                                <header>
+                                    <h3 id="searchResultsTitle">搜尋結果</h3>
+                                    <div>
+                                        <button type="button" class="close-results" aria-label="關閉搜尋結果"
+                                            onclick="hideSearchResults()">關閉</button>
+                                    </div>
+                                </header>
+                                <div id="searchResultsCount" style="font-size:13px;color:#666;margin-bottom:8px;"></div>
+                                <ul id="searchResultsList" class="search-results-list" role="list"></ul>
+                            </div>
+                            <script src="../小專/ProjectJs/full screen search.js"></script>
                         </div>
                         <script src="../小專/ProjectJs/homepage_navMenu.js"></script>
                     </div>
@@ -142,23 +323,30 @@
             <div class="slideshow-container">
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
+                    <div class="numbertext">1 / 4</div>
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
                         alt="Slide 1">
                     <div class="text">PAPAYA 電腦教室｜極簡風簡報技巧</div>
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
+                    <div class="numbertext">2 / 4</div>
                     <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
                         alt="Slide 2">
                     <div class="text">最新 AI 工具整理</div>
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
+                    <div class="numbertext">3 / 4</div>
                     <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
                         alt="Slide 3">
+                    <div class="text">雲端部署最佳實務</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
+                        alt="Slide 4">
                     <div class="text">雲端部署最佳實務</div>
                 </div>
 
@@ -172,6 +360,7 @@
                 <span class="dot" onclick="currentSlide(1)" role="button" aria-label="第一張"></span>
                 <span class="dot" onclick="currentSlide(2)" role="button" aria-label="第二張"></span>
                 <span class="dot" onclick="currentSlide(3)" role="button" aria-label="第三張"></span>
+                <span class="dot" onclick="currentSlide(4)" role="button" aria-label="第四張"></span>
             </div>
         </div>
 
@@ -374,7 +563,7 @@
     </section>
 
     <!-- 類別區塊：大圖 + 垂直列表 -->
-    <section id="categories">
+    <section id="categories1">
         <div class="category-grid">
 
             <div class="cat" aria-labelledby="cat-2-title">
@@ -475,12 +664,7 @@
     </section>
 
     <!-- 類別3 -->
-    <!-- 頭條 -->
-    <!--  文章卡片 1 -->
-    <!--  文章卡片 2 -->
-    <!--  文章卡片 3 -->
-    <!--  文章卡片 4 -->
-    <section id="categories">
+    <section id="categories2">
         <div class="category-grid">
 
             <div class="cat" aria-labelledby="cat-2-title">
@@ -580,13 +764,8 @@
         </div>
     </section>
 
-    <!-- 類別5 -->
-    <!-- 頭條 -->
-    <!--  文章卡片 1 -->
-    <!--  文章卡片 2 -->
-    <!--  文章卡片 3 -->
-    <!--  文章卡片 4 -->
-    <section id="newsList">
+    <!-- 類別3 -->
+    <section id="newsList3">
         <div class="news-row" role="region" aria-label="最新文章列">
             <aside class="side news-card" aria-labelledby="side-title-1">
                 <h3 id="side-title-1">最新文章</h3>
@@ -598,32 +777,24 @@
                         </div>
                     </li>
                     <li>
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
-                            alt="">
                         <div class="article-meta">
                             <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
                             <div class="meta">2025-12-12 • 新品</div>
                         </div>
                     </li>
                     <li>
-                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
-                            alt="">
                         <div class="article-meta">
                             <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
                             <div class="meta">2025-12-10 • AI</div>
                         </div>
                     </li>
                     <li>
-                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
-                            alt="">
                         <div class="article-meta">
                             <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
                             <div class="meta">2025-12-08 • 健康科技</div>
                         </div>
                     </li>
                     <li>
-                        <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
-                            alt="">
                         <div class="article-meta">
                             <a href="#">指令經濟正夯：AI 對未來十年的影響淺談</a>
                             <div class="meta">2025-12-06 • 專欄</div>
@@ -642,19 +813,27 @@
                         </div>
                     </li>
                     <li>
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
-                            alt="">
                         <div class="article-meta">
                             <a href="#">雲端成本優化實作指南</a>
                             <div class="meta">2025-12-09 • Cloud</div>
                         </div>
                     </li>
                     <li>
-                        <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
-                            alt="">
                         <div class="article-meta">
                             <a href="#">AI 新品選購要點</a>
                             <div class="meta">2025-12-07 • 新品</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
                         </div>
                     </li>
                 </ul>
@@ -670,8 +849,6 @@
                         </div>
                     </li>
                     <li>
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
-                            alt="">
                         <div class="article-meta">
                             <a href="#">雲端部署最佳實務</a>
                             <div class="meta">2025-12-05 • 教學</div>
@@ -681,6 +858,18 @@
                         <div class="article-meta">
                             <a href="#">如何寫出有影響力的技術文章</a>
                             <div class="meta">2025-12-03 • 專欄</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
                         </div>
                     </li>
                 </ul>
@@ -689,13 +878,8 @@
     </section>
 
 
-    <!-- 類別4 -->
-    <!-- 頭條 -->
-    <!--  文章卡片 1 -->
-    <!--  文章卡片 2 -->
-    <!--  文章卡片 3 -->
-    <!--  文章卡片 4 -->
-    <section id="newsList">
+    <!-- newsList4 ==>  -->
+    <section id="newsList4">
         <div class="news-row" role="region" aria-label="最新文章列">
             <aside class="side news-card" aria-labelledby="side-title-1">
                 <h3 id="side-title-1">最新文章</h3>
@@ -766,6 +950,22 @@
                             <div class="meta">2025-12-07 • 新品</div>
                         </div>
                     </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">雲端成本優化實作指南</a>
+                            <div class="meta">2025-12-09 • Cloud</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">AI 新品選購要點</a>
+                            <div class="meta">2025-12-07 • 新品</div>
+                        </div>
+                    </li>
                 </ul>
             </aside>
 
@@ -779,8 +979,6 @@
                         </div>
                     </li>
                     <li>
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
-                            alt="">
                         <div class="article-meta">
                             <a href="#">雲端部署最佳實務</a>
                             <div class="meta">2025-12-05 • 教學</div>
@@ -790,6 +988,18 @@
                         <div class="article-meta">
                             <a href="#">如何寫出有影響力的技術文章</a>
                             <div class="meta">2025-12-03 • 專欄</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">深度解析：資安最佳實務</a>
+                            <div class="meta">2025-12-13 • 資安</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">雲端部署最佳實務</a>
+                            <div class="meta">2025-12-05 • 教學</div>
                         </div>
                     </li>
                 </ul>
@@ -813,22 +1023,21 @@
     </section>
 
     <!-- 浮動圓形按鈕（右下） -->
-    <div class="floating-toc" aria-label="快速導覽">
+    <div id="floating-toc" class="floating-toc" aria-label="快速導覽">
         <button id="floatingLogoBtn" class="floating-btn" title="回到標誌" aria-label="回到標誌">
             <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
                 alt="">
         </button>
     </div>
     <script src="../小專/ProjectJs/floating-toc.js"></script>
-  
+
     <!-- 頁尾 (Footer) -->
     <footer>
         <div>
             <div>
                 <div>
-                    <a href="#">
-                        <i></i>
-                        <span>Tech<span>View</span></span>
+                    <a href="#Logo">
+                        <i><span>Lorem<span> Ipsum</span></span></i>
                     </a>
                     <p>致力於提供最深入、最即時的科技產業分析與報導。</p>
                 </div>

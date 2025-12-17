@@ -145,6 +145,7 @@
 
 
 /* <!-- 電腦版選單 --> */
+
 .nav-menu {
     display: flex;
     gap: 8px;
@@ -250,6 +251,197 @@
         pointer-events: auto
     }
 }
+
+/* < !-- full screen search bar --> */
+/* The overlay effect with black background */
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black with a little bit see-through */
+}
+
+/* The content */
+.overlay-content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80%;
+    max-width: 900px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Close button (use a real button for accessibility) */
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 36px;
+    cursor: pointer;
+    color: white;
+    background: transparent;
+    border: none;
+    padding: 8px;
+}
+
+.overlay .closebtn:hover,
+.overlay .closebtn:focus {
+    color: #ccc;
+    outline: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Style the search field */
+.overlay input[type="text"] {
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    width: 75%;
+    max-width: 640px;
+    background: white;
+}
+
+.overlay input[type="text"]:hover,
+.overlay input[type="text"]:focus {
+    background: #f1f1f1;
+    outline: none;
+}
+
+/* Style the submit button */
+.overlay .search-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    /* match input (15px top+bottom padding + ~18px font) */
+    padding: 0 18px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 8px;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.overlay .search-submit:hover,
+.overlay .search-submit:focus {
+    background: #bbb;
+}
+
+/* small helper for the open button */
+.search-open-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 6px 8px;
+}
+
+
+/* < !-- 模擬搜尋結果（放在導覽列的搜尋區塊旁） --> */
+.overlay-results {
+    position: fixed;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 84%;
+    max-width: 920px;
+    background: #fff;
+    color: #111;
+    border-radius: 10px;
+    padding: 14px;
+    z-index: 1010;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    display: none;
+}
+
+.overlay-results header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.overlay-results h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.overlay-results .close-results {
+    background: transparent;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.search-results-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 360px;
+    overflow: auto;
+}
+
+.search-results-list li {
+    padding: 10px 8px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.search-results-list li:first-child {
+    border-top: none;
+}
+
+.result-thumb {
+    width: 72px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex: 0 0 72px;
+}
+
+.result-body {
+    flex: 1;
+}
+
+.result-title {
+    font-weight: 600;
+    margin: 0 0 6px 0;
+}
+
+.result-snippet {
+    margin: 0;
+    color: #555;
+    font-size: 13px;
+}
+
+.result-meta {
+    margin-top: 6px;
+    color: #999;
+    font-size: 12px;
+}
+
+.no-results {
+    padding: 18px 6px;
+    color: #666;
+    text-align: center;
+}
+
+
+
+
 
 
 /* < !-- 主內容區 -->
