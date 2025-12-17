@@ -1,4 +1,17 @@
 {
-  "name": "John Doe",
-  "age": 30
-}
+    "article": {
+        "inner-text": [
+            {
+                "class": "body",
+                "style": "text-indent: 0%;",
+                "text":"如果說 2007 年史蒂夫·賈伯斯從信封裡抽出 MacBook Air 改變了筆記型電腦的定義，或者初代 iPhone 的多點觸控抹去了實體鍵盤；那麼今天，Aetheria 的執行長艾琳娜·范斯（Elena Vance）走上莫斯康中心（Moscone Center）的舞台時，她雙手空空如也的姿態，或許正預示著一個更為激進的未來——螢幕的消失。"
+            }
+        ]
+    }
+}        
+        
+        
+        
+        
+        
+       
