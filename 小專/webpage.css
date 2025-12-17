@@ -226,14 +226,14 @@
 }
 
 /* 選取 / 目前章節樣式 */
-.toc a.is-active {
+/* .toc a.is-active {
     /* background: #eaf6ff;
     border-bottom-color: #e93; */
     /* 使用 #e93 作為底部標記色 */
     /* border-bottom: 4px solid #e93;
     color: #0b2a66;
     box-shadow: 0 0 0 6px rgba(43, 109, 246, 0.04); */
-}
+ /*} */
 
 /* 小螢幕隱藏側欄 */
 @media (max-width: 900px) {
