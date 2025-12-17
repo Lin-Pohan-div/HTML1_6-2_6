@@ -529,7 +529,16 @@
 /* <main> */
 /* <!-- 標題內容 --> */
 /* <!-- 圖片 --> */
-
+.post-meta {
+    margin-inline: 40px;
+    width: 800px;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #666;
+    font-size: 14px;
+}
 
 /* <!-- 文章內容 --> */
 .body {
