@@ -339,31 +339,31 @@
 /* 文章側欄（目錄） - 右側顯示並固定於視窗（隨滾動跟隨） */
 .toc-wrap {
     /* 改為 sticky 以跟隨視窗滾動 */
-    /* float: right;
-    position: sticky;
+    float: right;
+    /*position: sticky;
     top: 96px; */
     /* 預設頂部間距，會被下方 JS 動態更新 */
-    /* max-width: 220px;
+    max-width: 400px;
     padding-left: 18px;
-    margin: 80px 0; */
+    margin: 80px 0;
 
     /* 保持右側排版 */
     /* margin-right: 120px; */
 
     /* 限制最大高度並允許內部捲動，避免超出視窗 */
-    /* max-height: calc(100vh - 120px);
-    overflow: auto;
+    max-height: calc(100vh - 120px);
+    /* overflow: auto;
     -webkit-overflow-scrolling: touch; */
 
-    float: right;
+    /* float: right;
     width: 400px;
-    max-width: 80%;
-    /* border: 1px solid #49a8d8; */
+    max-width: auto;
+    border: 1px solid #49a8d8;
     border-radius: 6px;
     padding: 20px;
     box-sizing: border-box;
     background: #fff;
-    margin: 145px 145px 0 60px;
+    margin: 160px 145px 0 10px; */
 }
 
 .toc {
