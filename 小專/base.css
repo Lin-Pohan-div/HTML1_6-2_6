@@ -479,14 +479,11 @@
     transform: translateY(-2px);
 }
 
-<<<<<<< Updated upstream
-=======
 .subscribe-form button:active {
     transform: translateY(0);
 }
 
 
->>>>>>> Stashed changes
 @media (max-width:700px) {
     .subscribe-inner h1 {
         font-size: 1.5rem;
