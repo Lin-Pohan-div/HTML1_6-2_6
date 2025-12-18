@@ -29,3 +29,45 @@ function openModal() {
         if (input) input.focus();
     }
 }
+
+
+// enhance dropdown accessibility and synchronize ARIA with open state
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.dropdown').forEach(function (drop) {
+        var btn = drop.querySelector('.dropbtn');
+        var menu = drop.querySelector('.dropdown-content');
+        if (!btn || !menu) return;
+
+        // ensure menu has an id and initialize ARIA states
+        if (!menu.id) menu.id = 'dropdown-' + Math.random().toString(36).slice(2, 9);
+        btn.setAttribute('aria-controls', menu.id);
+        btn.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            var isOpen = drop.classList.toggle('open');
+            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            menu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        });
+
+        // close when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!drop.contains(e.target) && drop.classList.contains('open')) {
+                drop.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+                menu.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        // keyboard: Esc to close
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && drop.classList.contains('open')) {
+                drop.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+                menu.setAttribute('aria-hidden', 'true');
+                btn.focus();
+            }
+        });
+    });
+});
