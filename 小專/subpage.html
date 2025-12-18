@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../小專/bootstrap.css">
+    <link rel="stylesheet" href="./base.css">
     <link rel="stylesheet" href="./homepage.css">
     <title>副網頁</title>
 </head>
@@ -12,7 +13,6 @@
 <body>
     <header>
         <section id="title-Logo" style="max-width: 2560px; margin:5px auto; padding:0 24px;">
-            <script src="../小專/ProjectJs/nav-menu.js"></script>
             <!-- logo --><!-- title -->
             <!-- 將 header 內容置中並在左右留白 -->
             <div class="container-fluid header-inner px-3 align-items-center"
@@ -164,7 +164,6 @@
                                 <div id="searchResultsCount" style="font-size:13px;color:#666;margin-bottom:8px;"></div>
                                 <ul id="searchResultsList" class="search-results-list" role="list"></ul>
                             </div>
-                            <script src="../小專/ProjectJs/full screen search.js"></script>
                         </div>
                         <script src="../小專/ProjectJs/homepage_navMenu.js"></script>
                         </nav>
@@ -177,47 +176,6 @@
                                 onclick="openSearch()">🔍</button>
                         </div>
                         <!-- Mobile search overlay (visible on mobile only) -->
-                        <style>
-                        /* Minimal styles for mobile search overlay */
-                        .mobile-search-overlay {
-                            display: none;
-                            position: fixed;
-                            inset: 0;
-                            background: #fff;
-                            z-index: 1200;
-                            overflow: auto;
-                            -webkit-overflow-scrolling: touch;
-                        }
-                        .mobile-search {
-                            max-width: 720px;
-                            margin: 0 auto;
-                            padding: 12px;
-                        }
-                        .mobile-search-header {
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            gap: 12px;
-                            border-bottom: 1px solid #e6e6e6;
-                            padding-bottom: 8px;
-                        }
-                        .mobile-search input[type="search"] {
-                            width: 100%;
-                            padding: 10px 12px;
-                            font-size: 16px;
-                            border: 1px solid #ddd;
-                            border-radius: 8px;
-                        }
-                        .mobile-search-body { padding-top: 12px; }
-                        .search-results-list { list-style: none; margin: 8px 0 24px; padding: 0; }
-                        .search-results-list li { padding: 10px 8px; border-bottom: 1px solid #f1f1f1; }
-                        .search-results-list a { text-decoration: none; color: inherit; display: block; }
-                        .search-results-meta { font-size: 12px; color: #666; margin-top: 6px; }
-                        .results-count { font-size: 13px; color: #666; margin-bottom: 6px; }
-                        @media (min-width: 768px) {
-                            .mobile-search-overlay { display: none !important; }
-                        }
-                        </style>
 
                         <div id="mobileSearchOverlay" class="mobile-search-overlay d-md-none" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="mobile-search-title">
                             <div class="mobile-search" role="document" tabindex="-1">
@@ -244,102 +202,6 @@
                             </div>
                         </div>
 
-                        <script>
-                        (function () {
-                            const toggleBtn = document.getElementById('mobileSearchToggle');
-                            const overlay = document.getElementById('mobileSearchOverlay');
-                            const closeBtn = document.getElementById('closeMobileSearch');
-                            const clearBtn = document.getElementById('clearMobileSearch');
-                            const input = document.getElementById('mobileSearchInput');
-                            const resultsList = document.getElementById('mobileSearchResultsList');
-                            const resultsCount = document.getElementById('mobileSearchResultsCount');
-
-                            // Simulated data
-                            const mockData = [
-                                { title: '電腦教室｜極簡風簡報技巧', url: '#', meta: '2025-12-14 • 教學' },
-                                { title: 'AI 新品：快速上手指南', url: '#', meta: '2025-12-10 • AI' },
-                                { title: '雲端部署最佳實務', url: '#', meta: '2025-11-30 • Cloud' },
-                                { title: '資安警示：避免這些常見錯誤', url: '#', meta: '2025-11-22 • 資安' },
-                                { title: '永續 IT：綠色設計入門', url: '#', meta: '2025-10-07 • 永續IT' },
-                                { title: '研討會：企業數位轉型回顧', url: '#', meta: '2025-09-18 • 研討會' },
-                                { title: '專題：醫療 IT 創新應用', url: '#', meta: '2025-08-12 • 醫療IT' },
-                                { title: '工具推薦：生產力提升插件', url: '#', meta: '2025-07-01 • 工具' }
-                            ];
-
-                            function openOverlay() {
-                                overlay.style.display = 'block';
-                                overlay.setAttribute('aria-hidden', 'false');
-                                input.value = '';
-                                renderResults(mockData.slice(0, 6), '為您推薦');
-                                setTimeout(() => input.focus(), 100);
-                                document.body.style.overflow = 'hidden';
-                                document.addEventListener('keydown', onKeyDown);
-                            }
-
-                            function closeOverlay() {
-                                overlay.style.display = 'none';
-                                overlay.setAttribute('aria-hidden', 'true');
-                                resultsList.innerHTML = '';
-                                resultsCount.textContent = '';
-                                document.body.style.overflow = '';
-                                if (toggleBtn) toggleBtn.focus();
-                                document.removeEventListener('keydown', onKeyDown);
-                            }
-
-                            function onKeyDown(e) {
-                                if (e.key === 'Escape') closeOverlay();
-                            }
-
-                            function renderResults(items, label) {
-                                resultsList.innerHTML = '';
-                                if (!items || items.length === 0) {
-                                    resultsCount.textContent = '找不到結果';
-                                    return;
-                                }
-                                resultsCount.textContent = label ? `${label}（${items.length}）` : `找到 ${items.length} 筆結果`;
-                                items.forEach(item => {
-                                    const li = document.createElement('li');
-                                    li.innerHTML = `<a href="${item.url}"><strong>${escapeHtml(item.title)}</strong><div class="search-results-meta">${escapeHtml(item.meta || '')}</div></a>`;
-                                    resultsList.appendChild(li);
-                                });
-                            }
-
-                            function escapeHtml(text) {
-                                return String(text).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
-                            }
-
-                            function doSearch(query) {
-                                const q = (query || '').trim().toLowerCase();
-                                if (q === '') {
-                                    // show recommendations when empty
-                                    renderResults(mockData.slice(0, 6), '為您推薦');
-                                    return;
-                                }
-                                const filtered = mockData.filter(item => item.title.toLowerCase().includes(q) || (item.meta || '').toLowerCase().includes(q));
-                                renderResults(filtered, '搜尋結果');
-                            }
-
-                            // Event bindings
-                            if (toggleBtn) toggleBtn.addEventListener('click', (e) => { e.preventDefault(); openOverlay(); });
-                            if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
-                            if (clearBtn) clearBtn.addEventListener('click', () => { input.value = ''; input.focus(); doSearch(''); });
-
-                            let debounceTimer = null;
-                            input.addEventListener('input', (e) => {
-                                clearTimeout(debounceTimer);
-                                debounceTimer = setTimeout(() => doSearch(e.target.value), 180);
-                            });
-
-                            // Close when clicking outside the inner dialog
-                            overlay.addEventListener('click', (e) => {
-                                if (e.target === overlay) closeOverlay();
-                            });
-
-                            // Accessibility: prevent underlying content from being focusable while open
-                            overlay.addEventListener('transitionend', () => { /* placeholder if needed */ });
-
-                        })();
-                        </script>
 
                         <!-- Mobile nested double-layer navigation (hidden on desktop) -->
                         <div id="mobileNav" class="mobile-nav-overlay d-md-none" role="dialog" aria-modal="true"
@@ -415,7 +277,7 @@
                         </div>
 
                         <script src="../小專/ProjectJs/nav-menu.js"></script>
-                        <script src="../小專/ProjectJs/full%20screen%20search.js"></script>
+                        <script src="../小專/ProjectJs/full screen search.js"></script>
                     </div>
                 </div>
             </div>
