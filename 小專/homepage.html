@@ -5,39 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lorem Ipsum</title>
+    <link rel="stylesheet" href="../小專/bootstrap.css">
     <link rel="stylesheet" href="./base.css">
-    <link rel="stylesheet" href="../小專/homepage.css">
+    <link rel="stylesheet" href="./homepage.css">
 </head>
 
 <body>
     <!-- 導覽列 (Navbar) -->
     <header>
-        <nav>
-            <div>
-                <div>
-                    <!-- Logo -->
-                    <div>
-                        <div id="Logo" class="brand-row" style="display:flex;align-items:center;gap:12px;width:100%;">
-                            <a href="http://127.0.0.1:5501/%E5%B0%8F%E5%B0%88/webpage_1215.html"
-                                style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
-                                <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
-                                    alt="Logo" class="Logo">
-                                <span class="Logo-styleOne">Lorem Ipsum<span class="Logo-styleTwo">Lorem
-                                        Ipsum</span></span>
-                            </a>
-
-                            <button type="button" onclick="openModal()" aria-label="訂閱週報" title="訂閱週報"
-                                class="subscribe-LogoButton">
-                                訂閱週報
-                            </button>
-                        </div>
+        <section id="title-Logo" style="max-width: 2560px; margin:5px auto; padding:0 24px;">
+            <!-- logo --><!-- title -->
+            <!-- 將 header 內容置中並在左右留白 -->
+            <div class="container-fluid header-inner px-3 align-items-center"
+                style="max-width: 1280px; margin:5px auto; padding:0 24px;">
+                <div class="row align-items-center g-3">
+                    <div id="Logo" class="col-lg-2 col-md-3 col-8 d-flex align-items-center gap-3" style="width:100%;">
+                        <a href="http://127.0.0.1:5501/%E5%B0%8F%E5%B0%88/webpage_1215.html"
+                            style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+                            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
+                                alt="Logo" class="Logo">
+                            <span class="Logo-styleOne">Lorem Ipsum<span class="Logo-styleTwo">Lorem
+                                    Ipsum</span></span>
+                        </a>
+                        <button type="button" onclick="openModal()" aria-label="訂閱週報" title="訂閱週報"
+                            class="subscribe-LogoButton">
+                            訂閱週報
+                        </button>
                     </div>
-
-                    <!-- 電腦版選單 -->
-                    <div>
-                        <div class="nav-menu" id="nav-menu">
-                            <div class="dropdown">
-                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">新聞</button>
+                </div>
+            </div>
+        </section>
+        <!-- navigation -->
+        <!-- 可放置導覽列/搜尋等其他欄位 -->
+        <section style="max-width: 2560px; margin:5px auto; padding:0 24px;">
+            <div class="container-fluid header-inner px-3" style="background-color: #49a8d8;">
+                <div class="row g-0">
+                    <div class="col" style="max-width:1280px;margin:0 auto;padding:0 24px;">
+                        <!-- Desktop nav (visible >=768px) -->
+                        <nav class="nav-menu d-none d-md-flex flex-wrap flex-sm-nowrap align-items-center gap-2 w-100"
+                            role="navigation" aria-label="主導覽列">
+                            <!-- main dropdowns (unchanged content) -->
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn col" aria-haspopup="true" aria-expanded="false">新聞</button>
                                 <div class="dropdown-content" role="menu">
                                     <a href="#news-local">即時新聞</a>
                                     <a href="#news-industry">產業快訊</a>
@@ -45,7 +54,7 @@
                                 </div>
                             </div>
 
-                            <div class="dropdown">
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
                                 <button class="dropbtn" aria-haspopup="true" aria-expanded="false">專題</button>
                                 <div class="dropdown-content" role="menu">
                                     <a href="#feature-1">專題報導 A</a>
@@ -54,7 +63,7 @@
                                 </div>
                             </div>
 
-                            <div class="dropdown">
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
                                 <button class="dropbtn" aria-haspopup="true" aria-expanded="false">計術</button>
                                 <div class="dropdown-content" role="menu">
                                     <a href="#tech-howto">實作教學</a>
@@ -63,7 +72,7 @@
                                 </div>
                             </div>
 
-                            <div class="dropdown">
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
                                 <button class="dropbtn" aria-haspopup="true" aria-expanded="false">AI</button>
                                 <div class="dropdown-content" role="menu">
                                     <a href="#ai-research">研究動態</a>
@@ -72,7 +81,7 @@
                                 </div>
                             </div>
 
-                            <div class="dropdown">
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
                                 <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Cloud</button>
                                 <div class="dropdown-content" role="menu">
                                     <a href="#cloud-news">雲端新聞</a>
@@ -81,7 +90,7 @@
                                 </div>
                             </div>
 
-                            <div class="dropdown">
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
                                 <button class="dropbtn" aria-haspopup="true" aria-expanded="false">永續IT</button>
                                 <div class="dropdown-content" role="menu">
                                     <a href="#sustainability">綠色設計</a>
@@ -90,7 +99,7 @@
                                 </div>
                             </div>
 
-                            <div class="dropdown">
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
                                 <button class="dropbtn" aria-haspopup="true" aria-expanded="false">醫療IT</button>
                                 <div class="dropdown-content" role="menu">
                                     <a href="#medtech-news">醫療科技</a>
@@ -99,7 +108,7 @@
                                 </div>
                             </div>
 
-                            <div class="dropdown">
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
                                 <button class="dropbtn" aria-haspopup="true" aria-expanded="false">資安</button>
                                 <div class="dropdown-content" role="menu">
                                     <a href="#sec-alerts">資安警示</a>
@@ -108,7 +117,7 @@
                                 </div>
                             </div>
 
-                            <div class="dropdown">
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
                                 <button class="dropbtn" aria-haspopup="true" aria-expanded="false">研討會</button>
                                 <div class="dropdown-content" role="menu">
                                     <a href="#events-upcoming">即將舉辦</a>
@@ -117,7 +126,7 @@
                                 </div>
                             </div>
 
-                            <div class="dropdown">
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
                                 <button class="dropbtn" aria-haspopup="true" aria-expanded="false">社群</button>
                                 <div class="dropdown-content" role="menu">
                                     <a href="#community-forum">論壇</a>
@@ -125,11 +134,12 @@
                                     <a href="#community-contribute">投稿指南</a>
                                 </div>
                             </div>
-                            <!-- full screen search bar -->
-                            <!-- add an explicit search open button and make overlay accessible -->
-                            <button id="openSearchBtn" class="search-open-btn" type="button" aria-label="開啟搜尋"
-                                title="開啟搜尋" onclick="openSearch()">🔍</button>
 
+                            <div class="flex-grow-1 d-none d-sm-block" role="presentation" aria-hidden="true"
+                                style="min-width:0;"></div>
+
+                            <button id="openSearchBtn" class="search-open-btn ms-auto flex-shrink-0" type="button"
+                                aria-label="開啟搜尋" title="開啟搜尋" onclick="openSearch()">🔍</button>
                             <div id="myOverlay" class="overlay" role="dialog" aria-modal="true" aria-hidden="true"
                                 aria-labelledby="overlay-search-title">
                                 <button class="closebtn" type="button" onclick="closeSearch()"
@@ -142,7 +152,7 @@
                                 </div>
                             </div>
                             <!-- 模擬搜尋結果（放在導覽列的搜尋區塊旁） -->
- 
+
                             <div id="searchResults" class="overlay-results" role="region" aria-live="polite"
                                 aria-hidden="true" aria-labelledby="searchResultsTitle">
                                 <header>
@@ -155,18 +165,133 @@
                                 <div id="searchResultsCount" style="font-size:13px;color:#666;margin-bottom:8px;"></div>
                                 <ul id="searchResultsList" class="search-results-list" role="list"></ul>
                             </div>
-                            <script src="../小專/ProjectJs/full screen search.js"></script>
-                        </div>
-                        <script src="../小專/ProjectJs/homepage_navMenu.js"></script>
                     </div>
+                    <script src="../小專/ProjectJs/homepage_navMenu.js"></script>
+                    </nav>
+
+                    <!-- Mobile controls -->
+                    <div class="d-flex d-md-none align-items-center justify-content-between">
+                        <button id="mobileNavToggle" class="search-open-btn" aria-controls="mobileNav"
+                            aria-expanded="false" aria-label="開啟主選單" title="選單">☰</button>
+                        <button id="mobileSearchToggle" class="search-open-btn" aria-label="開啟搜尋" title="搜尋"
+                            onclick="openSearch()">🔍</button>
+                    </div>
+                    <!-- Mobile search overlay (visible on mobile only) -->
+
+                    <div id="mobileSearchOverlay" class="mobile-search-overlay d-md-none" role="dialog"
+                        aria-modal="true" aria-hidden="true" aria-labelledby="mobile-search-title">
+                        <div class="mobile-search" role="document" tabindex="-1">
+                            <div class="mobile-search-header">
+                                <h2 id="mobile-search-title" style="font-size:16px;margin:0;">搜尋</h2>
+                                <div style="display:flex;gap:8px;align-items:center;">
+                                    <button id="clearMobileSearch" aria-label="清除搜尋" title="清除"
+                                        style="background:none;border:none;font-size:18px;">⤫</button>
+                                    <button id="closeMobileSearch" aria-label="關閉搜尋" title="關閉" class="search-open-btn"
+                                        style="background:none;border:none;font-size:20px;">✕</button>
+                                </div>
+                            </div>
+
+                            <div class="mobile-search-body">
+                                <form id="mobileSearchForm" role="search" onsubmit="return false;"
+                                    style="margin-bottom:8px;">
+                                    <label for="mobileSearchInput" class="sr-only">搜尋</label>
+                                    <input id="mobileSearchInput" type="search" inputmode="search"
+                                        placeholder="搜尋新聞、專題或標題..." autocomplete="off" aria-label="搜尋" />
+                                </form>
+
+                                <div id="mobileSearchResults" role="region" aria-live="polite"
+                                    aria-labelledby="mobileSearchResultsTitle">
+                                    <h3 id="mobileSearchResultsTitle" class="sr-only">搜尋結果</h3>
+                                    <div id="mobileSearchResultsCount" class="results-count" aria-atomic="true"></div>
+                                    <ul id="mobileSearchResultsList" class="search-results-list" role="list"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Mobile nested double-layer navigation (hidden on desktop) -->
+                    <div id="mobileNav" class="mobile-nav-overlay d-md-none" role="dialog" aria-modal="true"
+                        aria-hidden="true" aria-label="手機選單">
+                        <div class="mobile-nav" role="menu" tabindex="-1">
+                            <div class="mobile-nav-header d-flex align-items-center justify-content-between">
+                                <strong>選單</strong>
+                                <button id="closeMobileNav" class="search-open-btn" aria-label="關閉選單">✕</button>
+                            </div>
+
+                            <nav class="mobile-nav-list" aria-label="手機導覽">
+                                <details>
+                                    <summary>新聞</summary>
+                                    <ul>
+                                        <li><a href="#news-local">即時新聞</a></li>
+                                        <li><a href="#news-industry">產業快訊</a></li>
+                                        <li><a href="#news-analysis">深度解析</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>專題</summary>
+                                    <ul>
+                                        <li><a href="#feature-1">專題報導 A</a></li>
+                                        <li><a href="#feature-2">專題報導 B</a></li>
+                                        <li><a href="#feature-archive">歷史專題</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>計術</summary>
+                                    <ul>
+                                        <li><a href="#tech-howto">實作教學</a></li>
+                                        <li><a href="#tech-opinion">技術觀點</a></li>
+                                        <li><a href="#tech-tools">工具推薦</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>AI</summary>
+                                    <ul>
+                                        <li><a href="#ai-research">研究動態</a></li>
+                                        <li><a href="#ai-products">AI 新品</a></li>
+                                        <li><a href="#ai-ethics">倫理與法規</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>Cloud</summary>
+                                    <ul>
+                                        <li><a href="#cloud-news">雲端新聞</a></li>
+                                        <li><a href="#cloud-guides">部署指南</a></li>
+                                        <li><a href="#cloud-cost">成本優化</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>更多</summary>
+                                    <ul>
+                                        <li><a href="#sustainability">永續IT</a></li>
+                                        <li><a href="#medtech-news">醫療IT</a></li>
+                                        <li><a href="#sec-alerts">資安</a></li>
+                                        <li><a href="#events-upcoming">研討會</a></li>
+                                        <li><a href="#community-forum">社群</a></li>
+                                    </ul>
+                                </details>
+                            </nav>
+
+                            <div class="mobile-nav-footer" style="margin-top:12px;">
+                                <a href="#subscribe" class="btn btn-primary w-100" role="button">訂閱週報</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script src="../小專/ProjectJs/nav-menu.js"></script>
+                    <script src="../小專/ProjectJs/full screen search.js"></script>
                 </div>
             </div>
-
-
-        </nav>
+            </div>
+        </section>
     </header>
     <!-- 主內容區 -->
-
+<!-- *****預定修改區域******************* --> 
     <!-- 頭條新聞 (Hero Section) -->
     <!-- Slideshow container -->
     <section class="hero">
@@ -857,42 +982,42 @@
             </aside>
         </div>
     </section>
-
+<!-- *****預定修改區域******************* --> 
 
     <!-- 訂閱區塊 -->
-    <section id="subscribe">
-        <div class="subscribe-inner" role="region" aria-labelledby="subscribe-title">
-            <h1 id="subscribe-title">掌握最新科技脈動</h1>
-            <p>每週一早上，將最重要的科技新聞與趨勢分析直接寄送到您的信箱。</p>
+        <section id="subscribe" style="max-width:inherit">
+            <div class="subscribe-inner" role="region" aria-labelledby="subscribe-title">
+                <h1 id="subscribe-title">掌握最新科技脈動</h1>
+                <p>每週一早上，將最重要的科技新聞與趨勢分析直接寄送到您的信箱。</p>
 
-            <form class="subscribe-form" onsubmit="subscribe(event)" aria-label="訂閱表單">
-                <input type="email" name="email" placeholder="輸入您的 Email" aria-label="輸入電子郵件" required>
-                <button type="submit" aria-label="免費訂閱">免費訂閱</button>
-            </form>
-        </div>
-        <script src="../小專/ProjectJs/homepage_subscribe.js"></script>
-    </section>
+                <form class="subscribe-form" onsubmit="subscribe(event)" aria-label="訂閱表單">
+                    <input type="email" name="email" placeholder="輸入您的 Email" aria-label="輸入電子郵件" required>
+                    <button type="submit" aria-label="免費訂閱">免費訂閱</button>
+                </form>
+            </div>
+            <script src="../小專/ProjectJs/homepage_subscribe.js"></script>
+        </section>
 
-    <!-- 浮動圓形按鈕（右下） -->
-    <div id="floating-toc" class="floating-toc" aria-label="快速導覽">
+    <!-- floating-toc浮動回頭按鈕 -->
+    <div class="floating-toc" aria-label="快速導覽">
+        <script src="../小專/ProjectJs/floating-toc.js"></script>
         <button id="floatingLogoBtn" class="floating-btn" title="回到標誌" aria-label="回到標誌">
             <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
                 alt="">
         </button>
     </div>
-    <script src="../小專/ProjectJs/floating-toc.js"></script>
 
-    <!-- 頁尾 (Footer) -->
+    <!-- <footer> -->
     <footer>
-        <div>
-            <div>
-                <div>
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
                     <a href="#Logo">
                         <i><span>Lorem<span> Ipsum</span></span></i>
                     </a>
                     <p>致力於提供最深入、最即時的科技產業分析與報導。</p>
                 </div>
-                <div>
+                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-6">
                     <h4>探索</h4>
                     <ul>
                         <li><a href="#">消費電子</a></li>
@@ -901,7 +1026,7 @@
                         <li><a href="#">人工智慧</a></li>
                     </ul>
                 </div>
-                <div>
+                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-6">
                     <h4>關於我們</h4>
                     <ul>
                         <li><a href="#">編輯團隊</a></li>
@@ -911,7 +1036,7 @@
                     </ul>
                 </div>
                 <!-- 超連結icon -->
-                <div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
                     <h4>關注我們</h4>
                     <div>
                         <div class="social" role="list" aria-label="社群連結">
