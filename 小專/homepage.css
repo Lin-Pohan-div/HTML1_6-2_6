@@ -1518,7 +1518,7 @@ footer {
 footer>div {
     max-width: 1200px;
     margin: 0 auto;
-}
+} */
 
 /* top area: columns */
 footer>div>div:first-child {
@@ -1555,9 +1555,9 @@ footer>div>div:first-child>div:first-child a span {
 footer>div>div:first-child>div:first-child p {
     color: rgba(230, 240, 250, 0.85);
     margin-top: 10px;
-    max-width: 320px;
+    max-width: 360px;
     font-size: 0.95rem;
-}
+} 
 
 /* link columns */
 footer>div>div:first-child>div:nth-child(n+2) {
@@ -1637,7 +1637,7 @@ footer>div>div:last-child {
 /* responsive */
 @media (max-width:820px) {
     footer>div>div:first-child {
-        flex-direction: column;
+        flex-direction: row;
         align-items: stretch;
         gap: 18px;
     }
@@ -1648,7 +1648,7 @@ footer>div>div:last-child {
 
     footer>div>div:first-child>div:nth-child(n+2) {
         min-width: unset;
-        flex: 1 1 auto;
+        /* flex: 1 1 auto; */
     }
 
     footer .social a {

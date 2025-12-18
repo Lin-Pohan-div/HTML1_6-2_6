@@ -139,6 +139,34 @@
 
                             <button id="openSearchBtn" class="search-open-btn ms-auto flex-shrink-0" type="button"
                                 aria-label="開啟搜尋" title="開啟搜尋" onclick="openSearch()">🔍</button>
+                                                        <div id="myOverlay" class="overlay" role="dialog" aria-modal="true" aria-hidden="true"
+                                aria-labelledby="overlay-search-title">
+                                <button class="closebtn" type="button" onclick="closeSearch()"
+                                    aria-label="關閉搜尋">×</button>
+                                <div class="overlay-content">
+                                    <h2 id="overlay-search-title" class="sr-only"
+                                        style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+                                        搜尋</h2>
+                                    <script src="./ProjectJs/overlay-search-title.js"></script>
+                                </div>
+                            </div>
+                            <!-- 模擬搜尋結果（放在導覽列的搜尋區塊旁） -->
+ 
+                            <div id="searchResults" class="overlay-results" role="region" aria-live="polite"
+                                aria-hidden="true" aria-labelledby="searchResultsTitle">
+                                <header>
+                                    <h3 id="searchResultsTitle">搜尋結果</h3>
+                                    <div>
+                                        <button type="button" class="close-results" aria-label="關閉搜尋結果"
+                                            onclick="hideSearchResults()">關閉</button>
+                                    </div>
+                                </header>
+                                <div id="searchResultsCount" style="font-size:13px;color:#666;margin-bottom:8px;"></div>
+                                <ul id="searchResultsList" class="search-results-list" role="list"></ul>
+                            </div>
+                            <script src="../小專/ProjectJs/full screen search.js"></script>
+                        </div>
+                        <script src="../小專/ProjectJs/homepage_navMenu.js"></script>
                         </nav>
 
                         <!-- Mobile controls -->
@@ -148,6 +176,170 @@
                             <button id="mobileSearchToggle" class="search-open-btn" aria-label="開啟搜尋" title="搜尋"
                                 onclick="openSearch()">🔍</button>
                         </div>
+                        <!-- Mobile search overlay (visible on mobile only) -->
+                        <style>
+                        /* Minimal styles for mobile search overlay */
+                        .mobile-search-overlay {
+                            display: none;
+                            position: fixed;
+                            inset: 0;
+                            background: #fff;
+                            z-index: 1200;
+                            overflow: auto;
+                            -webkit-overflow-scrolling: touch;
+                        }
+                        .mobile-search {
+                            max-width: 720px;
+                            margin: 0 auto;
+                            padding: 12px;
+                        }
+                        .mobile-search-header {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            gap: 12px;
+                            border-bottom: 1px solid #e6e6e6;
+                            padding-bottom: 8px;
+                        }
+                        .mobile-search input[type="search"] {
+                            width: 100%;
+                            padding: 10px 12px;
+                            font-size: 16px;
+                            border: 1px solid #ddd;
+                            border-radius: 8px;
+                        }
+                        .mobile-search-body { padding-top: 12px; }
+                        .search-results-list { list-style: none; margin: 8px 0 24px; padding: 0; }
+                        .search-results-list li { padding: 10px 8px; border-bottom: 1px solid #f1f1f1; }
+                        .search-results-list a { text-decoration: none; color: inherit; display: block; }
+                        .search-results-meta { font-size: 12px; color: #666; margin-top: 6px; }
+                        .results-count { font-size: 13px; color: #666; margin-bottom: 6px; }
+                        @media (min-width: 768px) {
+                            .mobile-search-overlay { display: none !important; }
+                        }
+                        </style>
+
+                        <div id="mobileSearchOverlay" class="mobile-search-overlay d-md-none" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="mobile-search-title">
+                            <div class="mobile-search" role="document" tabindex="-1">
+                                <div class="mobile-search-header">
+                                    <h2 id="mobile-search-title" style="font-size:16px;margin:0;">搜尋</h2>
+                                    <div style="display:flex;gap:8px;align-items:center;">
+                                        <button id="clearMobileSearch" aria-label="清除搜尋" title="清除" style="background:none;border:none;font-size:18px;">⤫</button>
+                                        <button id="closeMobileSearch" aria-label="關閉搜尋" title="關閉" class="search-open-btn" style="background:none;border:none;font-size:20px;">✕</button>
+                                    </div>
+                                </div>
+
+                                <div class="mobile-search-body">
+                                    <form id="mobileSearchForm" role="search" onsubmit="return false;" style="margin-bottom:8px;">
+                                        <label for="mobileSearchInput" class="sr-only">搜尋</label>
+                                        <input id="mobileSearchInput" type="search" inputmode="search" placeholder="搜尋新聞、專題或標題..." autocomplete="off" aria-label="搜尋" />
+                                    </form>
+
+                                    <div id="mobileSearchResults" role="region" aria-live="polite" aria-labelledby="mobileSearchResultsTitle">
+                                        <h3 id="mobileSearchResultsTitle" class="sr-only">搜尋結果</h3>
+                                        <div id="mobileSearchResultsCount" class="results-count" aria-atomic="true"></div>
+                                        <ul id="mobileSearchResultsList" class="search-results-list" role="list"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                        (function () {
+                            const toggleBtn = document.getElementById('mobileSearchToggle');
+                            const overlay = document.getElementById('mobileSearchOverlay');
+                            const closeBtn = document.getElementById('closeMobileSearch');
+                            const clearBtn = document.getElementById('clearMobileSearch');
+                            const input = document.getElementById('mobileSearchInput');
+                            const resultsList = document.getElementById('mobileSearchResultsList');
+                            const resultsCount = document.getElementById('mobileSearchResultsCount');
+
+                            // Simulated data
+                            const mockData = [
+                                { title: '電腦教室｜極簡風簡報技巧', url: '#', meta: '2025-12-14 • 教學' },
+                                { title: 'AI 新品：快速上手指南', url: '#', meta: '2025-12-10 • AI' },
+                                { title: '雲端部署最佳實務', url: '#', meta: '2025-11-30 • Cloud' },
+                                { title: '資安警示：避免這些常見錯誤', url: '#', meta: '2025-11-22 • 資安' },
+                                { title: '永續 IT：綠色設計入門', url: '#', meta: '2025-10-07 • 永續IT' },
+                                { title: '研討會：企業數位轉型回顧', url: '#', meta: '2025-09-18 • 研討會' },
+                                { title: '專題：醫療 IT 創新應用', url: '#', meta: '2025-08-12 • 醫療IT' },
+                                { title: '工具推薦：生產力提升插件', url: '#', meta: '2025-07-01 • 工具' }
+                            ];
+
+                            function openOverlay() {
+                                overlay.style.display = 'block';
+                                overlay.setAttribute('aria-hidden', 'false');
+                                input.value = '';
+                                renderResults(mockData.slice(0, 6), '為您推薦');
+                                setTimeout(() => input.focus(), 100);
+                                document.body.style.overflow = 'hidden';
+                                document.addEventListener('keydown', onKeyDown);
+                            }
+
+                            function closeOverlay() {
+                                overlay.style.display = 'none';
+                                overlay.setAttribute('aria-hidden', 'true');
+                                resultsList.innerHTML = '';
+                                resultsCount.textContent = '';
+                                document.body.style.overflow = '';
+                                if (toggleBtn) toggleBtn.focus();
+                                document.removeEventListener('keydown', onKeyDown);
+                            }
+
+                            function onKeyDown(e) {
+                                if (e.key === 'Escape') closeOverlay();
+                            }
+
+                            function renderResults(items, label) {
+                                resultsList.innerHTML = '';
+                                if (!items || items.length === 0) {
+                                    resultsCount.textContent = '找不到結果';
+                                    return;
+                                }
+                                resultsCount.textContent = label ? `${label}（${items.length}）` : `找到 ${items.length} 筆結果`;
+                                items.forEach(item => {
+                                    const li = document.createElement('li');
+                                    li.innerHTML = `<a href="${item.url}"><strong>${escapeHtml(item.title)}</strong><div class="search-results-meta">${escapeHtml(item.meta || '')}</div></a>`;
+                                    resultsList.appendChild(li);
+                                });
+                            }
+
+                            function escapeHtml(text) {
+                                return String(text).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+                            }
+
+                            function doSearch(query) {
+                                const q = (query || '').trim().toLowerCase();
+                                if (q === '') {
+                                    // show recommendations when empty
+                                    renderResults(mockData.slice(0, 6), '為您推薦');
+                                    return;
+                                }
+                                const filtered = mockData.filter(item => item.title.toLowerCase().includes(q) || (item.meta || '').toLowerCase().includes(q));
+                                renderResults(filtered, '搜尋結果');
+                            }
+
+                            // Event bindings
+                            if (toggleBtn) toggleBtn.addEventListener('click', (e) => { e.preventDefault(); openOverlay(); });
+                            if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
+                            if (clearBtn) clearBtn.addEventListener('click', () => { input.value = ''; input.focus(); doSearch(''); });
+
+                            let debounceTimer = null;
+                            input.addEventListener('input', (e) => {
+                                clearTimeout(debounceTimer);
+                                debounceTimer = setTimeout(() => doSearch(e.target.value), 180);
+                            });
+
+                            // Close when clicking outside the inner dialog
+                            overlay.addEventListener('click', (e) => {
+                                if (e.target === overlay) closeOverlay();
+                            });
+
+                            // Accessibility: prevent underlying content from being focusable while open
+                            overlay.addEventListener('transitionend', () => { /* placeholder if needed */ });
+
+                        })();
+                        </script>
 
                         <!-- Mobile nested double-layer navigation (hidden on desktop) -->
                         <div id="mobileNav" class="mobile-nav-overlay d-md-none" role="dialog" aria-modal="true"
@@ -457,14 +649,14 @@
     <!-- <footer> -->
     <footer>
         <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-3 col-sm-3">
+            <div class="row ">
+                <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
                     <a href="#Logo">
                         <i><span>Lorem<span> Ipsum</span></span></i>
                     </a>
                     <p>致力於提供最深入、最即時的科技產業分析與報導。</p>
                 </div>
-                <div class="col-lg-4 col-md-3 col-sm-1">
+                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-6">
                     <h4>探索</h4>
                     <ul>
                         <li><a href="#">消費電子</a></li>
@@ -473,7 +665,7 @@
                         <li><a href="#">人工智慧</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4 col-md-3 col-sm-6">
+                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-6">
                     <h4>關於我們</h4>
                     <ul>
                         <li><a href="#">編輯團隊</a></li>
@@ -483,7 +675,7 @@
                     </ul>
                 </div>
                 <!-- 超連結icon -->
-                <div col-lg-12 col-md-12 col-sm-12>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6" >
                     <h4>關注我們</h4>
                     <div>
                         <div class="social" role="list" aria-label="社群連結">
