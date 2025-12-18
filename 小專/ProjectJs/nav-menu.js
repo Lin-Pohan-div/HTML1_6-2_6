@@ -71,3 +71,44 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+(function () {
+    var mobileToggle = document.getElementById('mobileNavToggle');
+    var mobileNav = document.getElementById('mobileNav');
+    var closeBtn = document.getElementById('closeMobileNav');
+
+    function openMobileNav() {
+        mobileNav.setAttribute('aria-hidden', 'false');
+        mobileToggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        // put keyboard focus inside menu
+        var firstFocusable = mobileNav.querySelector('summary, a, button');
+        if (firstFocusable) firstFocusable.focus();
+    }
+
+    function closeMobileNav() {
+        mobileNav.setAttribute('aria-hidden', 'true');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        mobileToggle.focus();
+    }
+
+    mobileToggle && mobileToggle.addEventListener('click', function () {
+        var hidden = mobileNav.getAttribute('aria-hidden') === 'true';
+        if (hidden) openMobileNav();
+        else closeMobileNav();
+    });
+
+    closeBtn && closeBtn.addEventListener('click', closeMobileNav);
+
+    // close when click on backdrop
+    mobileNav && mobileNav.addEventListener('click', function (e) {
+        if (e.target === mobileNav) closeMobileNav();
+    });
+
+    // close on Escape
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mobileNav.getAttribute('aria-hidden') === 'false') {
+            closeMobileNav();
+        }
+    });
+})();

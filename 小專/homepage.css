@@ -116,33 +116,7 @@
     pointer-events: auto;
 }
 
-@media (max-width:768px) {
 
-    /* 小螢幕改為水平滾動，避免過窄換行 */
-    .nav-menu {
-        flex-direction: row;
-        align-items: center;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        gap: 6px;
-        padding: 6px;
-    }
-
-    .dropdown {
-        flex: 0;
-        min-width: auto
-    }
-
-    .dropdown-content {
-        position: static;
-        border: none;
-        box-shadow: none;
-        transform: none;
-        opacity: 1;
-        max-height: none;
-        pointer-events: auto
-    }
-}
 
 
 /* <!-- 電腦版選單 --> */
@@ -225,32 +199,78 @@
     pointer-events: auto;
 }
 
-@media (max-width:768px) {
+/* mobile-nav */
+/* hide on desktop, desktop handled by Bootstrap utility classes */
+.mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1500;
+    background: rgba(0, 0, 0, 0.6);
+}
 
-    /* 小螢幕改為水平滾動，避免過窄換行 */
+.mobile-nav-overlay[aria-hidden="false"] {
+    display: block;
+}
+
+.mobile-nav {
+    background: #fff;
+    width: 92%;
+    max-width: 420px;
+    height: 100%;
+    padding: 18px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
+    overflow-y: auto;
+    transition: right 1s ease-in-out;
+}
+
+.mobile-nav-header {
+    border-bottom: 1px solid rgba(0, 0, 0, .06);
+    padding-bottom: 8px;
+}
+
+.mobile-nav-list details {
+    margin: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .04);
+    padding-bottom: 6px;
+}
+
+.mobile-nav-list summary {
+    list-style: none;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 8px 0;
+}
+
+.mobile-nav-list summary::marker {
+    display: none;
+}
+
+.mobile-nav-list ul {
+    margin: 8px 0 0 12px;
+    padding-left: 0;
+}
+
+.mobile-nav-list a {
+    display: block;
+    padding: 6px 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+
+@media (min-width: 768px) {
+    .mobile-nav-overlay {
+        display: none !important;
+    }
+}
+
+
+@media (max-width: 768px) {
     .nav-menu {
-        flex-direction: row;
-        align-items: center;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        gap: 6px;
-        padding: 6px;
+        display: none !important;
     }
 
-    .dropdown {
-        flex: 0;
-        min-width: auto
-    }
-
-    .dropdown-content {
-        position: static;
-        border: none;
-        box-shadow: none;
-        transform: none;
-        opacity: 1;
-        max-height: none;
-        pointer-events: auto
-    }
 }
 
 /* < !-- full screen search bar --> */
