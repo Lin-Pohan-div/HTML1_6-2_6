@@ -423,7 +423,8 @@
 
 .subscribe-inner {
     max-width: 920px;
-    margin: 0 auto;
+    margin: 60px auto;
+    
 }
 
 .subscribe-inner h1 {
@@ -431,6 +432,7 @@
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: .6px;
+    text-align: center;
 }
 
 .subscribe-inner p {
