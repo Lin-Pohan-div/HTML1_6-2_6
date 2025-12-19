@@ -3,6 +3,9 @@
 /* root */
 :root {
     scroll-behavior: smooth;
+    max-width: 1280px;
+    margin: 5px auto;
+    padding: 0 24px;
 }
 
 /* header / logo */
@@ -424,7 +427,7 @@
 .subscribe-inner {
     max-width: 920px;
     margin: 60px auto;
-    
+
 }
 
 .subscribe-inner h1 {
