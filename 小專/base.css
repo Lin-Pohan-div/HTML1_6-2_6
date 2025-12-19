@@ -440,7 +440,7 @@
 }
 
 .subscribe-form {
-    display: inline-flex;
+    display: inline;
     gap: 12px;
     align-items: center;
     justify-content: center;
@@ -467,6 +467,7 @@
     color: #fff;
     border: none;
     padding: 12px 18px;
+    margin: 6px;
     border-radius: 12px;
     font-weight: 700;
     font-size: 1rem;
@@ -484,7 +485,7 @@
 }
 
 
-@media (max-width:700px) {
+@media (max-width:768px) {
     .subscribe-inner h1 {
         font-size: 1.5rem;
     }

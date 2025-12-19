@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../小專/bootstrap.css">
+    <link rel="stylesheet" href="./base.css">
+    <link rel="stylesheet" href="../小專/webpage.css">
+    <title>即時新聞</title>
+</head>
+
+<body>
+    <header>
+        <section id="title-Logo" style="max-width: 2560px; margin:5px auto; padding:0 24px;">
+            <!-- logo --><!-- title -->
+            <!-- 將 header 內容置中並在左右留白 -->
+            <div class="container-fluid header-inner px-3 align-items-center"
+                style="max-width: 1280px; margin:5px auto; padding:0 24px;">
+                <div class="row align-items-center g-3">
+                    <div id="Logo" class="col-lg-2 col-md-3 col-8 d-flex align-items-center gap-3" style="width:100%;">
+                        <a href="http://127.0.0.1:5501/%E5%B0%8F%E5%B0%88/webpage_1215.html"
+                            style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+                            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
+                                alt="Logo" class="Logo">
+                            <span class="Logo-styleOne">Lorem Ipsum<span class="Logo-styleTwo">Lorem
+                                    Ipsum</span></span>
+                        </a>
+                        <button type="button" onclick="openModal()" aria-label="訂閱週報" title="訂閱週報"
+                            class="subscribe-LogoButton">
+                            訂閱週報
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- navigation -->
+        <!-- 可放置導覽列/搜尋等其他欄位 -->
+        <section style="max-width: 2560px; margin:5px auto; padding:0 24px;">
+            <div class="container-fluid header-inner px-3" style="background-color: #49a8d8;">
+                <div class="row g-0">
+                    <div class="col" style="max-width:1280px;margin:0 auto;padding:0 24px;">
+                        <!-- Desktop nav (visible >=768px) -->
+                        <nav class="nav-menu d-none d-md-flex flex-wrap flex-sm-nowrap align-items-center gap-2 w-100"
+                            role="navigation" aria-label="主導覽列">
+                            <!-- main dropdowns (unchanged content) -->
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn col" aria-haspopup="true" aria-expanded="false">新聞</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#news-local">即時新聞</a>
+                                    <a href="#news-industry">產業快訊</a>
+                                    <a href="#news-analysis">深度解析</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">專題</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#feature-1">專題報導 A</a>
+                                    <a href="#feature-2">專題報導 B</a>
+                                    <a href="#feature-archive">歷史專題</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">計術</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#tech-howto">實作教學</a>
+                                    <a href="#tech-opinion">技術觀點</a>
+                                    <a href="#tech-tools">工具推薦</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">AI</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#ai-research">研究動態</a>
+                                    <a href="#ai-products">AI 新品</a>
+                                    <a href="#ai-ethics">倫理與法規</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Cloud</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#cloud-news">雲端新聞</a>
+                                    <a href="#cloud-guides">部署指南</a>
+                                    <a href="#cloud-cost">成本優化</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">永續IT</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#sustainability">綠色設計</a>
+                                    <a href="#sustainability-policy">政策趨勢</a>
+                                    <a href="#sustainability-cases">案例研究</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">醫療IT</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#medtech-news">醫療科技</a>
+                                    <a href="#medtech-standards">法規標準</a>
+                                    <a href="#medtech-startups">新創專區</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">資安</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#sec-alerts">資安警示</a>
+                                    <a href="#sec-bestpractices">最佳實務</a>
+                                    <a href="#sec-tools">工具與評測</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">研討會</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#events-upcoming">即將舉辦</a>
+                                    <a href="#events-recordings">錄影回放</a>
+                                    <a href="#events-apply">報名資訊</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">社群</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#community-forum">論壇</a>
+                                    <a href="#community-meetups">聚會活動</a>
+                                    <a href="#community-contribute">投稿指南</a>
+                                </div>
+                            </div>
+
+                            <div class="flex-grow-1 d-none d-sm-block" role="presentation" aria-hidden="true"
+                                style="min-width:0;"></div>
+
+                            <button id="openSearchBtn" class="search-open-btn ms-auto flex-shrink-0" type="button"
+                                aria-label="開啟搜尋" title="開啟搜尋" onclick="openSearch()">🔍</button>
+                            <div id="myOverlay" class="overlay" role="dialog" aria-modal="true" aria-hidden="true"
+                                aria-labelledby="overlay-search-title">
+                                <button class="closebtn" type="button" onclick="closeSearch()"
+                                    aria-label="關閉搜尋">×</button>
+                                <div class="overlay-content">
+                                    <h2 id="overlay-search-title" class="sr-only"
+                                        style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+                                        搜尋</h2>
+                                    <script src="./ProjectJs/overlay-search-title.js"></script>
+                                </div>
+                            </div>
+                            <!-- 模擬搜尋結果（放在導覽列的搜尋區塊旁） -->
+
+                            <div id="searchResults" class="overlay-results" role="region" aria-live="polite"
+                                aria-hidden="true" aria-labelledby="searchResultsTitle">
+                                <header>
+                                    <h3 id="searchResultsTitle">搜尋結果</h3>
+                                    <div>
+                                        <button type="button" class="close-results" aria-label="關閉搜尋結果"
+                                            onclick="hideSearchResults()">關閉</button>
+                                    </div>
+                                </header>
+                                <div id="searchResultsCount" style="font-size:13px;color:#666;margin-bottom:8px;"></div>
+                                <ul id="searchResultsList" class="search-results-list" role="list"></ul>
+                            </div>
+                    </div>
+                    <script src="../小專/ProjectJs/homepage_navMenu.js"></script>
+                    </nav>
+
+                    <!-- Mobile controls -->
+                    <div class="d-flex d-md-none align-items-center justify-content-between">
+                        <button id="mobileNavToggle" class="search-open-btn" aria-controls="mobileNav"
+                            aria-expanded="false" aria-label="開啟主選單" title="選單">☰</button>
+                        <button id="mobileSearchToggle" class="search-open-btn" aria-label="開啟搜尋" title="搜尋"
+                            onclick="openSearch()">🔍</button>
+                    </div>
+                    <!-- Mobile search overlay (visible on mobile only) -->
+
+                    <div id="mobileSearchOverlay" class="mobile-search-overlay d-md-none" role="dialog"
+                        aria-modal="true" aria-hidden="true" aria-labelledby="mobile-search-title">
+                        <div class="mobile-search" role="document" tabindex="-1">
+                            <div class="mobile-search-header">
+                                <h2 id="mobile-search-title" style="font-size:16px;margin:0;">搜尋</h2>
+                                <div style="display:flex;gap:8px;align-items:center;">
+                                    <button id="clearMobileSearch" aria-label="清除搜尋" title="清除"
+                                        style="background:none;border:none;font-size:18px;">⤫</button>
+                                    <button id="closeMobileSearch" aria-label="關閉搜尋" title="關閉" class="search-open-btn"
+                                        style="background:none;border:none;font-size:20px;">✕</button>
+                                </div>
+                            </div>
+
+                            <div class="mobile-search-body">
+                                <form id="mobileSearchForm" role="search" onsubmit="return false;"
+                                    style="margin-bottom:8px;">
+                                    <label for="mobileSearchInput" class="sr-only">搜尋</label>
+                                    <input id="mobileSearchInput" type="search" inputmode="search"
+                                        placeholder="搜尋新聞、專題或標題..." autocomplete="off" aria-label="搜尋" />
+                                </form>
+
+                                <div id="mobileSearchResults" role="region" aria-live="polite"
+                                    aria-labelledby="mobileSearchResultsTitle">
+                                    <h3 id="mobileSearchResultsTitle" class="sr-only">搜尋結果</h3>
+                                    <div id="mobileSearchResultsCount" class="results-count" aria-atomic="true"></div>
+                                    <ul id="mobileSearchResultsList" class="search-results-list" role="list"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Mobile nested double-layer navigation (hidden on desktop) -->
+                    <div id="mobileNav" class="mobile-nav-overlay d-md-none" role="dialog" aria-modal="true"
+                        aria-hidden="true" aria-label="手機選單">
+                        <div class="mobile-nav" role="menu" tabindex="-1">
+                            <div class="mobile-nav-header d-flex align-items-center justify-content-between">
+                                <strong>選單</strong>
+                                <button id="closeMobileNav" class="search-open-btn" aria-label="關閉選單">✕</button>
+                            </div>
+
+                            <nav class="mobile-nav-list" aria-label="手機導覽">
+                                <details>
+                                    <summary>新聞</summary>
+                                    <ul>
+                                        <li><a href="#news-local">即時新聞</a></li>
+                                        <li><a href="#news-industry">產業快訊</a></li>
+                                        <li><a href="#news-analysis">深度解析</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>專題</summary>
+                                    <ul>
+                                        <li><a href="#feature-1">專題報導 A</a></li>
+                                        <li><a href="#feature-2">專題報導 B</a></li>
+                                        <li><a href="#feature-archive">歷史專題</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>計術</summary>
+                                    <ul>
+                                        <li><a href="#tech-howto">實作教學</a></li>
+                                        <li><a href="#tech-opinion">技術觀點</a></li>
+                                        <li><a href="#tech-tools">工具推薦</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>AI</summary>
+                                    <ul>
+                                        <li><a href="#ai-research">研究動態</a></li>
+                                        <li><a href="#ai-products">AI 新品</a></li>
+                                        <li><a href="#ai-ethics">倫理與法規</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>Cloud</summary>
+                                    <ul>
+                                        <li><a href="#cloud-news">雲端新聞</a></li>
+                                        <li><a href="#cloud-guides">部署指南</a></li>
+                                        <li><a href="#cloud-cost">成本優化</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>更多</summary>
+                                    <ul>
+                                        <li><a href="#sustainability">永續IT</a></li>
+                                        <li><a href="#medtech-news">醫療IT</a></li>
+                                        <li><a href="#sec-alerts">資安</a></li>
+                                        <li><a href="#events-upcoming">研討會</a></li>
+                                        <li><a href="#community-forum">社群</a></li>
+                                    </ul>
+                                </details>
+                            </nav>
+
+                            <div class="mobile-nav-footer" style="margin-top:12px;">
+                                <a href="#subscribe" class="btn btn-primary w-100" role="button">訂閱週報</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script src="../小專/ProjectJs/nav-menu.js"></script>
+                    <script src="../小專/ProjectJs/full screen search.js"></script>
+                </div>
+            </div>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <!-- head title -->
+        <div class="mt-5 row  border-radius" style="max-width: 1280px; margin:5px auto; padding:0 24px;">
+            <h1 id="head" class="col-lg-8 col-md-8 col-sm-8 col-xs-8"
+                style="margin:10px; margin-left: 20px;  font-family: Arial, Helvetica, sans-serif;font-size: 28px;">
+                <p>【深度報導】智慧型手機時代的終結？</p>
+                <p style="margin-left: 15px;">Aetheria 發布「Synapse」神經織網，宣告「無螢幕運算」元年到來</p>
+            </h1>
+            <h1 id="whiteSpace" class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+            </h1>
+        </div>
+        <!-- title_images -->
+        <div class="mt-2 row  border-radius" style="max-width: 1280px; margin:5px auto; padding:0 20px;">
+            <section class="d-flex flex-column flex-md-row align-items-start gap-3" style="margin-top:0;">
+                <figure id="title_images" class="col-12 col-md-9" style="margin-inline:10px; max-width:100%;">
+                    <picture>
+                        <source
+                            srcset="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=1200&q=80 1200w,
+                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80 800w,
+                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=400&q=80 400w"
+                            sizes="(max-width:800px) 100vw, 800px" type="image/jpeg">
+                        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80"
+                            alt="示意圖：新聞編輯與排版畫面"
+                            style="width:100%;height:500px;border-radius:8px;display:block;object-fit:cover;margin-top:50px;"
+                            width="800" height="450" loading="lazy" decoding="async">
+                    </picture>
+                    <figcaption style="font-size:14px;color:#666;margin-top:8px;">
+                        示意圖：Lorem Ipsum（來源：Unsplash）
+                    </figcaption>
+                </figure>
+
+                <aside id="sideBar" class="col-12 col-md-3 toc-wrap" style="margin-inline:10px; margin-top: 50px;">
+                    <h3 id="toc-title" class="sr-only">文章目錄</h3>
+                    <nav class="toc" role="navigation" aria-label="文章目錄">
+                        <h3>
+                            <p><i>文章目錄</i></p>
+                        </h3>
+                        <ol>
+                            <li><a href="#first_pre">硬體解析：看不見的革命</a></li>
+                            <li><a href="#second_pre">Lorem Ipsum</a></li>
+                            <li><a href="#third_pre">Lorem Ipsum</a></li>
+                            <li><a href="#fourth_pre">Lorem Ipsum</a></li>
+                            <li><a href="#categories">Lorem Ipsum</a></li>
+                        </ol>
+                    </nav>
+                </aside>
+            </section>
+            </section>
+        </div>
+        <!-- author_Block -->
+        <script src="../小專/ProjectJs/post-meta.js"></script>
+        <section id="author_Block" class="mt-2 row  border-radius"
+            style="max-width: 1280px; margin:25px auto; padding:0 35px;">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="d-flex align-items-center gap-3 flex-wrap" style="width:100%;">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
+                        alt="作者頭像"
+                        style="width:40px;height:40px;border-radius:6px;object-fit:cover;border:1px solid #ccc;"
+                        class="flex-shrink-0">
+                    <div>
+                        <div style="font-weight:700;color:#111;">作者：<span id="articleAuthor">林予安（Yu-An Lin）</span></div>
+                        <div class="text-muted" style="font-size:14px;">發布：<time id="pubDate"
+                                datetime="">2025/12/16</time>
+                        </div>
+                    </div>
+                    <div class="ms-auto" style="font-size:13px;color:#888;">閱讀時間：<span id="readingTime">3 分鐘</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="article_Body" class="mt-5 row  border-radius"
+            style="max-width: 1280px; margin:5px auto; padding:0 24px;">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+
+                <div class="articleBody">
+                    <p>
+                        如果說 2007 年史蒂夫·賈伯斯從信封裡抽出 MacBook Air 改變了筆記型電腦的定義，或者初代 iPhone 的多點觸控抹去了實體鍵盤；
+                        那麼今天，Aetheria 的執行長艾琳娜·范斯（Elena Vance）走上莫斯康中心（Moscone Center）的舞台時，她雙手空空如也的姿態，
+                        或許正預示著一個更為激進的未來——螢幕的消失。
+                    </p>
+                    <p class="body" style="text-indent: 0%;">
+                        在長達兩小時的發布會中，全球市值最高的科技巨頭 Aetheria 正式揭開了傳聞已久的「Project Silence」的神祕面紗，正式定名為
+                        Aetheria Synapse（突觸）。這不是一款手機，不是一副 AR 眼鏡，而是一個僅有硬幣大小、貼附於耳後的非侵入式神經介面裝置。
+                    </p>
+                    <p class="body" style="text-indent: 0%;">
+                        「過去五十年，人類為了與數位世界溝通，被迫低頭看著發光的玻璃板，」范斯在台上說道，身後巨大的全息投影展示著人類頸椎病變的
+                        演化圖，「今天，我們把頭抬起來。今天，運算不再是手中的工具，而是思想的延伸。」
+                    </p>
+                </div>
+
+                <h3 class="articleTitle" id="first_pre">硬體解析：看不見的革命</h3>
+                <div class="articleBody">
+                    <p class="body">
+                        Synapse 的核心技術在於其專利的「共振神經映射」（Resonant Neural Mapping, RNM）技術。與馬斯克早期 Neuralink 需要開顱手
+                        術的侵入式方案不同，Synapse採用了一種高靈敏度的石墨烯-生物聚合物貼片。根據 Aetheria 的技術白皮書，Synapse 能夠感測大腦
+                        皮層的微伏級電位變化，特別是負責視覺處理的枕葉與負責語言生成的布若卡氏區（Broca's area）。
+                    </p>
+                    <p class="body">
+                        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+                        Sections
+                        1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their
+                        exact
+                        original
+                        form, accompanied by English versions from the 1914 translation by H. Rackham.
+                    </p>
+                </div>
+
+                <h3 class="articleTitle" id="second_pre">Where does it come from?</h3>
+                <p class="articleBody">
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+                    classical
+                    Latinliterature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
+                    Hampden-Sydney
+                    College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
+                    passage,
+                    and going through the cites of the word in classical literature, discovered the undoubtable source.
+                    Lorem Ipsum
+                    comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+                    Evil)
+                    by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during
+                    the
+                    Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
+                    section
+                    1.10.32.
+                </p>
+                <p class="articleBody">
+                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+                    Sections
+                    1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their
+                    exact
+                    original
+                    form, accompanied by English versions from the 1914 translation by H. Rackham.
+                </p>
+
+                <!-- article picture -->
+                <section id="picture">
+                    <figure class="picture">
+                        <picture>
+                            <source
+                                srcset="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=1200&q=80 1200w,
+                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80 800w,
+                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=400&q=80 400w"
+                                sizes="(max-width:800px) 100vw, 800px" type="image/jpeg">
+                            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80"
+                                alt="示意圖：新聞編輯與排版畫面"
+                                style="width:100%;height: 500px;border-radius:8px;display:block;object-fit:cover;margin-top: 50px;"
+                                width="800" height="450" loading="lazy" decoding="async">
+                        </picture>
+                        <figcaption class="figcaption">
+                            示意圖：Lorem Ipsum（來源：Unsplash）
+                        </figcaption>
+                    </figure>
+                </section>
+
+                <h3 class="articleTitle" id="third_pre">Why do we use it?</h3>
+                <p class="articleBody">
+                    It is a long established fact that a reader will be distracted by the readable content of a page
+                    when
+                    looking
+                    at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
+                    letters, as
+                    opposed to using 'Content here, content here', making it look like readable English. Many desktop
+                    publishing
+                    packages and web page editors now use Lorem Ipsum as their default model text, and a search for
+                    'lorem
+                    ipsum'
+                    will uncover many web sites still in their infancy. Various versions have evolved over the years,
+                    sometimes by
+                    accident, sometimes on purpose (injected humour and the like).
+                </p>
+
+                <h3 class="articleTitle" id="fourth_pre">Where can I get some?</h3>
+                <p class="articleBody">
+                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                    alteration in
+                    some form, by injected humour, or randomised words which don't look even slightly believable. If you
+                    are
+                    going
+                    to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the
+                    middle of
+                    text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
+                    making this
+                    the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined
+                    with a
+                    handful
+                    of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem
+                    Ipsum
+                    is
+                    therefore always free from repetition, injected humour, or non-characteristic words etc.
+                </p>
+
+            </div>
+        </section>
+        <!-- 推薦內容 -->
+        <section id="Recommended content" class="mt-5 row  border-radius"
+            style="max-width: 1280px; margin:5px auto; padding:0 24px;">
+            <div class="category-grid ">
+                <div class="cat col-lg-6 col-md-6 col-sm-6 col-xs-6" aria-labelledby="cat-2-title">
+                    <h2 id="cat-2-title">延伸閱讀</h2>
+
+                    <ul class="mini-grid" role="list" aria-label="文章清單">
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">PAPAYA 電腦教室｜極簡風簡報技巧</a>
+                                <div class="meta">2025-12-14 • 教學</div>
+                            </div>
+                        </li>
+
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                                <div class="meta">2025-12-12 • 新品</div>
+                            </div>
+                        </li>
+
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                                <div class="meta">2025-12-10 • AI</div>
+                            </div>
+                        </li>
+
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                                <div class="meta">2025-12-08 • 健康科技</div>
+                            </div>
+                        </li>
+
+                        <!-- 重複項目以湊滿 4 行 x 2 欄（共 8 項） -->
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">PAPAYA 電腦教室｜極簡風簡報技巧</a>
+                                <div class="meta">2025-12-14 • 教學</div>
+                            </div>
+                        </li>
+
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                                <div class="meta">2025-12-12 • 新品</div>
+                            </div>
+                        </li>
+
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                                <div class="meta">2025-12-10 • AI</div>
+                            </div>
+                        </li>
+
+                        <li role="listitem">
+                            <div class="mini-meta">
+                                <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                                <div class="meta">2025-12-08 • 健康科技</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 把訂閱區塊移入 categories 的 grid 中，作為一個獨立的欄位 -->
+                <section id="subscribe" class="cat subscribe-cat col-lg-6 col-md-6 col-sm-6 col-xs-6" role="region"
+                    aria-labelledby="subscribe-title">
+                    <script src="../小專/ProjectJs/subscribe.js"></script>
+                    <div class="subscribe-inner" role="region" aria-labelledby="subscribe-title">
+                        <h1 id="subscribe-title">掌握最新科技脈動</h1>
+                        <p>每週一早上，將最重要的科技新聞與趨勢分析直接寄送到您的信箱。</p>
+
+                        <form class="subscribe-form" onsubmit="subscribe(event)" aria-label="訂閱表單">
+                            <input type="email" name="email" placeholder="輸入您的 Email" aria-label="輸入電子郵件" required>
+                            <button type="submit" aria-label="免費訂閱">免費訂閱</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- floating-toc浮動回頭按鈕 -->
+    <div class="floating-toc" aria-label="快速導覽">
+        <script src="../小專/ProjectJs/floating-toc.js"></script>
+        <button id="floatingLogoBtn" class="floating-btn" title="回到標誌" aria-label="回到標誌">
+            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
+                alt="">
+        </button>
+    </div>
+</body>
+<footer>
+    <div class="container">
+        <div class=" mt-5 row border-radius" style="max-width: 1280px; margin:5px auto; padding:0 24px;">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-3">
+                <a href="#Logo">
+                    <i><span>Lorem<span> Ipsum</span></span></i>
+                </a>
+                <p>致力於提供最深入、最即時的科技產業分析與報導。</p>
+            </div>
+            <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3">
+                <h4>探索</h4>
+                <ul>
+                    <li><a href="#">消費電子</a></li>
+                    <li><a href="#">區塊鏈</a></li>
+                    <li><a href="#">軟體開發</a></li>
+                    <li><a href="#">人工智慧</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-3 col-sm-3 col-xs-6">
+                <h4>關於我們</h4>
+                <ul>
+                    <li><a href="#">編輯團隊</a></li>
+                    <li><a href="#">聯絡方式</a></li>
+                    <li><a href="#">隱私權政策</a></li>
+                    <li><a href="#">服務條款</a></li>
+                </ul>
+            </div>
+            <!-- 超連結icon -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                <h4>關注我們</h4>
+                <div>
+                    <div class="social" role="list" aria-label="社群連結">
+                        <a href="#" class="icon" role="link" aria-label="Facebook" title="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                                focusable="false">
+                                <title>Facebook</title>
+                                <desc>Facebook icon</desc>
+                                <path fill="currentColor"
+                                    d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.99H7.898V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.888h-2.33v6.99C18.343 21.128 22 16.991 22 12z" />
+
+                            </svg>
+                        </a>
+
+                        <a href="#" class="icon" role="link" aria-label="Twitter" title="Twitter">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                                focusable="false">
+                                <title>Twitter</title>
+                                <desc>Twitter icon</desc>
+                                <path fill="currentColor"
+                                    d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 0 0 1.88-2.37 8.59 8.59 0 0 1-2.72 1.04A4.28 4.28 0 0 0 11.1 8.7c0 .34.04.67.11.99A12.14 12.14 0 0 1 3.15 4.9a4.27 4.27 0 0 0 1.33 5.71 4.25 4.25 0 0 1-1.94-.54v.05c0 2.1 1.49 3.84 3.46 4.24a4.3 4.3 0 0 1-1.93.07 4.28 4.28 0 0 0 3.99 2.97A8.59 8.59 0 0 1 2 19.54a12.11 12.11 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2l-.01-.56A8.7 8.7 0 0 0 22.46 6z" />
+                            </svg>
+                        </a>
+
+                        <a href="#" class="icon" role="link" aria-label="Line" title="Line">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                                focusable="false">
+                                <title>Line</title>
+                                <desc>Line icon</desc>
+                                <rect x="0" y="0" width="24" height="24" rx="3" fill="currentColor" />
+                                <text x="12" y="15" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
+                                    font-size="9" font-weight="700" fill="#fff">LINE</text>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p>&copy; 2025 Lorem Ipsum. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</html>
