@@ -7,13 +7,16 @@
     margin: 5px auto;
     padding: 0 24px;
     background-color: #9fbfcf;
+    align-items: center;
 }
 
 
 .typesettingInner {
     max-width: 1280px;
-    margin: 5px auto;
-    padding: 0 20px;
+    text-align: justify;
+    margin: 5px;
+    padding: 0 20px ;
+    text-indent: 0%;
 }
 
 .typesettingOuter {
