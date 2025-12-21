@@ -13,11 +13,10 @@
 <body>
     <!-- 導覽列 (Navbar) -->
     <header>
-        <section id="title-Logo" class="row" style="max-width: 2560px; margin:5px auto; padding:0 24px;">
+        <section id="title-Logo" class="row typesettingOuter">
             <!-- logo --><!-- title -->
             <!-- 將 header 內容置中並在左右留白 -->
-            <div class="container-fluid header-inner px-3 align-items-center"
-                style="max-width: 1280px; margin:5px auto; padding:0 24px;">
+            <div class="container-fluid header-inner px-3 align-items-center">
                 <div class="row align-items-center g-3">
                     <div id="Logo" class="col-lg-2 col-md-3 col-8 d-flex align-items-center gap-3" style="width:100%;">
                         <a href="http://127.0.0.1:5501/%E5%B0%8F%E5%B0%88/webpage_1215.html"
@@ -48,7 +47,7 @@
                             <div class="dropdown flex-shrink-0" style="min-width:max-content;">
                                 <button class="dropbtn col" aria-haspopup="true" aria-expanded="false">新聞</button>
                                 <div class="dropdown-content" role="menu">
-                                    <a href="#news-local">即時新聞</a>
+                                    <a href="./subpage.html">即時新聞</a>
                                     <a href="#news-industry">產業快訊</a>
                                     <a href="#news-analysis">深度解析</a>
                                 </div>
@@ -223,7 +222,7 @@
                                 <details>
                                     <summary>新聞</summary>
                                     <ul>
-                                        <li><a href="#news-local">即時新聞</a></li>
+                                        <li><a href="./subpage.html">即時新聞</a></li>
                                         <li><a href="#news-industry">產業快訊</a></li>
                                         <li><a href="#news-analysis">深度解析</a></li>
                                     </ul>
@@ -293,34 +292,34 @@
     <!-- 主內容區 -->
     <!-- 頭條新聞 (Hero Section) -->
     <!-- Slideshow container -->
-    <section class="hero">
+    <section class="hero" style="max-width: 1440px; margin:5px auto; padding:0 24px;">
         <div class="slideshow-wrap">
             <div class="slideshow-container">
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 4</div>
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
+                    <img src="./img/pexels-cookiecutter-1148820.jpg"
                         alt="Slide 1">
                     <div class="text">PAPAYA 電腦教室｜極簡風簡報技巧</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 4</div>
-                    <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
+                    <img src="./img/pexels-fauxels-3183197.jpg"
                         alt="Slide 2">
                     <div class="text">最新 AI 工具整理</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 4</div>
-                    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
+                    <img src="./img/pexels-nic-scrollstoppingphotos-6432056.jpg"
                         alt="Slide 3">
                     <div class="text">雲端部署最佳實務</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 4</div>
-                    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
+                    <img src="./img/pexels-sound-on-3761104.jpg"
                         alt="Slide 4">
                     <div class="text">雲端部署最佳實務</div>
                 </div>
@@ -339,9 +338,9 @@
             </div>
         </div>
 
-        <!-- 側欄文章清單 (右側) -->
+        <!-- 即時新聞文章清單 (右側) -->
         <aside class="hero-side" aria-labelledby="side-title">
-            <h3 id="side-title">最新文章</h3>
+            <h3 id="side-title">即時新聞</h3>
             <ul class="article-list">
                 <li>
                     <!-- <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt=""> -->
@@ -390,83 +389,7 @@
     <!-- 圖文穿插排版 (Mosaic) -->
     <section id="mosaic" aria-labelledby="mosaic-title">
         <style>
-            /* Responsive mosaic grid */
-            #mosaic { padding: 24px; }
-            .mosaic-wrap { max-width: 1280px; margin: 0 auto; }
-            .mosaic-wrap h2 { margin-bottom: 12px; font-size: 1.5rem; }
 
-            .mosaic-grid {
-                display: grid;
-                gap: 12px;
-                grid-auto-rows: 160px;
-                grid-template-columns: repeat(6, 1fr);
-                align-items: stretch;
-                width: 100%;
-            }
-
-            /* Allow some tiles to span columns/rows for visual variety */
-            .tile.span-2 { grid-column: span 2; }
-            .tile.span-rows-2 { grid-row: span 2; }
-
-            .tile {
-                position: relative;
-                overflow: hidden;
-                border-radius: 8px;
-                min-height: 100px;
-                outline: none;
-            }
-
-            .tile.light { background: #f7f7f7; color: #111; display:flex; align-items:center; padding:12px; }
-            .tile.light .title { font-weight:600; margin-bottom:6px; }
-            .tile.light .desc { color:#555; font-size:0.95rem; }
-
-            .tile.dark { background:#111; color:#fff; }
-            .tile img { width:100%; height:100%; object-fit:cover; display:block; }
-
-            /* Flip card accessible on hover and keyboard focus */
-            .flip { perspective: 1000px; height:100%; }
-            .flip-inner {
-                position: relative;
-                width: 100%;
-                height: 100%;
-                transition: transform .6s;
-                transform-style: preserve-3d;
-            }
-
-            /* trigger flip on hover or when tile is focused (keyboard) */
-            .tile:focus .flip-inner,
-            .tile:hover .flip-inner { transform: rotateY(180deg); }
-
-            .flip-front, .flip-back {
-                position:absolute;
-                left:0; top:0;
-                width:100%; height:100%;
-                backface-visibility: hidden;
-            }
-            .flip-back {
-                transform: rotateY(180deg);
-                display:flex; align-items:center; justify-content:center;
-                padding:12px; box-sizing:border-box;
-                background: rgba(0,0,0,0.6); color:#fff;
-            }
-
-            .back-content .title { font-weight:700; margin-bottom:6px; }
-            .back-content .desc { font-size:0.95rem; color:#eee; }
-
-            /* Responsive breakpoints */
-            @media (max-width:1199px) {
-                .mosaic-grid { grid-template-columns: repeat(4,1fr); grid-auto-rows:150px; }
-            }
-            @media (max-width:767px) {
-                .mosaic-grid { grid-template-columns: repeat(2,1fr); grid-auto-rows:140px; }
-                .mosaic-wrap h2 { font-size:1.15rem; }
-            }
-            @media (max-width:399px) {
-                .mosaic-grid { grid-template-columns: 1fr; grid-auto-rows:160px; }
-            }
-
-            /* Small focus ring for accessibility */
-            .tile:focus { box-shadow: 0 0 0 3px rgba(73,168,216,0.35); }
         </style>
 
         <div class="mosaic-wrap" role="region" aria-label="圖文穿插範例">
@@ -619,12 +542,12 @@
         </div>
     </section>
     <hr>
-    <!-- 類別區塊：大圖 + 垂直列表 -->
+    <!-- 新聞區塊  categories-->
     <section id="categories1">
         <div class="category-grid">
 
             <div class="cat" aria-labelledby="cat-2-title-1">
-                <h2 id="cat-2-title-1">類別二：推薦新聞</h2>
+                <h2 id="cat-2-title-1">專題報導</h2>
 
                 <div class="featured" role="region" aria-label="分類特色">
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
@@ -670,9 +593,8 @@
                 </ul>
             </div>
 
-            <!-- 右側：大圖 + 垂直列表 -->
             <div class="cat" aria-labelledby="cat-2-title-2">
-                <h2 id="cat-2-title-2">類別二：推薦新聞</h2>
+                <h2 id="cat-2-title-2">計術相關</h2>
 
                 <div class="featured" role="region" aria-label="分類特色">
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
@@ -720,11 +642,11 @@
         </div>
     </section>
 
-    <!-- 類別3 -->
+
     <section id="categories2">
         <div class="category-grid row">
             <div class="cat col-6" aria-labelledby="cat-2-title-3">
-                <h2 id="cat-2-title-3">類別二：推薦新聞</h2>
+                <h2 id="cat-2-title-3">AI新知</h2>
 
                 <div class="featured" role="region" aria-label="分類特色">
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
@@ -770,9 +692,9 @@
                 </ul>
             </div>
 
-            <!-- 右側：大圖 + 垂直列表 -->
+
             <div class="cat col-6" aria-labelledby="cat-2-title-4">
-                <h2 id="cat-2-title-4">類別二：推薦新聞</h2>
+                <h2 id="cat-2-title-4">雲端部署</h2>
 
                 <div class="featured" role="region" aria-label="分類特色">
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
@@ -820,10 +742,11 @@
         </div>
     </section>
     <hr>
+    <!-- 新聞區塊 newsList1-->
     <section id="newsList1">
         <div class="row container-fluid" style="margin: 5px;">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
-                <h3 id="newsList4-side-title-1">最新文章</h3>
+                <h3 id="newsList4-side-title-1">永續IT</h3>
                 <ul class="article-list">
                     <li>
                         <div class="article-meta">
@@ -866,7 +789,7 @@
                 </ul>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
-                <h3 id="newsList4-side-title-1">最新文章</h3>
+                <h3 id="newsList4-side-title-1">醫療IT</h3>
                 <ul class="article-list">
                     <li>
                         <div class="article-meta">
@@ -909,7 +832,7 @@
                 </ul>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
-                <h3 id="newsList4-side-title-1">最新文章</h3>
+                <h3 id="newsList4-side-title-1">資訊安全</h3>
                 <ul class="article-list">
                     <li>
                         <div class="article-meta">
@@ -957,7 +880,7 @@
     <section id="newsList2">
         <div class="row container-fluid" style="margin: 5px;">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
-                <h3 id="newsList4-side-title-1">最新文章</h3>
+                <h3 id="newsList4-side-title-1">研討會</h3>
                 <ul class="article-list">
                     <li>
                         <div class="article-meta">
@@ -1000,7 +923,7 @@
                 </ul>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
-                <h3 id="newsList4-side-title-1">最新文章</h3>
+                <h3 id="newsList4-side-title-1">社群內容</h3>
                 <ul class="article-list">
                     <li>
                         <div class="article-meta">
@@ -1043,7 +966,7 @@
                 </ul>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
-                <h3 id="newsList4-side-title-1">最新文章</h3>
+                <h3 id="newsList4-side-title-1">大師見解</h3>
                 <ul class="article-list">
                     <li>
                         <div class="article-meta">
@@ -1088,7 +1011,7 @@
         </div>
     </section>
     <hr>
-    <section id="newsList3">
+    <!-- <section id="newsList3">
         <div class="row container-fluid" style="margin: 5px;">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
                 <h3 id="newsList4-side-title-1">最新文章</h3>
@@ -1220,7 +1143,7 @@
                 </ul>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- 訂閱區塊 -->
     <section id="subscribe" style="max-width:inherit">
@@ -1240,7 +1163,7 @@
     <div class="floating-toc" aria-label="快速導覽">
         <script src="../小專/ProjectJs/floating-toc.js"></script>
         <button id="floatingLogoBtn" class="floating-btn" title="回到標誌" aria-label="回到標誌">
-            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
+            <img src="./img/up-arrow.png"
                 alt="">
         </button>
     </div>

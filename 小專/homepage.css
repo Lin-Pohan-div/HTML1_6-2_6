@@ -1,4 +1,3 @@
-
 /* < !-- 主內容區 -->
 < !-- 頭條新聞 (Hero Section) --> */
 
@@ -618,7 +617,7 @@
     gap: 16px;
     margin: 24px;
     align-items: stretch;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
 }
 
 .news-card {
@@ -850,4 +849,158 @@ footer>div>div:last-child {
         transition: transform .12s, background-color .12s, color .12s;
 
     }
+}
+
+/* <!-- 圖文穿插排版 (Mosaic) --> */
+/* Responsive mosaic grid */
+#mosaic {
+    padding: 24px;
+}
+
+.mosaic-wrap {
+    max-width: 2560px;
+    margin: 0 auto;
+}
+
+.mosaic-wrap h2 {
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+}
+
+.mosaic-grid {
+    display: grid;
+    gap: 12px;
+    grid-auto-rows: 160px;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: stretch;
+    width: 100%;
+}
+
+/* Allow some tiles to span columns/rows for visual variety */
+.tile.span-2 {
+    grid-column: span 2;
+}
+
+.tile.span-rows-2 {
+    grid-row: span 2;
+}
+
+.tile {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    min-height: 100px;
+    outline: none;
+}
+
+.tile.light {
+    background: #f7f7f7;
+    color: #111;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+}
+
+.tile.light .title {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.tile.light .desc {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.tile.dark {
+    background: #111;
+    color: #fff;
+}
+
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Flip card accessible on hover and keyboard focus */
+.flip {
+    perspective: 1000px;
+    height: 100%;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform .6s;
+    transform-style: preserve-3d;
+}
+
+/* trigger flip on hover or when tile is focused (keyboard) */
+.tile:focus .flip-inner,
+.tile:hover .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+}
+
+.back-content .title {
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.back-content .desc {
+    font-size: 0.95rem;
+    color: #eee;
+}
+
+/* Responsive breakpoints */
+@media (max-width:1199px) {
+    .mosaic-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 150px;
+    }
+}
+
+@media (max-width:767px) {
+    .mosaic-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 140px;
+    }
+
+    .mosaic-wrap h2 {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width:399px) {
+    .mosaic-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 160px;
+    }
+}
+
+/* Small focus ring for accessibility */
+.tile:focus {
+    box-shadow: 0 0 0 3px rgba(73, 168, 216, 0.35);
 }
