@@ -4,15 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../小專/bootstrap.css">
-    <link rel="stylesheet" href="./base.css">
-    <link rel="stylesheet" href="../小專/webpage.css">
-    <title>Google 北極「零碳排」海底數據中心遭生態駭客攻擊，引爆海洋「熱污染」全球爭議</title>
+    <link rel="stylesheet" href="./ProjectCSS/bootstrap.css">
+    <link rel="stylesheet" href="./ProjectCSS/base.css">
+    <link rel="stylesheet" href="./ProjectCSS/webpage.css">
+    <title>開源界的車諾比事件：GitHub Copilot 爆發「集體幻覺」，全球數百萬專案遭注入「幽靈漏洞」</title>
 </head>
 
 <body>
     <header>
-        <!-- title-Logo -->
         <section id="title-Logo" class="typesettingOuter">
             <!-- logo --><!-- title -->
             <!-- 將 header 內容置中並在左右留白 -->
@@ -294,24 +293,22 @@
         <!-- head title -->
         <div class="mt-5 row  border-radius">
             <h1 id="head" class="col-lg-10 col-md-10 col-sm-10 col-xs-10 pageTitle typesettingInner">
-                <p class="pageTitle typesettingInner">【綠色運算】北極圈的沸騰</p>
-                <p class="pageTitle typesettingInner">Google 北極「零碳排」海底數據中心遭生態駭客攻擊，引爆海洋「熱污染」全球爭議</p>
+                <p class="pageTitle typesettingInner">【開源社群】程式碼幻覺災難</p>
+                <p class="pageTitle typesettingInner">開源界的車諾比事件：GitHub Copilot 爆發「集體幻覺」，全球數百萬專案遭注入「幽靈漏洞」</p>
+                <!-- <p>Aetheria 發布「Synapse」神經織網，宣告「無螢幕運算」元年到來</p> -->
             </h1>
             <!-- <h1 id="whiteSpace" class="col-lg-8 col-md-8 col-sm-8 col-xs-8"> -->
 
             </h1>
         </div>
+
+
         <!-- title_images -->
         <div id="title_images" class="mt-2 row  border-radius typesettingInner">
             <section class="d-flex flex-column flex-md-row align-items-start gap-3" style="margin-top:0;">
                 <figure id="title_images" class="col-12 col-md-9" style="margin-inline:10px; max-width:100%;">
                     <picture>
-                        <source
-                            srcset="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=1200&q=80 1200w,
-                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80 800w,
-                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=400&q=80 400w"
-                            sizes="(max-width:800px) 100vw, 800px" type="image/jpeg">
-                        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80"
+                        <img src="./img/pexels-henk-mohabier-720726-4066267.jpg"
                             alt="示意圖：新聞編輯與排版畫面"
                             style="width:100%;height:500px;border-radius:8px;display:block;object-fit:cover;margin-top:50px;"
                             width="800" height="450" loading="lazy" decoding="async">
@@ -350,7 +347,8 @@
                         style="width:40px;height:40px;border-radius:6px;object-fit:cover;border:1px solid #ccc;"
                         class="flex-shrink-0">
                     <div>
-                        <div style="font-weight:700;color:#111;">作者：<span id="articleAuthor">雷克雅維克</span></div>
+                        <div style="font-weight:700;color:#111;">作者：<span id="articleAuthor">雷克雅維克(Reykjavik)</span>
+                        </div>
                         <div class="text-muted" style="font-size:14px;">發布：<time id="pubDate"
                                 datetime="">2025年12月19日</time>
                         </div>
@@ -368,56 +366,92 @@
 
                 <div class="articleBody">
                     <p>
-                        202X 年 8 月 12 日，位於格陵蘭海（Greenland Sea）深處的平靜被打破了。這裡原本是 Google 代號為「深藍計畫（Project
-                        DeepBlue）」的全球最大水下數據中心所在地，標榜利用冰冷的北極海水進行自然冷卻，達成「零空調能耗」與「零碳排放」的環保里程碑。然而，就在昨日深夜，一個激進的環保駭客組織「蓋亞之怒（Gaia's
-                        Wrath）」宣稱攻破了該數據中心的控制系統，並非為了竊取數據，而是為了「揭穿綠色科技的謊言」。
+                        202X 年 10 月 4 日，原本是一個平凡的週二「修補日（Patch Tuesday）」，直到全球最大的程式碼託管平台 GitHub 下達了一道史無前例的命令：強制凍結平台上超過
+                        3,000 萬個儲存庫（Repositories）的寫入權限，並緊急下線其 AI 程式碼助手 Copilot 及其背後的大型語言模型 Codex-V5。
                     </p>
                     <p class="body" style="text-indent: 0%;">
-                        駭客並沒有加密檔案勒索贖金，而是發動了一種前所未見的攻擊模式——「熱阻斷服務攻擊（Thermal Denial of Service, TDoS）」。他們強制數據中心內的數十萬顆 Tensor
-                        處理單元（TPU）全速運轉，執行無意義的高強度浮點運算，同時鎖死了散熱閥門的調節機制。短短四小時內，數據中心周圍海域的水溫異常飆升，造成大量海洋生物死亡。這場事件不僅重創了科技巨頭的環保形象，更迫使全球重新審視「綠色運算」背後的物理代價：能量不會消失，它只是變成了熱。
+                        這場被後世稱為「十月程式碼大清洗（The Great Code Scrub）」的災難，起因並非外部駭客的入侵，而是一場源自 AI
+                        內部的「近親繁殖」悲劇。由於最新的模型更新出現了嚴重的對齊（Alignment）錯誤，加上過度使用了網路上未經審核的 AI 生成代碼進行再訓練，導致 Copilot 在長達 72
+                        小時的窗口期內，向全球數百萬名開發者建議了數億行「看起來完美，但邏輯致命」的程式碼。這些程式碼不包含語法錯誤，能完美通過編譯器檢查，甚至能騙過初級的單元測試，但在特定邊界條件下，它們會悄悄打開後門。
                     </p>
+                    <!-- <p class="body" style="text-indent: 0%;">
+                        「過去五十年，我們致力於讓電腦更懂人類；今天，我們讓人類直接成為電腦的一部分。」凡斯在如雷的掌聲中說道，「透過
+                        Q-NCA，我們不再需要滑鼠、鍵盤，甚至不需要螢幕。你的大腦神經元將直接與我們的量子伺服器產生糾纏態連結，雲端的算力，就是你大腦的算力。」
+                    </p> -->
                 </div>
 
-                <h3 class="articleTitle" id="first_pre">深海中的「熱炸彈」——當伺服器變成加熱器</h3>
+                <h3 class="articleTitle" id="first_pre">完美的毒藥——「幻覺」如何騙過人類</h3>
                 <div class="articleBody">
                     <p class="body">
-                        艾利安科技此次發布的核心亮點，在於解決了困擾腦機介面（BCI）領域多年的兩大瓶頸：侵入性手術風險與數據傳輸延遲。
+                        災難的零號病人（Patient Zero）被追溯到一個極受歡迎的 JavaScript 身份驗證套件「Auth-Next」。該套件的資深維護者在深夜進行例行更新時，接受了 Copilot
+                        建議的一段看起來極為優雅的加密雜湊函數優化代碼。
                     </p>
+                    <br>
+                    <p class="body"><i><em>
+                                "「它看起來太合理了，變數命名規範，註釋清晰，甚至考慮到了邊緣情況，」這位擁有 15 年經驗的工程師事後懊悔地表示，「我按下了 Tab 鍵接受建議，然後提交了代碼。」"
+                            </em></i>
+                    </p>
+                    <br>
                     <p class="body" style="text-indent: 0%;">
-                        然而，「蓋亞之怒」的攻擊揭露了這個完美閉環中的致命弱點。根據冰島海洋研究所發布的監測數據，攻擊發生期間，數據中心周圍 500 公尺半徑內的海水溫度，從原本的
-                        2攝氏度 急劇上升至18攝氏度，局部區域甚至偵測到接近沸騰的異常高溫。
-                    </p>
-                    <p class="body" style="text-indent: 0%;">
-                        Google 全球基礎設施副總裁在緊急記者會上臉色蒼白地承認：「攻擊者利用了我們的底層韌體漏洞，繞過了過熱保護機制（Thermal
-                        Throttling）。他們讓伺服器變成了巨大的海底加熱棒。我們不得不在數小時後手動切斷海底電纜的供電，才阻止了溫度繼續上升。」這場人為的「海底熱浪」持續了六個小時，對於習慣低溫環境的極地生物來說，無異於一場浩劫。
-                    </p>
+                        然而，這段代碼隱藏著一個致命的「邏輯幻覺」。它使用了一種被 AI 錯誤地認為是高效、實則具有嚴重熵值缺陷（Entropy
+                        Deficit）的隨機數生成模式。這意味著，所有使用該版本套件的應用程式——包括數家大型網銀與加密貨幣交易所——其生成的用戶 Session ID 其實是可以被預測的。
 
+                    <p class="body" style="text-indent: 0%;">
+                        這並非個案。在接下來的 48 小時內，類似的現象在 Python、Go、Rust 等語言的社群中爆發。Copilot 開始大規模建議一種含有「靜默競爭條件（Silent Race
+                        Condition）」的並發處理模式。由於這些錯誤極其隱晦，只有在伺服器高負載運作時才會觸發，導致絕大多數的自動化測試（CI/CD）都亮起了綠燈放行。AI
+                        並沒有惡意，它只是「學會」了一種錯誤但流行的寫法，並將其標準化、規模化地散播出去。
+                    </p>
                 </div>
 
-                <h3 class="articleTitle" id="second_pre">沉默的受害者——被煮熟的生態系</h3>
+                <h3 class="articleTitle" id="second_pre">信任鏈的崩解——當每一行程式碼都成嫌疑犯</h3>
                 <p class="articleBody">
-                    災難的後果隨著天亮而浮出水面。當地漁民與環保團體在數據中心上方的海面上，發現了數以萬計翻肚漂浮的北極磷蝦（Krill）、鱈魚，甚至有兩頭對溫度極為敏感的小鬚鯨（Minke Whale）擱淺死亡。
+                    隨著災情蔓延，恐慌情緒席捲了整個軟體產業。當資安公司 Snyk 發布緊急報告，指出「GitHub 上過去三天內提交的代碼，有 35%
+                    含有高風險邏輯漏洞」時，信任鏈斷裂了。企業陷入了混亂。原本依賴開源組件的科技巨頭，突然發現自己建築在沙堆之上。因為你無法確定，你引入的第三方套件（Dependency），其作者是親自寫的代碼，還是盲目接受了
+                    AI 的建議？
                 </p>
                 <p class="articleBody" style="text-indent: 0%;">
-                    「這是一場屠殺，」綠色和平組織（Greenpeace）北極專案負責人憤怒地表示，「科技公司告訴我們，把伺服器丟進海裡是為了救地球，因為這樣省電。但他們沒告訴大眾的是，根據熱力學第二定律，伺服器消耗的每一瓦電力，最終都會
-                    100% 轉化為廢熱排放到環境中。他們只是把排放到大氣的熱，轉移到了脆弱的海洋生態系裡。」
+                    「這是開源精神的末日危機，」Linux 基金會執行總監在公開信中寫道，「開源的核心在於『多雙眼睛讓錯誤無所遁形（Given enough eyeballs, all bugs are
+                    shallow）』。但現在的問題是，那些『眼睛』——也就是人類審查者——已經變得懶惰。我們太習慣依賴 AI，以至於失去了審查代碼的警覺性與能力。」
+
+                    為了止血，各大科技公司紛紛祭出「AI 隔離令」。Google 與 Apple 禁止員工在核心產品中使用任何 AI 生成的代碼，直到另行通知。Stack Overflow
+                    流量瞬間暴增，開發者們被迫回歸原始，重新學習如何手寫那些他們早已遺忘的基礎演算法，而不是依賴 AI 的「一鍵生成」。
+                </p>
+
+
+
+                <h3 class="articleTitle" id="third_pre">數位清道夫——史上最大規模的代碼審計</h3>
+                <p class="articleBody">
+                    在 GitHub 凍結服務的 72 小時內，一場史詩級的救援行動展開了。這被稱為「全球代碼審計（Global Code Audit）」。
+
+                    微軟緊急調用了數千名資深工程師，並聯合全球開源社群的志願者，開發了一種專門識別「Copilot 幻覺特徵」的反向 AI 工具。這款工具就像是數位世界的蓋革計數器，掃描著每一個
+                    Commit（提交紀錄），尋找那些帶有特定風格的「有毒代碼」。
                 </p>
 
                 <p class="articleBody" style="text-indent: 0%;">
-                    此次事件引發了科學界對於「局部熱污染（Local Thermal
-                    Pollution）」的強烈關注。過去，人們只在乎全球暖化這個宏觀概念，卻忽視了巨型運算設施對微觀環境的劇烈改變。海洋生物學家警告，這種突發性的水溫劇變（Thermal
-                    Shock）會破壞珊瑚、殺死浮游生物，甚至改變洋流的微循環，其破壞力不亞於石油洩漏。
+                    成千上萬的 Pull Request（合併請求）被回滾，數以百計的 npm 和 PyPI
+                    套件被強制下架重發。開發者們徹夜未眠，不是在寫新功能，而是在進行「數位考古」，試圖分辨哪些是人類的智慧，哪些是機器的胡言亂語。這場災難也催生了一個新興職業——「AI 代碼鑑識官（AI Code
+                    Forensic）」，專門負責審核並簽署高安全性專案中的每一行代碼，保證其為「人類原生（Human-Verified）」。
                 </p>
+
+
+                <h3 class="articleTitle" id="fourth_pre">後 AI 時代的開發準則——「水印」與責任</h3>
+                <p class="articleBody">
+                    事件平息後，軟體開發的格局被永久改變了。為了重建信任，W3C 與 ISO 組織迅速通過了《生成式代碼標示標準》。
+                    現在，任何由 AI 輔助生成的程式碼，都必須在元數據（Metadata）中強制植入不可磨滅的數位水浮（Watermark），標註其生成的模型版本與原始提示詞（Prompt）。GitHub
+                    則推出了「雙重確認機制」，對於涉及安全性關鍵（Security-Critical）的代碼段，Copilot
+                    不再直接生成代碼，而是生成「虛擬碼（Pseudocode）」，強迫人類開發者必須親自將其轉譯為可執行的程式，以確保人類的認知介入（Cognitive Inclusion）。
+                </p>
+
+                <p class="articleBody" style="text-indent: 0%;">
+                    這場危機給全人類上了一課：效率不是免費的。我們為了追求開發速度，讓 AI 接管了方向盤，卻忘了它並沒有駕照，更不懂交通規則的本質。從今以後，程式碼將被區分為兩類：「AI
+                    生成（AI-Generated）」與「手工鍛造（Hand-Forged）」。後者雖然昂貴、緩慢，卻重新成為了安全與品質的最高象徵，就像工業革命後的手工藝品一樣珍貴。
+                </p>
+
                 <!-- article picture -->
                 <section id="picture">
                     <figure class="picture">
                         <picture>
-                            <source
-                                srcset="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=1200&q=80 1200w,
-                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80 800w,
-                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=400&q=80 400w"
-                                sizes="(max-width:800px) 100vw, 800px" type="image/jpeg">
-                            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80"
+                            <img src="./img/pexels-kevin-ku-92347-577585.jpg"
                                 alt="示意圖：新聞編輯與排版畫面"
                                 style="width:100%;height: 500px;border-radius:8px;display:block;object-fit:cover;margin-top: 50px;"
                                 width="800" height="450" loading="lazy" decoding="async">
@@ -427,57 +461,6 @@
                         </figcaption>
                     </figure>
                 </section>
-
-                <h3 class="articleTitle" id="third_pre">新型態恐怖主義——TDoS 攻擊的崛起</h3>
-                <p class="articleBody">
-                    資安專家指出，「蓋亞之怒」此次採用的 TDoS 攻擊手法，標誌著網路戰進入了一個危險的新階段：從「資訊破壞」轉向「物理破壞」。
-                    FireEye 的威脅情報分析師指出：「過去駭客攻擊是為了癱瘓網路服務（DDoS），現在他們是為了製造物理傷害。隨著越來越多的邊緣運算設施（Edge
-                    Computing）被部署在城市地下、海底甚至太空，攻擊者發現，只要操縱能耗管理系統，就能將這些設施變成環境武器。」
-                </p>
-
-                <p class="articleBody" style="text-indent: 0%;">
-                    調查顯示，該駭客組織早在半年前就透過供應鏈攻擊，滲透進了負責管理冷卻幫浦的第三方物聯網（IoT）控制器。他們耐心潛伏，直到北極海域的浮游生物繁殖季節才發動攻擊，意圖造成最大程度的生態衝擊。駭客組織在暗網發布的聲明中寫道：「如果你們堅持要用海洋來冷卻你們的
-                    AI 模型，我們就讓海洋沸騰給你們看。數據不是免費的，它的代價是生命。」
-                </p>
-
-
-                <h3 class="articleTitle" id="fourth_pre">立法與技術的反思——從「碳足跡」到「熱足跡」</h3>
-
-                <p class="articleBody">
-                    這起悲劇迫使聯合國環境規劃署（UNEP）緊急召開特別會議，討論將「廢熱排放」納入全球環境公約的必要性。歐盟委員會迅速起草了《數位熱排放管制條例（Digital Thermal Emission
-                    Regulation）》，要求所有超過一定規模的數據中心，無論是在陸地還是水下，都必須申報其「熱足跡（Heat Footprint）」，並強制安裝廢熱回收系統。
-                </p>
-
-                <p class="articleBody" style="text-indent: 0%;">
-                    Google
-                    在事後宣布將暫停所有新的海底數據中心佈建，並承諾升級現有設施，引入「廢熱轉移技術」。未來的計畫不再是單純將熱量排入海中，而是透過熱交換器將加熱後的水輸送至附近的城市（如雷克雅維克），用於居民的區域供暖系統（District
-                    Heating）。
-
-                    微軟、亞馬遜等競爭對手也紛紛跟進，強調未來的數據中心將轉型為「熱能發電廠」。科技巨頭們意識到，在 AI 算力需求每 3.5
-                    個月翻倍的時代，單純的「綠電」已不足以平息公眾的怒火，如何處理天文數字般的廢熱，將是下一個十年的生存關鍵。這場北極的災難，或許是人類學會與高能耗 AI 共存的痛苦一課。
-                </p>
-
-                <!-- article picture -->
-                <section id="picture">
-                    <figure class="picture">
-                        <picture>
-                            <source
-                                srcset="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=1200&q=80 1200w,
-                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80 800w,
-                                            https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=400&q=80 400w"
-                                sizes="(max-width:800px) 100vw, 800px" type="image/jpeg">
-                            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80"
-                                alt="示意圖：新聞編輯與排版畫面"
-                                style="width:100%;height: 500px;border-radius:8px;display:block;object-fit:cover;margin-top: 50px;"
-                                width="800" height="450" loading="lazy" decoding="async">
-                        </picture>
-                        <figcaption class="figcaption">
-                            示意圖：Lorem Ipsum（來源：Unsplash）
-                        </figcaption>
-                    </figure>
-                </section>
-
-
 
                 <h3 class="articleTitle" id="comments_pre">專家評論</h3>
                 <section id="author_Block" class="mt-2 row  border-radius"
@@ -489,10 +472,10 @@
                                 style="width:40px;height:40px;border-radius:6px;object-fit:cover;border:1px solid #ccc;"
                                 class="flex-shrink-0">
                             <div>
-                                <div style="font-weight:700;color:#111;">作者：<span id="articleAuthor">漢斯·約根森 教授 (Prof.
-                                        Hans Jørgensen)</span></div>
+                                <div style="font-weight:700;color:#111;">作者：<span id="articleAuthor">林納斯·托瓦茲 (Linus
+                                        Torvalds)</span></div>
                                 <div class="text-muted" style="font-size:14px;">職位：<time id="pubDate" datetime="">
-                                        (哥本哈根大學 永續能源工程系主任 / 聯合國 IPCC 報告撰寫人)</time>
+                                        (Linux 核心之父 / 開源運動精神領袖) (註：此為基於其公開風格的虛擬評論)</time>
                                 </div>
                             </div>
 
@@ -501,18 +484,20 @@
                     </div>
 
                 </section>
-                <em><i>
-                        <p class="articleBody">
-                            "「這則新聞揭露了一個科技界長期以來『房間裡的大象』——熱力學定律是無法被公關話術規避的。
 
-                            雖然我們大力推崇將電力來源轉為風能或太陽能，這解決了『碳排放』的問題，但沒有解決『能量耗散』的問題。當我們訓練一個巨型 AI 模型需要消耗
-                            gigawatt（十億瓦）級別的能量時，這些能量最終都會變成熱。如果我們將數據中心建在脆弱的生態系中（如深海、極地），這種集中式的熱排放確實可能造成災難。
+                <p class="articleBody"><i><em>
+                            "「我早就警告過你們。我不是反對工具，我是反對『愚蠢』。」"
+                        </em></i>
+                </p>
+                <p class="articleBody" style="text-indent: 0%;">
+                    這次災難的本質，不是 AI 變壞了，而是人類變笨了。程式設計（Programming）從來就不只是『打字』，它是關於『思考』。當你按下 Tab 鍵讓 AI
+                    幫你寫完剩下的十行代碼時，你的大腦就停止了思考。你把邏輯的控制權交給了一個只懂機率統計、不懂因果關係的鸚鵡。
+                </p>
+                <p class="articleBody" style="text-indent: 0%;">
+                    開源社群之所以強大，是因為每一行代碼背後都有一個真實的人在為此負責。如果這行代碼爛透了，我知道該去罵誰。但現在呢？你要去罵一個類神經網路的權重矩陣嗎？
 
-                            然而，我對未來並不悲觀。這場危機將加速**『熱能循環經濟（Thermal Circular
-                            Economy）』**的發展。未來的數據中心不應被視為電力消耗者，而應被視為城市的『數位鍋爐』。我們不應該把熱排進海裡煮魚，而應該把數據中心建在溫室旁邊種番茄，或是建在社區旁邊提供暖氣。駭客的攻擊雖然極端且不可原諒，但它確實用一種震撼的方式，打破了『數位是無形且無害』的幻覺。」"
-                        </p>
-                    </i>
-                </em>
+                    這次事件或許是件好事。它狠狠地扇了那些以為『以後不需要學寫程式』的人一巴掌。工具越強大，使用它的人就需要越聰明。如果你看不懂 AI 寫的代碼，你就沒資格 Commit 它。這就是新的底線。」
+                </p>
             </div>
         </section>
         <!-- 推薦內容 -->
@@ -607,6 +592,7 @@
                 alt="">
         </button>
     </div>
+
 
     <footer>
         <div class="container">

@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum</title>
+    <link rel="stylesheet" href="./ProjectCSS/bootstrap.css">
+    <link rel="stylesheet" href="./ProjectCSS/base.css">
+    <link rel="stylesheet" href="./ProjectCSS/homepage.css">
+    
+</head>
+
+<body>
+    <!-- 導覽列 (Navbar) -->
+    <header>
+        <section id="title-Logo" class="row typesettingOuter">
+            <!-- logo --><!-- title -->
+            <!-- 將 header 內容置中並在左右留白 -->
+            <div class="container-fluid header-inner px-3 align-items-center">
+                <div class="row align-items-center g-3">
+                    <div id="Logo" class="col-lg-2 col-md-3 col-8 d-flex align-items-center gap-3" style="width:100%;">
+                        <a href="http://127.0.0.1:5501/%E5%B0%8F%E5%B0%88/webpage_1215.html"
+                            style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+                            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=40"
+                                alt="Logo" class="Logo">
+                            <span class="Logo-styleOne">Lorem Ipsum<span class="Logo-styleTwo">Lorem
+                                    Ipsum</span></span>
+                        </a>
+                        <button type="button" onclick="openModal()" aria-label="訂閱週報" title="訂閱週報"
+                            class="subscribe-LogoButton">
+                            訂閱週報
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- navigation -->
+        <!-- 可放置導覽列/搜尋等其他欄位 -->
+        <section style="max-width: 2560px; margin:5px auto; padding:0 24px;">
+            <div class="container-fluid header-inner px-3" style="background-color: #49a8d8;">
+                <div class="row g-0">
+                    <div class="col" style="max-width:1280px;margin:0 auto;padding:0 24px;">
+                        <!-- Desktop nav (visible >=768px) -->
+                        <nav class="nav-menu d-none d-md-flex flex-wrap flex-sm-nowrap align-items-center gap-2 w-100"
+                            role="navigation" aria-label="主導覽列">
+                            <!-- main dropdowns (unchanged content) -->
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn col" aria-haspopup="true" aria-expanded="false">新聞</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="./subpage.html">即時新聞</a>
+                                    <a href="#news-industry">產業快訊</a>
+                                    <a href="#news-analysis">深度解析</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">專題</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#feature-1">專題報導 A</a>
+                                    <a href="#feature-2">專題報導 B</a>
+                                    <a href="#feature-archive">歷史專題</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">計術</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#tech-howto">實作教學</a>
+                                    <a href="#tech-opinion">技術觀點</a>
+                                    <a href="#tech-tools">工具推薦</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">AI</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#ai-research">研究動態</a>
+                                    <a href="#ai-products">AI 新品</a>
+                                    <a href="#ai-ethics">倫理與法規</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Cloud</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#cloud-news">雲端新聞</a>
+                                    <a href="#cloud-guides">部署指南</a>
+                                    <a href="#cloud-cost">成本優化</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">永續IT</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#sustainability">綠色設計</a>
+                                    <a href="#sustainability-policy">政策趨勢</a>
+                                    <a href="#sustainability-cases">案例研究</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">醫療IT</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#medtech-news">醫療科技</a>
+                                    <a href="#medtech-standards">法規標準</a>
+                                    <a href="#medtech-startups">新創專區</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">資安</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#sec-alerts">資安警示</a>
+                                    <a href="#sec-bestpractices">最佳實務</a>
+                                    <a href="#sec-tools">工具與評測</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">研討會</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#events-upcoming">即將舉辦</a>
+                                    <a href="#events-recordings">錄影回放</a>
+                                    <a href="#events-apply">報名資訊</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown flex-shrink-0" style="min-width:max-content;">
+                                <button class="dropbtn" aria-haspopup="true" aria-expanded="false">社群</button>
+                                <div class="dropdown-content" role="menu">
+                                    <a href="#community-forum">論壇</a>
+                                    <a href="#community-meetups">聚會活動</a>
+                                    <a href="#community-contribute">投稿指南</a>
+                                </div>
+                            </div>
+
+                            <div class="flex-grow-1 d-none d-sm-block" role="presentation" aria-hidden="true"
+                                style="min-width:0;"></div>
+
+                            <button id="openSearchBtn" class="search-open-btn ms-auto flex-shrink-0" type="button"
+                                aria-label="開啟搜尋" title="開啟搜尋" onclick="openSearch()">🔍</button>
+                            <div id="myOverlay" class="overlay" role="dialog" aria-modal="true" aria-hidden="true"
+                                aria-labelledby="overlay-search-title">
+                                <button class="closebtn" type="button" onclick="closeSearch()"
+                                    aria-label="關閉搜尋">×</button>
+                                <div class="overlay-content">
+                                    <h2 id="overlay-search-title" class="sr-only"
+                                        style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+                                        搜尋</h2>
+                                    <script src="./ProjectJs/overlay-search-title.js"></script>
+                                </div>
+                            </div>
+                            <!-- 模擬搜尋結果（放在導覽列的搜尋區塊旁） -->
+
+                            <div id="searchResults" class="overlay-results" role="region" aria-live="polite"
+                                aria-hidden="true" aria-labelledby="searchResultsTitle">
+                                <header>
+                                    <h3 id="searchResultsTitle">搜尋結果</h3>
+                                    <div>
+                                        <button type="button" class="close-results" aria-label="關閉搜尋結果"
+                                            onclick="hideSearchResults()">關閉</button>
+                                    </div>
+                                </header>
+                                <div id="searchResultsCount" style="font-size:13px;color:#666;margin-bottom:8px;"></div>
+                                <ul id="searchResultsList" class="search-results-list" role="list"></ul>
+                            </div>
+                    </div>
+                    <script src="../小專/ProjectJs/homepage_navMenu.js"></script>
+                    </nav>
+
+                    <!-- Mobile controls -->
+                    <div class="d-flex d-md-none align-items-center justify-content-between">
+                        <button id="mobileNavToggle" class="search-open-btn" aria-controls="mobileNav"
+                            aria-expanded="false" aria-label="開啟主選單" title="選單">☰</button>
+                        <button id="mobileSearchToggle" class="search-open-btn" aria-label="開啟搜尋" title="搜尋"
+                            onclick="openSearch()">🔍</button>
+                    </div>
+                    <!-- Mobile search overlay (visible on mobile only) -->
+
+                    <div id="mobileSearchOverlay" class="mobile-search-overlay d-md-none" role="dialog"
+                        aria-modal="true" aria-hidden="true" aria-labelledby="mobile-search-title">
+                        <div class="mobile-search" role="document" tabindex="-1">
+                            <div class="mobile-search-header">
+                                <h2 id="mobile-search-title" style="font-size:16px;margin:0;">搜尋</h2>
+                                <div style="display:flex;gap:8px;align-items:center;">
+                                    <button id="clearMobileSearch" aria-label="清除搜尋" title="清除"
+                                        style="background:none;border:none;font-size:18px;">⤫</button>
+                                    <button id="closeMobileSearch" aria-label="關閉搜尋" title="關閉" class="search-open-btn"
+                                        style="background:none;border:none;font-size:20px;">✕</button>
+                                </div>
+                            </div>
+
+                            <div class="mobile-search-body">
+                                <form id="mobileSearchForm" role="search" onsubmit="return false;"
+                                    style="margin-bottom:8px;">
+                                    <label for="mobileSearchInput" class="sr-only">搜尋</label>
+                                    <input id="mobileSearchInput" type="search" inputmode="search"
+                                        placeholder="搜尋新聞、專題或標題..." autocomplete="off" aria-label="搜尋" />
+                                </form>
+
+                                <div id="mobileSearchResults" role="region" aria-live="polite"
+                                    aria-labelledby="mobileSearchResultsTitle">
+                                    <h3 id="mobileSearchResultsTitle" class="sr-only">搜尋結果</h3>
+                                    <div id="mobileSearchResultsCount" class="results-count" aria-atomic="true"></div>
+                                    <ul id="mobileSearchResultsList" class="search-results-list" role="list"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Mobile nested double-layer navigation (hidden on desktop) -->
+                    <div id="mobileNav" class="mobile-nav-overlay d-md-none" role="dialog" aria-modal="true"
+                        aria-hidden="true" aria-label="手機選單">
+                        <div class="mobile-nav" role="menu" tabindex="-1">
+                            <div class="mobile-nav-header d-flex align-items-center justify-content-between">
+                                <strong>選單</strong>
+                                <button id="closeMobileNav" class="search-open-btn" aria-label="關閉選單">✕</button>
+                            </div>
+
+                            <nav class="mobile-nav-list" aria-label="手機導覽">
+                                <details>
+                                    <summary>新聞</summary>
+                                    <ul>
+                                        <li><a href="./subpage.html">即時新聞</a></li>
+                                        <li><a href="#news-industry">產業快訊</a></li>
+                                        <li><a href="#news-analysis">深度解析</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>專題</summary>
+                                    <ul>
+                                        <li><a href="#feature-1">專題報導 A</a></li>
+                                        <li><a href="#feature-2">專題報導 B</a></li>
+                                        <li><a href="#feature-archive">歷史專題</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>計術</summary>
+                                    <ul>
+                                        <li><a href="#tech-howto">實作教學</a></li>
+                                        <li><a href="#tech-opinion">技術觀點</a></li>
+                                        <li><a href="#tech-tools">工具推薦</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>AI</summary>
+                                    <ul>
+                                        <li><a href="#ai-research">研究動態</a></li>
+                                        <li><a href="#ai-products">AI 新品</a></li>
+                                        <li><a href="#ai-ethics">倫理與法規</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>Cloud</summary>
+                                    <ul>
+                                        <li><a href="#cloud-news">雲端新聞</a></li>
+                                        <li><a href="#cloud-guides">部署指南</a></li>
+                                        <li><a href="#cloud-cost">成本優化</a></li>
+                                    </ul>
+                                </details>
+
+                                <details>
+                                    <summary>更多</summary>
+                                    <ul>
+                                        <li><a href="#sustainability">永續IT</a></li>
+                                        <li><a href="#medtech-news">醫療IT</a></li>
+                                        <li><a href="#sec-alerts">資安</a></li>
+                                        <li><a href="#events-upcoming">研討會</a></li>
+                                        <li><a href="#community-forum">社群</a></li>
+                                    </ul>
+                                </details>
+                            </nav>
+
+                            <div class="mobile-nav-footer" style="margin-top:12px;">
+                                <a href="#subscribe" class="btn btn-primary w-100" role="button">訂閱週報</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script src="../小專/ProjectJs/nav-menu.js"></script>
+                    <script src="../小專/ProjectJs/full screen search.js"></script>
+                </div>
+            </div>
+            </div>
+        </section>
+    </header>
+    <!-- 主內容區 -->
+    <!-- 頭條新聞 (Hero Section) -->
+    <!-- Slideshow container -->
+    <section class="hero" style="max-width: 1440px; margin:5px auto; padding:0 24px;">
+        <div class="slideshow-wrap">
+            <div class="slideshow-container">
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="./img/pexels-cookiecutter-1148820.jpg" alt="Slide 1">
+                    <div class="text">PAPAYA 電腦教室｜極簡風簡報技巧</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="./img/pexels-fauxels-3183197.jpg" alt="Slide 2">
+                    <div class="text">最新 AI 工具整理</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="./img/pexels-nic-scrollstoppingphotos-6432056.jpg" alt="Slide 3">
+                    <div class="text">雲端部署最佳實務</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="./img/pexels-sound-on-3761104.jpg" alt="Slide 4">
+                    <div class="text">雲端部署最佳實務</div>
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)" aria-label="Previous slide">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)" aria-label="Next slide">&#10095;</a>
+            </div>
+
+            <!-- The dots/circles - centered under the slideshow -->
+            <div class="dots" aria-hidden="false">
+                <span class="dot" onclick="currentSlide(1)" role="button" aria-label="第一張"></span>
+                <span class="dot" onclick="currentSlide(2)" role="button" aria-label="第二張"></span>
+                <span class="dot" onclick="currentSlide(3)" role="button" aria-label="第三張"></span>
+                <span class="dot" onclick="currentSlide(4)" role="button" aria-label="第四張"></span>
+            </div>
+        </div>
+
+        <!-- 即時新聞文章清單 (右側) -->
+        <aside class="hero-side" aria-labelledby="side-title">
+            <h3 id="side-title">即時新聞</h3>
+            <ul class="article-list">
+                <li>
+
+                    <div class="article-meta">
+                        <a href="./webPageV2 copy.html">Aetheria 發布「Synapse」神經織網，宣告「無螢幕運算」元年到來</a>
+                        <div class="meta">2025-12-14 • 教學</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="article-meta">
+                        <a href="./webPageV2_news2.html">告別矽晶圓？英特爾與台積電震撼發表「螺旋（Helix）」DNA 儲存模組，僅需一公克即可備份 215 PB 數據</a>
+                        <div class="meta">2025-12-12 • 新品</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="article-meta">
+                        <a href="./webPageV2_news3.html">Google 北極「零碳排」海底數據中心遭生態駭客攻擊，引爆海洋「熱污染」全球爭議</a>
+                        <div class="meta">2025-12-10 • AI</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="article-meta">
+                        <a href="./webPageV2_news4.html">開源界的車諾比事件：GitHub Copilot 爆發「集體幻覺」，全球數百萬專案遭注入「幽靈漏洞」</a>
+                        <div class="meta">2025-12-08 • 健康科技</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="article-meta">
+                        <a href="./webPageV2_news5.html">歷史性的一槌！歐盟通過《類人型機器人權利法案》，首批「電子人格」誕生，機器人將擁有財產權與「生存權」</a>
+                        <div class="meta">2025-12-06 • 專欄</div>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+        <script src="../小專/ProjectJs/homepage_heroSide.js"></script>
+    </section>
+
+    <!-- 圖文穿插排版 (Mosaic) -->
+    <section id="mosaic" aria-labelledby="mosaic-title">
+        <style>
+
+        </style>
+
+        <div class="mosaic-wrap" role="region" aria-label="圖文穿插範例">
+            <h2 id="mosaic-title">Lorem Ipsum</h2>
+
+            <div class="mosaic-grid" role="grid" aria-hidden="false" aria-rowcount="2" aria-colcount="6">
+                <!-- 2 rows x 6 cols = 12 tiles -->
+                <!-- 第一行 -->
+                <div class="tile dark span-2 span-rows-2" role="gridcell" aria-label="圖片 1" tabindex="0">
+                    <div class="flip" aria-hidden="false">
+                        <div class="flip-inner">
+                            <div class="flip-front">
+                                <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=60"
+                                    alt="示例圖 1">
+                            </div>
+                            <div class="flip-back" aria-hidden="true">
+                                <div class="back-content">
+                                    <div class="title">圖說 1</div>
+                                    <div class="desc">更多資訊或摘錄可以放在這裡。</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile light" role="gridcell" aria-label="文字 2" tabindex="0">
+                    <div>
+                        <div class="title">標題 2</div>
+                        <div class="desc">簡短描述文字二。</div>
+                    </div>
+                </div>
+
+                <div class="tile dark span-2" role="gridcell" aria-label="圖片 3" tabindex="0">
+                    <div class="flip">
+                        <div class="flip-inner">
+                            <div class="flip-front">
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=60"
+                                    alt="示例圖 3">
+                            </div>
+                            <div class="flip-back">
+                                <div class="back-content">
+                                    <div class="title">圖說 3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile light" role="gridcell" aria-label="文字 4" tabindex="0">
+                    <div>
+                        <div class="title">標題 4</div>
+                        <div class="desc">簡短描述文字四。</div>
+                    </div>
+                </div>
+
+                <div class="tile dark" role="gridcell" aria-label="圖片 5" tabindex="0">
+                    <div class="flip">
+                        <div class="flip-inner">
+                            <div class="flip-front">
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=60"
+                                    alt="示例圖 5">
+                            </div>
+                            <div class="flip-back">
+                                <div class="back-content">
+                                    <div class="title">圖說 5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile light" role="gridcell" aria-label="文字 6" tabindex="0">
+                    <div>
+                        <div class="title">標題 6</div>
+                        <div class="desc">簡短描述文字六。</div>
+                    </div>
+                </div>
+
+                <!-- 第二行 -->
+                <div class="tile dark" role="gridcell" aria-label="圖片 7" tabindex="0">
+                    <div class="flip">
+                        <div class="flip-inner">
+                            <div class="flip-front">
+                                <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?auto=format&fit=crop&w=1200&q=60"
+                                    alt="示例圖 7">
+                            </div>
+                            <div class="flip-back">
+                                <div class="back-content">
+                                    <div class="title">圖說 7</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile light" role="gridcell" aria-label="文字 8" tabindex="0">
+                    <div>
+                        <div class="title">標題 8</div>
+                        <div class="desc">簡短描述文字八。</div>
+                    </div>
+                </div>
+
+                <div class="tile light" role="gridcell" aria-label="文字 10" tabindex="0">
+                    <div>
+                        <div class="title">標題 10</div>
+                        <div class="desc">簡短描述文字十。</div>
+                    </div>
+                </div>
+
+                <div class="tile dark span-2" role="gridcell" aria-label="圖片 9" tabindex="0">
+                    <div class="flip">
+                        <div class="flip-inner">
+                            <div class="flip-front">
+                                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=60"
+                                    alt="示例圖 9">
+                            </div>
+                            <div class="flip-back">
+                                <div class="back-content">
+                                    <div class="title">圖說 9</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile light" role="gridcell" aria-label="文字 12" tabindex="0">
+                    <div>
+                        <div class="title">標題 12</div>
+                        <div class="desc">簡短描述文字十二。</div>
+                    </div>
+                </div>
+
+                <div class="tile dark span-2 span-rows-2" role="gridcell" aria-label="圖片 11" tabindex="0">
+                    <div class="flip">
+                        <div class="flip-inner">
+                            <div class="flip-front">
+                                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=60"
+                                    alt="示例圖 11">
+                            </div>
+                            <div class="flip-back">
+                                <div class="back-content">
+                                    <div class="title">圖說 11</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <hr>
+    <!-- 新聞區塊  categories-->
+    <section id="categories1">
+        <div class="category-grid">
+
+            <div class="cat" aria-labelledby="cat-2-title-1">
+                <h2 id="cat-2-title-1">專題報導</h2>
+
+                <div class="featured" role="region" aria-label="分類特色">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
+                        alt="Category feature">
+                </div>
+
+                <ul class="mini-list" role="list" aria-label="文章清單">
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="./webPageV2 copy.html">Aetheria 發布「Synapse」神經織網，宣告「無螢幕運算」元年到來</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="cat" aria-labelledby="cat-2-title-2">
+                <h2 id="cat-2-title-2">計術相關</h2>
+
+                <div class="featured" role="region" aria-label="分類特色">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
+                        alt="Category feature">
+                </div>
+
+                <ul class="mini-list" role="list" aria-label="文章清單">
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">PAPAYA 電腦教室｜極簡風簡報技巧</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="categories2">
+        <div class="category-grid row">
+            <div class="cat col-6" aria-labelledby="cat-2-title-3">
+                <h2 id="cat-2-title-3">AI新知</h2>
+
+                <div class="featured" role="region" aria-label="分類特色">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
+                        alt="Category feature">
+                </div>
+
+                <ul class="mini-list" role="list" aria-label="文章清單">
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">PAPAYA 電腦教室｜極簡風簡報技巧</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="cat col-6" aria-labelledby="cat-2-title-4">
+                <h2 id="cat-2-title-4">雲端部署</h2>
+
+                <div class="featured" role="region" aria-label="分類特色">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
+                        alt="Category feature">
+                </div>
+
+                <ul class="mini-list" role="list" aria-label="文章清單">
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">PAPAYA 電腦教室｜極簡風簡報技巧</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+
+                    <li role="listitem">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="mini-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <!-- 新聞區塊 newsList1-->
+    <section id="newsList1">
+        <div class="row container-fluid" style="margin: 5px;">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
+                <h3 id="newsList4-side-title-1">永續IT</h3>
+                <ul class="article-list">
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">指令經濟正夯：AI 對未來十年的影響淺談</a>
+                            <div class="meta">2025-12-06 • 專欄</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
+                <h3 id="newsList4-side-title-1">醫療IT</h3>
+                <ul class="article-list">
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">指令經濟正夯：AI 對未來十年的影響淺談</a>
+                            <div class="meta">2025-12-06 • 專欄</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
+                <h3 id="newsList4-side-title-1">資訊安全</h3>
+                <ul class="article-list">
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">指令經濟正夯：AI 對未來十年的影響淺談</a>
+                            <div class="meta">2025-12-06 • 專欄</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section id="newsList2">
+        <div class="row container-fluid" style="margin: 5px;">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
+                <h3 id="newsList4-side-title-1">研討會</h3>
+                <ul class="article-list">
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">指令經濟正夯：AI 對未來十年的影響淺談</a>
+                            <div class="meta">2025-12-06 • 專欄</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
+                <h3 id="newsList4-side-title-1">社群內容</h3>
+                <ul class="article-list">
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">指令經濟正夯：AI 對未來十年的影響淺談</a>
+                            <div class="meta">2025-12-06 • 專欄</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
+                <h3 id="newsList4-side-title-1">大師見解</h3>
+                <ul class="article-list">
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">指令經濟正夯：AI 對未來十年的影響淺談</a>
+                            <div class="meta">2025-12-06 • 專欄</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <!-- <section id="newsList3">
+        <div class="row container-fluid" style="margin: 5px;">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
+                <h3 id="newsList4-side-title-1">最新文章</h3>
+                <ul class="article-list">
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">指令經濟正夯：AI 對未來十年的影響淺談</a>
+                            <div class="meta">2025-12-06 • 專欄</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
+                <h3 id="newsList4-side-title-1">最新文章</h3>
+                <ul class="article-list">
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">指令經濟正夯：AI 對未來十年的影響淺談</a>
+                            <div class="meta">2025-12-06 • 專欄</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 news-card" id="newsList5-side-title-1">
+                <h3 id="newsList4-side-title-1">最新文章</h3>
+                <ul class="article-list">
+                    <li>
+                        <div class="article-meta">
+                            <a href="#">PAPAYA 電腦教室｜原來「大師級的簡報」是這樣煉成的！</a>
+                            <div class="meta">2025-12-14 • 教學</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">掌機製造商 Ayaneo 首款手機曝光！</a>
+                            <div class="meta">2025-12-12 • 新品</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">OpenAI 測試 ChatGPT 成人模式：驗證機制說明</a>
+                            <div class="meta">2025-12-10 • AI</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">Oura Ring 4 Ceramic 智慧陶瓷戒指亮相評測</a>
+                            <div class="meta">2025-12-08 • 健康科技</div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1526378729889-1a5d4b3f6a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60"
+                            alt="">
+                        <div class="article-meta">
+                            <a href="#">指令經濟正夯：AI 對未來十年的影響淺談</a>
+                            <div class="meta">2025-12-06 • 專欄</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 訂閱區塊 -->
+    <section id="subscribe" style="max-width:inherit">
+        <div class="subscribe-inner" role="region" aria-labelledby="subscribe-title">
+            <h1 id="subscribe-title">掌握最新科技脈動</h1>
+            <p>每週一早上，將最重要的科技新聞與趨勢分析直接寄送到您的信箱。</p>
+
+            <form class="subscribe-form" onsubmit="subscribe(event)" aria-label="訂閱表單">
+                <input type="email" name="email" placeholder="輸入您的 Email" aria-label="輸入電子郵件" required>
+                <button type="submit" aria-label="免費訂閱">免費訂閱</button>
+            </form>
+        </div>
+        <script src="../小專/ProjectJs/homepage_subscribe.js"></script>
+    </section>
+
+    <!-- floating-toc浮動回頭按鈕 -->
+    <div class="floating-toc" aria-label="快速導覽">
+        <script src="../小專/ProjectJs/floating-toc.js"></script>
+        <button id="floatingLogoBtn" class="floating-btn" title="回到標誌" aria-label="回到標誌">
+            <img src="./img/up-arrow.png" alt="">
+        </button>
+    </div>
+
+    <!-- <footer> -->
+    <footer>
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
+                    <a href="#Logo">
+                        <i><span>Lorem<span> Ipsum</span></span></i>
+                    </a>
+                    <p>致力於提供最深入、最即時的科技產業分析與報導。</p>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-6">
+                    <h4>探索</h4>
+                    <ul>
+                        <li><a href="#">消費電子</a></li>
+                        <li><a href="#">區塊鏈</a></li>
+                        <li><a href="#">軟體開發</a></li>
+                        <li><a href="#">人工智慧</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-6">
+                    <h4>關於我們</h4>
+                    <ul>
+                        <li><a href="#">編輯團隊</a></li>
+                        <li><a href="#">聯絡方式</a></li>
+                        <li><a href="#">隱私權政策</a></li>
+                        <li><a href="#">服務條款</a></li>
+                    </ul>
+                </div>
+                <!-- 超連結icon -->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                    <h4>關注我們</h4>
+                    <div>
+                        <div class="social" role="list" aria-label="社群連結">
+                            <a href="#" class="icon" role="link" aria-label="Facebook" title="Facebook">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                                    focusable="false">
+                                    <title>Facebook</title>
+                                    <desc>Facebook icon</desc>
+                                    <path fill="currentColor"
+                                        d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.99H7.898V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.888h-2.33v6.99C18.343 21.128 22 16.991 22 12z" />
+
+                                </svg>
+                            </a>
+
+                            <a href="#" class="icon" role="link" aria-label="Twitter" title="Twitter">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                                    focusable="false">
+                                    <title>Twitter</title>
+                                    <desc>Twitter icon</desc>
+                                    <path fill="currentColor"
+                                        d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 0 0 1.88-2.37 8.59 8.59 0 0 1-2.72 1.04A4.28 4.28 0 0 0 11.1 8.7c0 .34.04.67.11.99A12.14 12.14 0 0 1 3.15 4.9a4.27 4.27 0 0 0 1.33 5.71 4.25 4.25 0 0 1-1.94-.54v.05c0 2.1 1.49 3.84 3.46 4.24a4.3 4.3 0 0 1-1.93.07 4.28 4.28 0 0 0 3.99 2.97A8.59 8.59 0 0 1 2 19.54a12.11 12.11 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2l-.01-.56A8.7 8.7 0 0 0 22.46 6z" />
+                                </svg>
+                            </a>
+
+                            <a href="#" class="icon" role="link" aria-label="Line" title="Line">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                                    focusable="false">
+                                    <title>Line</title>
+                                    <desc>Line icon</desc>
+                                    <rect x="0" y="0" width="24" height="24" rx="3" fill="currentColor" />
+                                    <text x="12" y="15" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
+                                        font-size="9" font-weight="700" fill="#fff">LINE</text>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p>&copy; 2025 Lorem Ipsum. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
